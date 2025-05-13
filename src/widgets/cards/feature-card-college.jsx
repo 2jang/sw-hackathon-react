@@ -6,6 +6,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 
+// ICT 학부(컴퓨터학부, 정보통신학부, 데이터과학부) 카드 컴포넌트
 export function FeatureCardCollege({ color, icon, title, description }) {
   return (
     <Card className="rounded-lg shadow-lg shadow-gray-500/10">
