@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import ReactDOM from "react-dom";
 import {
     Button,
     Typography,
@@ -10,7 +9,7 @@ import { ChatBubbleOvalLeftEllipsisIcon, PaperAirplaneIcon, XMarkIcon, CpuChipIc
 const initialMessagesForDebugging = [
     { id: 1, text: "안녕하세요! 저는 AI 챗봇입니다. 무엇을 도와드릴까요?", sender: "bot" },
     { id: 2, text: "졸업 요건에 대해 알고 싶어요.", sender: "user" },
-    { id: 3, text: "네, 좋습니다! 어느 학년의 졸업 요건 정보가 필요하신가요?", sender: "bot" },
+    { id: 3, text: "네, 좋습니다! 어느 학과의 졸업 요건 정보가 필요하신가요?", sender: "bot" },
 ];
 
 // 디버깅 모드 활성화 여부 (true = 활성화, false = 비활성화)

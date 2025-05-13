@@ -14,6 +14,7 @@ import {FeatureCardDepartment1, TeamCard} from "@/widgets/cards/index.js";
 import React from "react";
 import {MapPinIcon} from "@heroicons/react/24/solid/index.js";
 import {Footer, PageTitle} from "@/widgets/layout/index.js";
+import { ChatbotUI } from "@/widgets/layout/ChatbotUI";
 
 export function TelecommunicationEngineering() {
     return(
@@ -41,7 +42,7 @@ export function TelecommunicationEngineering() {
             </div>
             <section className="-mt-52 bg-white px-4 pb-20 pt-4">
                 <div className="container mx-auto">
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-2 sm:gap-6 md:gap-16 lg:gap-20 md:grid-cols-2 lg:grid-cols-2">
                         {featuresDataDepartment1.map(({ color, title, icon, description }) => (
                             <FeatureCardDepartment1
                                 key={title}
@@ -119,6 +120,7 @@ export function TelecommunicationEngineering() {
             <div className="bg-white">
                 <Footer />
             </div>
+            <ChatbotUI />
         </>
     )
 }

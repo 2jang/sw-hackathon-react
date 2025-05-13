@@ -1,4 +1,5 @@
 import React from "react";
+import { ChatbotUI } from "@/widgets/layout/ChatbotUI";
 import {
   Card,
   CardBody,
@@ -191,6 +192,7 @@ export function Home() {
       <div className="bg-white">
         <Footer />
       </div>
+      <ChatbotUI />
     </>
   );
 }

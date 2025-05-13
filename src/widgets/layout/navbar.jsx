@@ -91,9 +91,6 @@ export function Navbar({ brandName, routes, action }) {
             target="_blank"
             className="mb-2 block"
           >
-            <Button variant="text" size="sm" fullWidth>
-              pro version
-            </Button>
           </a>
           {React.cloneElement(action, {
             className: "w-full block",
@@ -111,9 +108,6 @@ Navbar.defaultProps = {
       href="https://www.creative-tim.com/product/material-tailwind-kit-react"
       target="_blank"
     >
-      <Button variant="gradient" size="sm" fullWidth>
-        free download
-      </Button>
     </a>
   ),
 };
