@@ -44,33 +44,15 @@ export function Home() {
           <div className="container mx-auto">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {featuresDataCollege.map(({ color, title, icon, description }) => (
-                  <div
+                  <FeatureCardCollege
                       key={title}
-                      className="transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,128,0,0.5)] rounded-lg overflow-hidden"
-                  >
-                    <FeatureCardCollege
-                        color={color}
-                        title={title}
-                        icon={React.createElement(icon, {
-                          className: "w-5 h-5 text-white",
-                        })}
-                        description={description}
-                    />
-                    <div className="flex mt-0 px-4 py-3 bg-white space-x-6">
-                      <a
-                          href="#"
-                          className="text-gray-900 font-medium hover:font-semibold transition-all text-left"
-                      >
-                        학과 소개 보기 >>
-                      </a>
-                      <a
-                          href="#"
-                          className="text-gray-900 font-medium hover:font-semibold transition-all text-left"
-                      >
-                        커리큘럼 보기 >>
-                      </a>
-                    </div>
-                  </div>
+                      color={color}
+                      title={title}
+                      icon={React.createElement(icon, {
+                        className: "w-5 h-5 text-white",
+                      })}
+                      description={description}
+                  />
               ))}
             </div>
             <div className="mt-32 flex flex-wrap items-center">
@@ -93,84 +75,54 @@ export function Home() {
                 <Button variant="filled">시작하기</Button>
               </div>
               <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
-                <div className="transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,128,0,0.5)] rounded-lg overflow-hidden w-full">
-                  <Card className="rounded-lg border-0">
-                    <CardHeader floated={false} className="relative h-56">
-                      <img
-                          alt="Card Image"
-                          src="/img/teamwork.png"
-                          className="h-full w-full"
-                      />
-                    </CardHeader>
-                    <CardBody className="p-4">
-                      <Typography variant="small" color="blue-gray" className="font-normal">Special</Typography>
-                      <Typography
-                          variant="h5"
-                          color="blue-gray"
-                          className="mb-3 mt-2 font-bold"
-                      >
-                        수원대학교 길찾기 서비스
-                      </Typography>
-                      <Typography className="font-normal text-blue-gray-500">
-                        캠퍼스 내 건물 이동시간 알아보러가기
-                      </Typography>
-                      <div className="flex mt-4 space-x-6">
-                        <a
-                            href="#"
-                            className="text-gray-900 font-medium hover:font-semibold transition-all text-left"
-                        >
-                          서비스 이용하기 >>
-                        </a>
-                        <a
-                            href="#"
-                            className="text-gray-900 font-medium hover:font-semibold transition-all text-left"
-                        >
-                          자세히 알아보기 >>
-                        </a>
-                      </div>
-                    </CardBody>
-                  </Card>
-                </div>
+                <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
+                  <CardHeader floated={false} className="relative h-56">
+                    <img
+                        alt="Card Image"
+                        src="/img/teamwork.png"
+                        className="h-full w-full"
+                    />
+                  </CardHeader>
+                  <CardBody>
+                    <Typography variant="small" color="blue-gray" className="font-normal">Enterprise</Typography>
+                    <Typography
+                        variant="h5"
+                        color="blue-gray"
+                        className="mb-3 mt-2 font-bold"
+                    >
+                      수원대학교 길찾기 서비스
+                    </Typography>
+                    <Typography className="font-normal text-blue-gray-500">
+                      캠퍼스 내 건물 이동시간 알아보러가기
+                    </Typography>
+                  </CardBody>
+                </Card>
               </div>
             </div>
           </div>
         </section>
-        <section className="px-4 pt-20 pb-48 bg-[#f7f8fa]">
+        <section className="px-4 pt-20 pb-48">
           <div className="container mx-auto">
-            <PageTitle section="교수 소개" heading="지능형SW융합대학">
-              "정보통신의 길, 여러분의 가능성을 열어드립니다."
+            <PageTitle section="교수 소개" heading="정보통신학과">
+              “정보통신의 길, 여러분의 가능성을 열어드립니다.”
             </PageTitle>
             <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
               {teamData.map(({ img, name, position, socials }) => (
-                  <div
+                  <TeamCard
                       key={name}
-                      className="transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,128,0,0.5)] rounded-lg overflow-hidden"
-                  >
-                    <Card className="rounded-lg border-0">
-                      <div className="h-72 w-full overflow-hidden">
-                        <img
-                            src={img}
-                            alt={name}
-                            className="h-full w-full object-cover"
-                        />
-                      </div>
-                      <CardBody className="p-4 text-center">
-                        <Typography variant="h5" color="blue-gray" className="mb-1 font-bold">
-                          {name}
-                        </Typography>
-                        <Typography className="font-normal text-blue-gray-500">
-                          {position}
-                        </Typography>
-                        <div className="flex justify-center gap-2 mt-3">
+                      img={img}
+                      name={name}
+                      position={position}
+                      socials={
+                        <div className="flex items-center gap-2">
                           {socials.map(({ color, name }) => (
                               <IconButton key={name} color={color} variant="text">
                                 <i className={`fa-solid text-xl fa-${name}`} />
                               </IconButton>
                           ))}
                         </div>
-                      </CardBody>
-                    </Card>
-                  </div>
+                      }
+                  />
               ))}
             </div>
           </div>
