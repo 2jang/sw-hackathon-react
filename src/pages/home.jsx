@@ -12,8 +12,8 @@ import {
 } from "@material-tailwind/react";
 import { MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
-import { FeatureCard, TeamCard } from "@/widgets/cards";
-import { featuresData, teamData, contactData } from "@/data";
+import { FeatureCardCollege, TeamCard } from "@/widgets/cards";
+import { featuresDataCollege, teamData, contactData } from "@/data";
 
 export function Home() {
   return (
@@ -42,8 +42,8 @@ export function Home() {
       <section className="-mt-52 bg-white px-4 pb-20 pt-4">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuresData.map(({ color, title, icon, description }) => (
-              <FeatureCard
+            {featuresDataCollege.map(({ color, title, icon, description }) => (
+              <FeatureCardCollege
                 key={title}
                 color={color}
                 title={title}
@@ -71,7 +71,7 @@ export function Home() {
                 <br />
                 <br />
               </Typography>
-              <Button variant="filled">시작하기 -></Button>
+              <Button variant="filled">시작하기</Button>
             </div>
             <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
               <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">

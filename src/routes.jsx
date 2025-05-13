@@ -1,4 +1,5 @@
-import { Home, Profile, SignIn, SignUp, Graduate } from "@/pages"; // Graduate를 import 합니다.
+import { Home, Profile, SignIn, SignUp, Graduate } from "@/pages";
+import {TelecommunicationEngineering} from "@/pages/telecommunicationEngineering.jsx"; // Graduate를 import 합니다.
 
 export const routes = [
   {
@@ -13,8 +14,8 @@ export const routes = [
   },
   {
     name: "정보통신학부",
-    path: "/sign-in",
-    element: <SignIn />,
+    path: "/telecommunicationEngineering",
+    element: <TelecommunicationEngineering />,
   },
   {
     name: "졸업요건", // 새 라우트 추가
