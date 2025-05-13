@@ -9,15 +9,14 @@ import {
     Textarea,
     Typography
 } from "@material-tailwind/react";
-import {contactData, featuresDataDepartment1, teamData} from "@/data/index.js";
+import {contactData, teamData} from "@/data/index.js";
 import {FeatureCardDepartment1, TeamCard} from "@/widgets/cards/index.js";
 import React from "react";
 import {MapPinIcon} from "@heroicons/react/24/solid/index.js";
 import {Footer, PageTitle} from "@/widgets/layout/index.js";
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI.jsx";
-import {Link} from "react-router-dom";
 
-export function TelecommunicationEngineering() {
+export function CIS() {
     return(
         <>
             <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
@@ -31,11 +30,10 @@ export function TelecommunicationEngineering() {
                                 color="white"
                                 className="mb-6 font-black"
                             >
-                                정보통신학부
+                                정보보호학과
                             </Typography>
                             <Typography variant="lead" color="white" className="opacity-80">
-                                COLLEGE OF INTELLIGENT SOFTWARE CONVERGENCE <br/>
-                                제4차 산업혁명, 수원대학교 지능형SW융합대학이 주도합니다.
+                                정보보호학과 슬로건
                             </Typography>
                         </div>
                     </div>
@@ -44,18 +42,16 @@ export function TelecommunicationEngineering() {
             <section className="-mt-52 bg-white px-4 pb-20 pt-4">
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 gap-2 sm:gap-6 md:gap-16 lg:gap-20 md:grid-cols-2 lg:grid-cols-2">
-                        {featuresDataDepartment1.map(({ color, title, icon, description, path }) => (
-                            <Link key={title} to={path}>
-                                <FeatureCardDepartment1
-                                    key={title}
-                                    color={color}
-                                    title={title}
-                                    icon={React.createElement(icon, {
-                                        className: "w-5 h-5 text-white",
-                                    })}
-                                    description={description}
-                                />
-                            </Link>
+                        {featuresDataDepartment1.map(({ color, title, icon, description }) => (
+                            <FeatureCardDepartment1
+                                key={title}
+                                color={color}
+                                title={title}
+                                icon={React.createElement(icon, {
+                                    className: "w-5 h-5 text-white",
+                                })}
+                                description={description}
+                            />
                         ))}
                     </div>
                 </div>

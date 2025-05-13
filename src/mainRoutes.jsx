@@ -1,7 +1,6 @@
-import { Home, Profile, SignIn, SignUp, Graduate } from "@/pages";
-import {TelecommunicationEngineering} from "@/pages/telecommunicationEngineering.jsx";
+import {Home, Profile, Graduate, TelecommunicationEngineering} from "@/pages";
 
-export const routes = [
+export const mainRoutes = [
   {
     name: "컴퓨터학부",
     path: "/home",
@@ -24,4 +23,4 @@ export const routes = [
   },
 ];
 
-export default routes;
+export default mainRoutes;

@@ -111,7 +111,7 @@ material-tailwind-kit-react
     │   ├── widgets
     │   ├── App.jsx
     │   ├── main.jsx
-    │   └── routes.jsx
+    │   └── mainRoutes.jsx
     ├── .gitignore
     ├── CHANGELOG.md
     ├── index.html
