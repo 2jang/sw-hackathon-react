@@ -101,6 +101,32 @@ export function Home() {
           </div>
         </div>
       </section>
+      <section className="px-4 pt-20 pb-48">
+        <div className="container mx-auto">
+          <PageTitle section="교수 소개" heading="정보통신학과">
+            “정보통신의 길, 여러분의 가능성을 열어드립니다.”
+          </PageTitle>
+          <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
+            {teamData.map(({ img, name, position, socials }) => (
+              <TeamCard
+                key={name}
+                img={img}
+                name={name}
+                position={position}
+                socials={
+                  <div className="flex items-center gap-2">
+                    {socials.map(({ color, name }) => (
+                      <IconButton key={name} color={color} variant="text">
+                        <i className={`fa-solid text-xl fa-${name}`} />
+                      </IconButton>
+                    ))}
+                  </div>
+                }
+              />
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="relative bg-white py-24 px-4">
         <div className="container mx-auto">
           <PageTitle section="Co-Working" heading="Build something">
