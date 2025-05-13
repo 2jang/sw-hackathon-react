@@ -4,6 +4,7 @@ import {
   CircleStackIcon,
 } from "@heroicons/react/24/solid";
 
+// 정보통신학부 학과 카드 정보
 export const featuresDataDepartment1 = [
   {
     color: "gray",
