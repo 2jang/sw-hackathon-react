@@ -84,7 +84,7 @@ export function Home() {
                   />
                 </CardHeader>
                 <CardBody>
-                  <Typography variant="small" color="blue-gray" className="font-normal">Enterprise</Typography>
+                  <Typography variant="small" color="blue-gray" className="font-normal">Special</Typography>
                   <Typography
                     variant="h5"
                     color="blue-gray"
