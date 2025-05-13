@@ -1,4 +1,4 @@
-import {Home, Profile, Graduate, TelecommunicationEngineering} from "@/pages";
+import {Home, Profile, Graduate, TelecommunicationEngineering, ICT, CIS} from "@/pages";
 
 export const mainRoutes = [
   {
@@ -20,6 +20,16 @@ export const mainRoutes = [
     name: "졸업요건", // 새 라우트 추가
     path: "/graduate",
     element: <Graduate />,
+  },
+  {
+    name: "정보통신학과",
+    path: "/ict",
+    element: <ICT />,
+  },
+  {
+    name: "정보보호학과",
+    path: "/cis",
+    element: <CIS />,
   },
 ];
 
