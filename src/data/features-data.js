@@ -4,6 +4,7 @@ import {
   CircleStackIcon,
 } from "@heroicons/react/24/solid";
 
+// ICT 학부 카드 정보
 export const featuresDataCollege = [
   {
     color: "gray",
