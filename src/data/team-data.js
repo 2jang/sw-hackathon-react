@@ -7,6 +7,7 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
+
       },
       {
         color: "blue",

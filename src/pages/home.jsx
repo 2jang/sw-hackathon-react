@@ -13,7 +13,7 @@ import {
 } from "@material-tailwind/react";
 import { MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
-import { FeatureCardCollege, TeamCard } from "@/widgets/cards";
+import { FeatureCardCollege, TeamCard } from "@/widgets/cards"; // TeamCard import 확인
 import { featuresDataCollege, teamData, contactData } from "@/data";
 
 export function Home() {
@@ -33,7 +33,7 @@ export function Home() {
                   지능형SW융합대학
                 </Typography>
                 <Typography variant="lead" color="white" className="opacity-80">
-                  COLLEGE OF INTELLIGENT SOFTWARE CONVERGENCE <br/>
+                  COLLEGE OF INTELLIGENT SOFTWARE CONVERGENCE <br />
                   제4차 산업혁명, 수원대학교 지능형SW융합대학이 주도합니다.
                 </Typography>
               </div>
@@ -43,7 +43,7 @@ export function Home() {
         <section className="-mt-52 bg-white px-4 pb-20 pt-4">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {featuresDataCollege.map(({ color, title, icon, description }) => (
+              {featuresDataCollege.map(({ color, title, icon, description, links }) => (
                   <FeatureCardCollege
                       key={title}
                       color={color}
@@ -52,6 +52,7 @@ export function Home() {
                         className: "w-5 h-5 text-white",
                       })}
                       description={description}
+                      links={links}
                   />
               ))}
             </div>
@@ -65,7 +66,7 @@ export function Home() {
                     className="mb-3 font-bold"
                     color="blue-gray"
                 >
-                  캠퍼스 내 최적의 동선,<br/> 시간표를 효율적으로 계획하세요!
+                  캠퍼스 내 최적의 동선,<br /> 시간표를 효율적으로 계획하세요!
                 </Typography>
                 <Typography className="mb-8 font-normal text-blue-gray-500">
                   이동은 짧게, 수업은 알차게. 캠퍼스 길찾기로 시간표를 전략적으로 구성하세요!
@@ -75,7 +76,10 @@ export function Home() {
                 <Button variant="filled">시작하기</Button>
               </div>
               <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
-                <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
+                <Card className="shadow-lg border shadow-gray-500/10 rounded-lg
+                               transition-all duration-300 ease-in-out
+                               hover:ring-1 hover:ring-green-500 hover:ring-opacity-50
+                               hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105">
                   <CardHeader floated={false} className="relative h-56">
                     <img
                         alt="Card Image"
@@ -113,20 +117,13 @@ export function Home() {
                       img={img}
                       name={name}
                       position={position}
-                      socials={
-                        <div className="flex items-center gap-2">
-                          {socials.map(({ color, name }) => (
-                              <IconButton key={name} color={color} variant="text">
-                                <i className={`fa-solid text-xl fa-${name}`} />
-                              </IconButton>
-                          ))}
-                        </div>
-                      }
+                      socials={socials}
                   />
               ))}
             </div>
           </div>
         </section>
+        {/* ... 이하 생략 ... */}
         <section className="relative bg-white py-24 px-4">
           <div className="container mx-auto">
             <PageTitle section="Co-Working" heading="Build something">
@@ -140,7 +137,10 @@ export function Home() {
                       key={title}
                       color="transparent"
                       shadow={false}
-                      className="text-center text-blue-gray-900"
+                      className="text-center text-blue-gray-900
+                           transition-all duration-300 ease-in-out
+                           hover:ring-1 hover:ring-green-500 hover:ring-opacity-50
+                           hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105"
                   >
                     <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-blue-gray-900 shadow-lg shadow-gray-500/20">
                       {React.createElement(icon, {
