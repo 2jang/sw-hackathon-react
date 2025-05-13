@@ -1,10 +1,12 @@
 import { Avatar, Typography, Button } from "@material-tailwind/react";
+import { ChatbotUI } from "@/widgets/layout/ChatbotUI";
 import {
   MapPinIcon,
   BriefcaseIcon,
   BuildingLibraryIcon,
 } from "@heroicons/react/24/solid";
 import { Footer } from "@/widgets/layout";
+import React from "react";
 
 export function Profile() {
   return (
@@ -126,7 +128,7 @@ export function Profile() {
       <div className="bg-white">
         <Footer />
       </div>
-
+      <ChatbotUI />
     </>
   );
 }

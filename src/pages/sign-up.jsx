@@ -5,7 +5,8 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-
+import { ChatbotUI } from "@/widgets/layout/ChatbotUI";
+import React from "react";
 
 export function SignUp() {
   return (
@@ -86,6 +87,7 @@ export function SignUp() {
         </form>
 
       </div>
+      <ChatbotUI />
     </section>
   );
 }
