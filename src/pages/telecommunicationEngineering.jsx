@@ -16,6 +16,7 @@ import {MapPinIcon} from "@heroicons/react/24/solid/index.js";
 import {Footer, PageTitle} from "@/widgets/layout/index.js";
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI.jsx";
 import {Link} from "react-router-dom";
+import SWCollegeIntro from "@/widgets/layout/SWCollegeIntro.jsx";
 
 export function TelecommunicationEngineering() {
     return(
@@ -25,7 +26,7 @@ export function TelecommunicationEngineering() {
                 <div className="absolute top-0 h-full w-full bg-grey/60 bg-cover bg-center" />
                 <div className="max-w-8xl container relative mx-auto">
                     <div className="flex flex-wrap items-center">
-                        <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12">
+                        <div className="ml-auto mr-auto w-full px-4 text-center lg:w-10/12">
                             <Typography
                                 variant="h1"
                                 color="white"
@@ -34,8 +35,8 @@ export function TelecommunicationEngineering() {
                                 정보통신학부
                             </Typography>
                             <Typography variant="lead" color="white" className="opacity-80">
-                                COLLEGE OF INTELLIGENT SOFTWARE CONVERGENCE <br/>
-                                제4차 산업혁명, 수원대학교 지능형SW융합대학이 주도합니다.
+                                수원대학교 정보통신학부는 정보통신융합(ICT) 기술의 핵심인 정보통신과 정보보호 분야를 깊이 있고 폭넓게 공부하고, <br/>
+                                다양한 실습을 통하여 실무 역량을 갖출 수 있도록 교육함으로써 4차 산업혁명시대에 필요한 핵심 기술 인력을 양성합니다.
                             </Typography>
                         </div>
                     </div>
@@ -56,32 +57,6 @@ export function TelecommunicationEngineering() {
                                     description={description}
                                 />
                             </Link>
-                        ))}
-                    </div>
-                </div>
-            </section>
-            <section className="px-4 pt-20 pb-48">
-                <div className="container mx-auto">
-                    <PageTitle section="교수 소개" heading="정보통신학과">
-                        “정보통신의 길, 여러분의 가능성을 열어드립니다.”
-                    </PageTitle>
-                    <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-                        {teamData.map(({ img, name, position, socials }) => (
-                            <TeamCard
-                                key={name}
-                                img={img}
-                                name={name}
-                                position={position}
-                                socials={
-                                    <div className="flex items-center gap-2">
-                                        {socials.map(({ color, name }) => (
-                                            <IconButton key={name} color={color} variant="text">
-                                                <i className={`fa-solid text-xl fa-${name}`} />
-                                            </IconButton>
-                                        ))}
-                                    </div>
-                                }
-                            />
                         ))}
                     </div>
                 </div>

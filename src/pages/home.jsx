@@ -11,10 +11,28 @@ import {
   Textarea,
   Checkbox,
 } from "@material-tailwind/react";
+import { motion } from "framer-motion";
 import { MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCardCollege, TeamCard } from "@/widgets/cards";
 import { featuresDataCollege, teamData, contactData } from "@/data";
+import SWCollegeIntro from "@/widgets/layout/SWCollegeIntro.jsx";
+import DeanIntro from "@/widgets/layout/DeanIntro.jsx";
+import CampusGuide from "@/widgets/layout/CampusGuide.jsx";
+
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
 
 export function Home() {
   return (
@@ -42,63 +60,32 @@ export function Home() {
       </div>
       <section className="-mt-52 bg-white px-4 pb-20 pt-4">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuresDataCollege.map(({ color, title, icon, description }) => (
-              <FeatureCardCollege
-                key={title}
-                color={color}
-                title={title}
-                icon={React.createElement(icon, {
-                  className: "w-5 h-5 text-white",
-                })}
-                description={description}
-              />
-            ))}
-          </div>
-          <div className="mt-32 flex flex-wrap items-center">
-            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
-              <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg">
-                <MapPinIcon className="h-8 w-8 text-white " />
-              </div>
-              <Typography
-                variant="h3"
-                className="mb-3 font-bold"
-                color="blue-gray"
-              >
-                캠퍼스 내 최적의 동선,<br/> 시간표를 효율적으로 계획하세요!
-              </Typography>
-              <Typography className="mb-8 font-normal text-blue-gray-500">
-                이동은 짧게, 수업은 알차게. 캠퍼스 길찾기로 시간표를 전략적으로 구성하세요!
-                <br />
-                <br />
-              </Typography>
-              <Button variant="filled">시작하기</Button>
-            </div>
-            <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
-              <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
-                <CardHeader floated={false} className="relative h-56">
-                  <img
-                    alt="Card Image"
-                    src="/img/teamwork.png"
-                    className="h-full w-full"
-                  />
-                </CardHeader>
-                <CardBody>
-                  <Typography variant="small" color="blue-gray" className="font-normal">Enterprise</Typography>
-                  <Typography
-                    variant="h5"
-                    color="blue-gray"
-                    className="mb-3 mt-2 font-bold"
+          <div className="container mx-auto">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {featuresDataCollege.map(({ color, title, icon, description }, index) => (
+                  <motion.div
+                      key={title}
+                      variants={fadeIn}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.2 }}
+                      custom={index}
                   >
-                    수원대학교 길찾기 서비스
-                  </Typography>
-                  <Typography className="font-normal text-blue-gray-500">
-                     캠퍼스 내 건물 이동시간 알아보러가기
-                  </Typography>
-                </CardBody>
-              </Card>
+                    <FeatureCardCollege
+                        color={color}
+                        title={title}
+                        icon={React.createElement(icon, {
+                          className: "w-5 h-5 text-white",
+                        })}
+                        description={description}
+                    />
+                  </motion.div>
+              ))}
             </div>
           </div>
+          <SWCollegeIntro />
+          <DeanIntro />
+          <CampusGuide />
         </div>
       </section>
       <section className="relative bg-white py-24 px-4">
@@ -130,37 +117,6 @@ export function Home() {
               </Card>
             ))}
           </div>
-          <PageTitle section="Contact Us" heading="Want to work with us?">
-            Complete this form and we will get back to you in 24 hours.
-          </PageTitle>
-          <form className="mx-auto w-full mt-12 lg:w-5/12">
-            <div className="mb-8 flex gap-8">
-              <Input variant="outlined" size="lg" label="Full Name" />
-              <Input variant="outlined" size="lg" label="Email Address" />
-            </div>
-            <Textarea variant="outlined" size="lg" label="Message" rows={8} />
-            <Checkbox
-              label={
-                <Typography
-                  variant="small"
-                  color="gray"
-                  className="flex items-center font-normal"
-                >
-                  I agree the
-                  <a
-                    href="#"
-                    className="font-medium transition-colors hover:text-gray-900"
-                  >
-                    &nbsp;Terms and Conditions
-                  </a>
-                </Typography>
-              }
-              containerProps={{ className: "-ml-2.5" }}
-            />
-            <Button variant="gradient" size="lg" className="mt-8" fullWidth>
-              Send Message
-            </Button>
-          </form>
         </div>
       </section>
       <div className="bg-white">

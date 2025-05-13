@@ -3,3 +3,6 @@ export * from "@/widgets/layout/footer";
 export * from "@/widgets/layout/simple-footer";
 export * from "@/widgets/layout/page-title";
 export * from "@/widgets/layout/ChatbotUI";
+export * from "@/widgets/layout/SWCollegeIntro";
+export * from "@/widgets/layout/DeanIntro";
+export * from "@/widgets/layout/CampusGuide";

@@ -22,12 +22,12 @@ export const mainRoutes = [
     element: <Graduate />,
   },
   {
-    name: "정보통신학과",
+    name: "",
     path: "/ict",
     element: <ICT />,
   },
   {
-    name: "정보보호학과",
+    name: "",
     path: "/cis",
     element: <CIS />,
   },

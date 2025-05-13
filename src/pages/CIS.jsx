@@ -39,23 +39,6 @@ export function CIS() {
                     </div>
                 </div>
             </div>
-            <section className="-mt-52 bg-white px-4 pb-20 pt-4">
-                <div className="container mx-auto">
-                    <div className="grid grid-cols-1 gap-2 sm:gap-6 md:gap-16 lg:gap-20 md:grid-cols-2 lg:grid-cols-2">
-                        {featuresDataDepartment1.map(({ color, title, icon, description }) => (
-                            <FeatureCardDepartment1
-                                key={title}
-                                color={color}
-                                title={title}
-                                icon={React.createElement(icon, {
-                                    className: "w-5 h-5 text-white",
-                                })}
-                                description={description}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </section>
             <section className="px-4 pt-20 pb-48">
                 <div className="container mx-auto">
                     <PageTitle section="교수 소개" heading="정보통신학과">
