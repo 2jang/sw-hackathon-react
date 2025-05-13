@@ -6,7 +6,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 
-export function FeatureCard({ color, icon, title, description }) {
+export function FeatureCardCollege({ color, icon, title, description }) {
   return (
     <Card className="rounded-lg shadow-lg shadow-gray-500/10">
       <CardBody className="px-8 text-center">
@@ -29,11 +29,11 @@ export function FeatureCard({ color, icon, title, description }) {
   );
 }
 
-FeatureCard.defaultProps = {
+FeatureCardCollege.defaultProps = {
   color: "blue",
 };
 
-FeatureCard.propTypes = {
+FeatureCardCollege.propTypes = {
   color: PropTypes.oneOf([
     "blue-gray",
     "gray",
@@ -60,6 +60,6 @@ FeatureCard.propTypes = {
   description: PropTypes.node.isRequired,
 };
 
-FeatureCard.displayName = "/src/widgets/layout/feature-card.jsx";
+FeatureCardCollege.displayName = "/src/widgets/layout/feature-card-college.jsx";
 
-export default FeatureCard;
+export default FeatureCardCollege;

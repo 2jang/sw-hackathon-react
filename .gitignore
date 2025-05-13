@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### react template
 .DS_*
 *.log
@@ -14,3 +15,13 @@ psd
 thumb
 sketch
 
+=======
+node_modules
+
+.DS_Store
+.idea/
+public/.DS_Store
+public/img/.DS_Store
+src/.DS_Store
+src/widgets/.DS_Store
+>>>>>>> park
