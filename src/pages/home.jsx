@@ -1,4 +1,5 @@
 import React from "react";
+import { ChatbotUI } from "@/widgets/layout/ChatbotUI";
 import {
   Card,
   CardBody,
@@ -10,10 +11,10 @@ import {
   Textarea,
   Checkbox,
 } from "@material-tailwind/react";
-import { FingerPrintIcon, UsersIcon } from "@heroicons/react/24/solid";
+import { MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
-import { FeatureCard, TeamCard } from "@/widgets/cards";
-import { featuresData, teamData, contactData } from "@/data";
+import { FeatureCardCollege, TeamCard } from "@/widgets/cards";
+import { featuresDataCollege, teamData, contactData } from "@/data";
 
 export function Home() {
   return (
@@ -42,8 +43,8 @@ export function Home() {
       <section className="-mt-52 bg-white px-4 pb-20 pt-4">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuresData.map(({ color, title, icon, description }) => (
-              <FeatureCard
+            {featuresDataCollege.map(({ color, title, icon, description }) => (
+              <FeatureCardCollege
                 key={title}
                 color={color}
                 title={title}
@@ -57,7 +58,7 @@ export function Home() {
           <div className="mt-32 flex flex-wrap items-center">
             <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
               <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg">
-                <FingerPrintIcon className="h-8 w-8 text-white " />
+                <MapPinIcon className="h-8 w-8 text-white " />
               </div>
               <Typography
                 variant="h3"
@@ -71,7 +72,7 @@ export function Home() {
                 <br />
                 <br />
               </Typography>
-              <Button variant="filled">시작하기 -></Button>
+              <Button variant="filled">시작하기</Button>
             </div>
             <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
               <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
@@ -97,32 +98,6 @@ export function Home() {
                 </CardBody>
               </Card>
             </div>
-          </div>
-        </div>
-      </section>
-      <section className="px-4 pt-20 pb-48">
-        <div className="container mx-auto">
-          <PageTitle section="교수 소개" heading="정보통신학과">
-            “정보통신의 길, 여러분의 가능성을 열어드립니다.”
-          </PageTitle>
-          <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-            {teamData.map(({ img, name, position, socials }) => (
-              <TeamCard
-                key={name}
-                img={img}
-                name={name}
-                position={position}
-                socials={
-                  <div className="flex items-center gap-2">
-                    {socials.map(({ color, name }) => (
-                      <IconButton key={name} color={color} variant="text">
-                        <i className={`fa-brands text-xl fa-${name}`} />
-                      </IconButton>
-                    ))}
-                  </div>
-                }
-              />
-            ))}
           </div>
         </div>
       </section>
@@ -191,6 +166,7 @@ export function Home() {
       <div className="bg-white">
         <Footer />
       </div>
+      <ChatbotUI />
     </>
   );
 }

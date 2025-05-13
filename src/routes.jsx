@@ -1,4 +1,5 @@
-import { Home, Profile, SignIn, SignUp } from "@/pages";
+import { Home, Profile, SignIn, SignUp, Graduate } from "@/pages";
+import {TelecommunicationEngineering} from "@/pages/telecommunicationEngineering.jsx";
 
 export const routes = [
   {
@@ -7,14 +8,19 @@ export const routes = [
     element: <Home />,
   },
   {
+    name: "정보통신학부",
+    path: "/telecommunicationEngineering",
+    element: <TelecommunicationEngineering />,
+  },
+  {
     name: "데이터과학부",
     path: "/profile",
     element: <Profile />,
   },
   {
-    name: "정보통신학부",
-    path: "/sign-in",
-    element: <SignIn />,
+    name: "졸업요건", // 새 라우트 추가
+    path: "/graduate",
+    element: <Graduate />,
   },
 ];
 

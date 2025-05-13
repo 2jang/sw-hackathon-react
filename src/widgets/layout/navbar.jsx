@@ -63,7 +63,7 @@ export function Navbar({ brandName, routes, action }) {
   return (
     <MTNavbar color="transparent" className="p-3">
       <div className="container mx-auto flex items-center justify-between text-white mt-[24px]">
-        <img alt="Logo" src="src/asset/USW_ICT_logo.png" className="h-[100px]"></img>
+        <img alt="Logo" src="../../../public/img/USW_ICT_logo.png" className="h-[100px]"></img>
         <div className="hidden lg:block mr-80">{navList}</div>
         <div className="hidden gap-2 lg:flex"></div>
         <IconButton
@@ -91,9 +91,6 @@ export function Navbar({ brandName, routes, action }) {
             target="_blank"
             className="mb-2 block"
           >
-            <Button variant="text" size="sm" fullWidth>
-              pro version
-            </Button>
           </a>
           {React.cloneElement(action, {
             className: "w-full block",
@@ -111,9 +108,6 @@ Navbar.defaultProps = {
       href="https://www.creative-tim.com/product/material-tailwind-kit-react"
       target="_blank"
     >
-      <Button variant="gradient" size="sm" fullWidth>
-        free download
-      </Button>
     </a>
   ),
 };

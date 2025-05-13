@@ -5,7 +5,8 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-
+import { ChatbotUI } from "@/widgets/layout/ChatbotUI";
+import React from "react";
 
 export function SignIn() {
   return (
@@ -117,7 +118,7 @@ export function SignIn() {
           className="h-full w-full object-cover rounded-3xl"
         />
       </div>
-
+      <ChatbotUI />
     </section>
   );
 }
