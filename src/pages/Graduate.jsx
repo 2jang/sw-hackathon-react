@@ -1,4 +1,5 @@
 import React from "react";
+import { ChatbotUI } from "@/widgets/layout/ChatbotUI";
 import {
     Tabs,
     TabsHeader,
@@ -131,6 +132,7 @@ export function Graduate() {
             <div className="bg-white">
                 <Footer />
             </div>
+            <ChatbotUI />
         </>
     );
 }
