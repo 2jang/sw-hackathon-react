@@ -63,7 +63,7 @@ export function Navbar({ brandName, routes, action }) {
   return (
     <MTNavbar color="transparent" className="p-3">
       <div className="container mx-auto flex items-center justify-between text-white mt-[24px]">
-        <img alt="Logo" src="src/asset/USW_ICT_logo.png" className="h-[100px]"></img>
+        <img alt="Logo" src="../../../public/img/USW_ICT_logo.png" className="h-[100px]"></img>
         <div className="hidden lg:block mr-80">{navList}</div>
         <div className="hidden gap-2 lg:flex"></div>
         <IconButton
