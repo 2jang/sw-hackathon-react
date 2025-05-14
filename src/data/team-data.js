@@ -1,6 +1,6 @@
 export const teamData = [
   {
-    img: "/img/telecommunication_engineering/YANGYUNGI.jpeg",
+    img: "/img/Telecommunication_Engineering/YANGYUNGI.jpeg",
     name: "양윤기",
     position: "디지털통신, 디지털시스템설계",
     socials: [
@@ -19,7 +19,7 @@ export const teamData = [
     ],
   },
   {
-    img: "/img/telecommunication_engineering/GIMSIHYEON.jpeg",
+    img: "/img/Telecommunication_Engineering/GIMSIHYEON.jpeg",
     name: "김시현",
     position: "신호처리, 디지털통신, 비디오/오디오 신호처리, SoC 설계",
     socials: [
@@ -38,7 +38,7 @@ export const teamData = [
     ],
   },
   {
-    img: "/img/telecommunication_engineering/ByunHeejeong.jpeg",
+    img: "/img/Telecommunication_Engineering/ByunHeejeong.jpeg",
     name: "변희정",
     position: "Network control",
     socials: [
@@ -57,7 +57,7 @@ export const teamData = [
     ],
   },
   {
-    img: "/img/telecommunication_engineering/IJUNGMU.jpeg",
+    img: "/img/Telecommunication_Engineering/IJUNGMU.jpeg",
     name: "이중무",
     position: "전산학",
     socials: [

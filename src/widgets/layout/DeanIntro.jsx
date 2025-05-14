@@ -5,7 +5,7 @@ import {
     BuildingOffice2Icon,
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import deanImg from "/public/img/telecommunication_engineering/GIMDAEYEOP.jpeg"; // 실제 이미지 경로에 맞게 수정
+import deanImg from "/public/img/Telecommunication_Engineering/GIMDAEYEOP.jpeg"; // 실제 이미지 경로에 맞게 수정
 
 const DeanIntro = () => {
     return (
