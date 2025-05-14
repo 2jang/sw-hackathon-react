@@ -8,6 +8,7 @@ import {
 } from "@material-tailwind/react";
 import { MapPinIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
+import {Link} from "react-router-dom";
 
 const fadeIn = {
     hidden: { opacity: 0, y: 40 },
@@ -46,7 +47,9 @@ const CampusGuide = () => {
                     <br />
                     <br />
                 </Typography>
-                <Button variant="filled">시작하기</Button>
+                <Link to="/path-finding">
+                    <Button variant="filled">시작하기</Button>
+                </Link>
             </motion.div>
 
             {/* 오른쪽 카드 영역 */}

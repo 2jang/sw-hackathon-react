@@ -59,9 +59,8 @@ export function Home() {
         </div>
       </div>
       <section className="-mt-52 bg-white px-4 pb-20 pt-4">
-        <div className="container mx-auto">
-          <div className="container mx-auto">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="container mx-auto max-w-screen-xl">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-2">
               {featuresDataCollege.map(({ color, title, icon, description, links }, index) => (
                   <motion.div
                       key={title}
@@ -83,7 +82,6 @@ export function Home() {
                   </motion.div>
               ))}
             </div>
-          </div>
           <SWCollegeIntro />
           <DeanIntro />
           <CampusGuide />
