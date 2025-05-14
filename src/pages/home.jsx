@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 import { MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCardCollege, TeamCard } from "@/widgets/cards";
-import { featuresDataCollege, teamData, contactData } from "@/data";
+import { featuresDataCollege, teamData_ICT, contactData } from "@/data";
 import SWCollegeIntro from "@/widgets/layout/SWCollegeIntro.jsx";
 import DeanIntro from "@/widgets/layout/DeanIntro.jsx";
 import CampusGuide from "@/widgets/layout/CampusGuide.jsx";

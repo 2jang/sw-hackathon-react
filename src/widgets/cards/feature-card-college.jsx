@@ -11,7 +11,7 @@ import {
 export function FeatureCardCollege({ color, icon, title, description, links }) {
   return (
       <Card
-          className="rounded-lg shadow-lg shadow-gray-500/10 flex flex-col
+          className="rounded-lg shadow-lg shadow-gray-500/10 flex flex-col max-w-sm mx-auto
                  transition-all duration-300 ease-in-out
                  hover:ring-1 hover:ring-green-500 hover:ring-opacity-50
                  hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105"

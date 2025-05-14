@@ -1,8 +1,8 @@
-export const teamData = [
+export const teamData_ICT = [
   {
-    img: "/img/Telecommunication_Engineering/YANGYUNGI.jpeg",
-    name: "양윤기",
-    position: "디지털통신, 디지털시스템설계",
+    img: "/img/telecommunication_engineering/YANGSUMI.jpeg",
+    name: "양수미",
+    position: "정보보호",
     socials: [
       {
         color: "light-blue",
@@ -19,9 +19,9 @@ export const teamData = [
     ],
   },
   {
-    img: "/img/Telecommunication_Engineering/GIMSIHYEON.jpeg",
-    name: "김시현",
-    position: "신호처리, 디지털통신, 비디오/오디오 신호처리, SoC 설계",
+    img: "/img/telecommunication_engineering/GIMDAEYEOP.jpeg",
+    name: "김대엽",
+    position: "대수학 & 암호학",
     socials: [
       {
         color: "light-blue",
@@ -38,9 +38,9 @@ export const teamData = [
     ],
   },
   {
-    img: "/img/Telecommunication_Engineering/ByunHeejeong.jpeg",
-    name: "변희정",
-    position: "Network control",
+    img: "/img/telecommunication_engineering/BAKDUSIK.jpeg",
+    name: "박두식",
+    position: "정보통신",
     socials: [
       {
         color: "light-blue",
@@ -57,9 +57,9 @@ export const teamData = [
     ],
   },
   {
-    img: "/img/Telecommunication_Engineering/IJUNGMU.jpeg",
-    name: "이중무",
-    position: "전산학",
+    img: "/img/telecommunication_engineering/GIMARAM.jpeg",
+    name: "김아람",
+    position: "정보보호",
     socials: [
       {
         color: "light-blue",
@@ -76,9 +76,9 @@ export const teamData = [
     ],
   },
   {
-    img: "/img/telecommunication_engineering/JEONGWONYONG.jpeg",
-    name: "정원용",
-    position: "-",
+    img: "/img/telecommunication_engineering/JEONSANGHUN.jpeg",
+    name: "전상훈",
+    position: "웨어러블컴퓨팅, 의료인공지능, CPS보안",
     socials: [
       {
         color: "light-blue",
@@ -95,9 +95,9 @@ export const teamData = [
     ],
   },
   {
-    img: "/img/telecommunication_engineering/HONGGICHEON.jpeg",
-    name: "홍기천",
-    position: "인공지능 연계 상황인지 시스템,멀티미디어 신호처리 및 시스템",
+    img: "/img/telecommunication_engineering/GOSEUNGCHEOL.jpeg",
+    name: "고승철",
+    position: "정보보호",
     socials: [
       {
         color: "light-blue",
@@ -115,4 +115,4 @@ export const teamData = [
   },
 ];
 
-export default teamData;
+export default teamData_ICT;
