@@ -9,12 +9,13 @@ import {
     Textarea,
     Typography
 } from "@material-tailwind/react";
-import {contactData, teamData} from "@/data/index.js";
+import {contactData, teamData_ICT} from "@/data/index.js";
 import {FeatureCardDepartment1, TeamCard} from "@/widgets/cards/index.js";
 import React from "react";
 import {MapPinIcon} from "@heroicons/react/24/solid/index.js";
 import {Footer, PageTitle} from "@/widgets/layout/index.js";
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI.jsx";
+import teamData_CIS from "@/data/team-data_CIS.js";
 
 export function CIS() {
     return(
@@ -41,11 +42,11 @@ export function CIS() {
             </div>
             <section className="px-4 pt-20 pb-48">
                 <div className="container mx-auto">
-                    <PageTitle section="교수 소개" heading="정보통신학과">
-                        “정보통신의 길, 여러분의 가능성을 열어드립니다.”
+                    <PageTitle section="교수 소개" heading="정보보호학과">
+                        “정보보호의 길, 여러분의 가능성을 열어드립니다.”
                     </PageTitle>
                     <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-                        {teamData.map(({ img, name, position, socials }) => (
+                        {teamData_CIS.map(({ img, name, position, socials }) => (
                             <TeamCard
                                 key={name}
                                 img={img}

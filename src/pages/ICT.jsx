@@ -9,7 +9,7 @@ import {
     Textarea,
     Typography
 } from "@material-tailwind/react";
-import {contactData, teamData} from "@/data/index.js";
+import {contactData, teamData_ICT} from "@/data/index.js";
 import {FeatureCardDepartment1, TeamCard} from "@/widgets/cards/index.js";
 import React from "react";
 import {MapPinIcon} from "@heroicons/react/24/solid/index.js";
@@ -45,7 +45,7 @@ export function ICT() {
                         “정보통신의 길, 여러분의 가능성을 열어드립니다.”
                     </PageTitle>
                     <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-                        {teamData.map(({ img, name, position, socials }) => (
+                        {teamData_ICT.map(({ img, name, position, socials }) => (
                             <TeamCard
                                 key={name}
                                 img={img}
