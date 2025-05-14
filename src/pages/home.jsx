@@ -62,7 +62,7 @@ export function Home() {
         <div className="container mx-auto">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {featuresDataCollege.map(({ color, title, icon, description }, index) => (
+              {featuresDataCollege.map(({ color, title, icon, description, links }, index) => (
                   <motion.div
                       key={title}
                       variants={fadeIn}
@@ -78,6 +78,7 @@ export function Home() {
                           className: "w-5 h-5 text-white",
                         })}
                         description={description}
+                        links={links}
                     />
                   </motion.div>
               ))}

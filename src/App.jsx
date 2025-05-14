@@ -4,25 +4,27 @@ import mainRoutes from "@/mainRoutes.jsx";
 
 
 function App() {
-  const { pathname } = useLocation();
+    const { pathname } = useLocation();
 
-  return (
-    <>
-      {!(pathname == '/sign-in' || pathname == '/sign-up') && (
-        <div className="w-full bg-[#0f172a] h-[128px] fixed flex items-center justify-center left-2/4 z-10 mx-auto -translate-x-2/4 p-4 top-0">
-          <Navbar routes={mainRoutes} />
-        </div>
-      )
-      }
-      <Routes>
-        {mainRoutes.map(
-          ({ path, element }, key) =>
-            element && <Route key={key} exact path={path} element={element} />
-        )}
-        <Route path="*" element={<Navigate to="/home" replace />} />
-      </Routes>
-    </>
-  );
+    return (
+        <>
+            {!(pathname == '/sign-in' || pathname == '/sign-up') && (
+                <div className="w-full bg-[#263238] h-[64px] fixed flex items-center justify-center left-2/4 z-10 mx-auto -translate-x-2/4 p-2 top-0">
+                    <div className="w-full max-w-[98%] mx-auto">
+                        <Navbar routes={mainRoutes} />
+                    </div>
+                </div>
+            )
+            }
+            <Routes>
+                {mainRoutes.map(
+                    ({ path, element }, key) =>
+                        element && <Route key={key} exact path={path} element={element} />
+                )}
+                <Route path="*" element={<Navigate to="/home" replace />} />
+            </Routes>
+        </>
+    );
 }
 
 export default App;
