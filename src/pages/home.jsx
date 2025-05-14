@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 import { MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCardCollege, TeamCard } from "@/widgets/cards";
-import {featuresDataCollege, curriculumData, teamData_ICT} from "@/data";
+import {featuresDataCollege, curriculumData, contactData, teamData_ICT, teamData_CIS, teamData_Media_SW, teamData_Data_Science, teamData_Computer_SW} from "@/data";
 import SWCollegeIntro from "@/widgets/layout/SWCollegeIntro.jsx";
 import DeanIntro from "@/widgets/layout/DeanIntro.jsx";
 import CampusGuide from "@/widgets/layout/CampusGuide.jsx";
@@ -94,7 +94,7 @@ export function Home() {
             “정보통신의 길, 여러분의 가능성을 열어드립니다.”
           </PageTitle>
           <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-            {teamData_ICT.map(({ img, name, position, socials, detailUrl }) => (
+            {teamData_Data_Science.map(({ img, name, position, socials, detailUrl }) => (
                 <TeamCard
                     key={name}
                     img={img}

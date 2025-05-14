@@ -8,12 +8,12 @@ export const teamData_CIS = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "smyang@suwon.ac.kr"
+        path: "mailto:smyang@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-229-8138"
+        path: "tel:031-229-8138"
       },
       {
         color: "pink",
@@ -31,12 +31,12 @@ export const teamData_CIS = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "없음"
+        path: "mailto:-"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-229-8352"
+        path: "tel:031-229-8352"
       },
       {
         color: "pink",
@@ -54,12 +54,12 @@ export const teamData_CIS = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "dspark@suwon.ac.kr"
+        path: "mailto:dspark@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-229-8650"
+        path: "tel:031-229-8650"
       },
       {
         color: "pink",
@@ -77,12 +77,12 @@ export const teamData_CIS = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "aramkim@suwon.ac.kr"
+        path: "mailto:aramkim@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-229-8219"
+        path: "tel:031-229-8219"
       },
       {
         color: "pink",
@@ -92,7 +92,7 @@ export const teamData_CIS = [
     ],
   },
   {
-    img: "/img/Telecommunication_Engineering/JOENSANGHUN.jpeg",
+    img: "/img/Telecommunication_Engineering/JEONSANGHUN.jpeg",
     name: "전상훈",
     position: "웨어러블컴퓨팅, 의료인공지능, CPS보안",
     detailUrl: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1234912",
@@ -100,12 +100,12 @@ export const teamData_CIS = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "shjeon.usw@gmail.com"
+        path: "mailto:shjeon@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-229-8069"
+        path: "tel:031-229-8069"
       },
       {
         color: "pink",
@@ -123,12 +123,12 @@ export const teamData_CIS = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "없음"
+        path: "mailto:-"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-229-8284"
+        path: "tel:031-229-8284"
       },
       {
         color: "pink",
