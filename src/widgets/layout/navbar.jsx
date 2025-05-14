@@ -110,12 +110,12 @@ export function Navbar({ brandName, routes, action }) {
 
     const socialButtons = (
         <div className="flex items-center gap-4">
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/usw_rut_22nd/" target="_blank" rel="noopener noreferrer">
                 <IconButton className="rounded-full bg-pink-500 p-2">
                     <i className="fab fa-instagram text-lg"></i>
                 </IconButton>
             </a>
-            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.youtube.com/@rut2025" target="_blank" rel="noopener noreferrer">
                 <IconButton className="rounded-full bg-red-600 p-2">
                     <i className="fab fa-youtube text-lg"></i>
                 </IconButton>
@@ -128,7 +128,10 @@ export function Navbar({ brandName, routes, action }) {
             <div className="flex items-center text-white w-full px-12 pb-0">
                 {/* 로고와 네비게이션 메뉴 사이의 간격 반응형 조절 */}
                 <div className="flex items-center mt-2 gap-[clamp(2rem,calc(36.36vw-20.27rem),7rem)]">
-                    <img alt="Logo" src="../../../public/img/usw_white.png" className="h-[35px]"></img>
+                    {/* 로고 이미지를 Link 컴포넌트로 감싸서 /home으로 이동하도록 수정 */}
+                    <Link to="/home">
+                        <img alt="Logo" src="../../../public/img/usw_white.png" className="h-[35px]" />
+                    </Link>
                     {/* lg:hidden, lg:block 등은 tailwind.config.js의 screens.lg 값에 따라 980px 기준으로 작동해야 함 */}
                     <div className="hidden lg:block">{navList}</div>
                 </div>

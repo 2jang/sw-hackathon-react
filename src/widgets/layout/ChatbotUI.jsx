@@ -13,7 +13,7 @@ const initialMessagesForDebugging = [
 ];
 
 // 디버깅 모드 활성화 여부 (true = 활성화, false = 비활성화)
-const DEBUG_MODE = false;
+const DEBUG_MODE = true;
 
 export function ChatbotUI() {
     const [isOpen, setIsOpen] = useState(false);

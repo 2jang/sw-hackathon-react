@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Link 임포트
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI";
 import {
   Card,
@@ -42,7 +43,7 @@ export function Home() {
         </div>
         <section className="-mt-52 bg-white px-4 pb-20 pt-4">
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"> {/* gap-6을 gap-4로 수정 */}
               {featuresDataCollege.map(({ color, title, icon, description, links }) => (
                   <FeatureCardCollege
                       key={title}
@@ -73,34 +74,38 @@ export function Home() {
                   <br />
                   <br />
                 </Typography>
-                <Button variant="filled">시작하기</Button>
+                <Link to="/path-finding"> {/* 시작하기 버튼 라우팅 */}
+                  <Button variant="filled">시작하기</Button>
+                </Link>
               </div>
               <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
-                <Card className="shadow-lg border shadow-gray-500/10 rounded-lg
-                               transition-all duration-300 ease-in-out
-                               hover:ring-1 hover:ring-green-500 hover:ring-opacity-50
-                               hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105">
-                  <CardHeader floated={false} className="relative h-56">
-                    <img
-                        alt="Card Image"
-                        src="/img/teamwork.png"
-                        className="h-full w-full"
-                    />
-                  </CardHeader>
-                  <CardBody>
-                    <Typography variant="small" color="blue-gray" className="font-normal">Enterprise</Typography>
-                    <Typography
-                        variant="h5"
-                        color="blue-gray"
-                        className="mb-3 mt-2 font-bold"
-                    >
-                      수원대학교 길찾기 서비스
-                    </Typography>
-                    <Typography className="font-normal text-blue-gray-500">
-                      캠퍼스 내 건물 이동시간 알아보러가기
-                    </Typography>
-                  </CardBody>
-                </Card>
+                <Link to="/path-finding" className="w-full"> {/* 카드 전체 라우팅 */}
+                  <Card className="shadow-lg border shadow-gray-500/10 rounded-lg
+                                 transition-all duration-300 ease-in-out
+                                 hover:ring-1 hover:ring-green-500 hover:ring-opacity-50
+                                 hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105 w-full">
+                    <CardHeader floated={false} className="relative h-56">
+                      <img
+                          alt="Card Image"
+                          src="/img/teamwork.png"
+                          className="h-full w-full"
+                      />
+                    </CardHeader>
+                    <CardBody>
+                      <Typography variant="small" color="blue-gray" className="font-normal">Enterprise</Typography>
+                      <Typography
+                          variant="h5"
+                          color="blue-gray"
+                          className="mb-3 mt-2 font-bold"
+                      >
+                        수원대학교 길찾기 서비스
+                      </Typography>
+                      <Typography className="font-normal text-blue-gray-500">
+                        캠퍼스 내 건물 이동시간 알아보러가기
+                      </Typography>
+                    </CardBody>
+                  </Card>
+                </Link>
               </div>
             </div>
           </div>
@@ -111,13 +116,14 @@ export function Home() {
               “정보통신의 길, 여러분의 가능성을 열어드립니다.”
             </PageTitle>
             <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-              {teamData.map(({ img, name, position, socials }) => (
+              {teamData.map(({ img, name, position, socials, detailUrl }) => (
                   <TeamCard
                       key={name}
                       img={img}
                       name={name}
                       position={position}
                       socials={socials}
+                      detailUrl={detailUrl} // detailUrl prop 전달
                   />
               ))}
             </div>
