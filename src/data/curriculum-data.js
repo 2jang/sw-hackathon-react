@@ -4,25 +4,25 @@ import {
   PlayIcon,
 } from "@heroicons/react/24/solid";
 
-export const contactData = [
+export const curriculumData = [
   {
-    title: "Excelent Services",
+    title: "회로이론",
     icon: BriefcaseIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "회로이론의 기초가 되는 회로해석에 중점을 두어 앞으로 학습할 전자회로이론, 전력전자 이론을 학습하는데 도움을준다.",
   },
   {
-    title: "Grow Your Market",
+    title: "신호및시스템",
     icon: ChartBarIcon,
     description:
       "Some quick example text to build on the card title and make up the bulk of the card's content.",
   },
   {
-    title: "Launch Time",
+    title: "디지털논리설계실험",
     icon: PlayIcon,
     description:
       "Some quick example text to build on the card title and make up the bulk of the card's content.",
   },
 ];
 
-export default contactData;
+export default curriculumData;

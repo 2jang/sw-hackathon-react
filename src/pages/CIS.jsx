@@ -9,7 +9,7 @@ import {
     Textarea,
     Typography
 } from "@material-tailwind/react";
-import { contactData } from "@/data/index.js";
+import { curriculumData } from "@/data/index.js";
 import {FeatureCardDepartment1, TeamCard} from "@/widgets/cards/index.js";
 import React from "react";
 import {MapPinIcon} from "@heroicons/react/24/solid/index.js";
@@ -74,7 +74,7 @@ export function CIS() {
                         Administration, Ted, Scambos.
                     </PageTitle>
                     <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
-                        {contactData.map(({ title, icon, description }) => (
+                        {curriculumData.map(({ title, icon, description }) => (
                             <Card
                                 key={title}
                                 color="transparent"
