@@ -36,7 +36,7 @@ export const featuresDataCollege = [
     icon: CircleStackIcon,
     path: "/profile", // 대표 페이지 경로 추가
     description:
-        "데이터 분석에서부터 인공지능 알고리즘 개발 및 실행에 필요한 전문 지식을 습득",
+        "데이터 분석에서부터 인공지능 알고리즘 개발 및 실행에 필요한 전문 지식과 개발 기술을 습득",
     links: [
       { text: "데이터과학부", url: "/college/data-science/details" },
     ],
