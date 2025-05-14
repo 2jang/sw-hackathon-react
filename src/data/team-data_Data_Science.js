@@ -1,4 +1,4 @@
-export const teamData = [
+export const teamData_Data_Science = [
   {
     img: "/img/Data_Science/BAKJINU.jpeg",
     name: "박진우",
@@ -8,7 +8,7 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "jwpark@suwon.ac.kr"
+        path: "mailto:jwpark@suwon.ac.kr"
       },
       {
         color: "blue",
@@ -31,12 +31,12 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "ymkoh@suwon.ac.kr"
+        path: "mailto:ymkoh@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-220-2166"
+        path: "tel:031-220-2166"
       },
       {
         color: "pink",
@@ -54,12 +54,12 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "jkimdt65@gmail.com"
+        path: "mailto:jkimdt65@gmail.com"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-220-2394"
+        path: "tel:031-220-2394"
       },
       {
         color: "pink",
@@ -77,12 +77,12 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "jeong.hc@suwon.ac.kr"
+        path: "mailto:jeong.hc@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-229-8153"
+        path: "tel:031-229-8153"
       },
       {
         color: "pink",
@@ -100,12 +100,12 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "kyunghoon.han@gmail.com"
+        path: "mailto:kyunghoon.han@gmail.com"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-229-8156"
+        path: "tel:031-229-8156"
       },
       {
         color: "pink",
@@ -123,12 +123,12 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "jmjung@suwon.ac.kr"
+        path: "mailto:jmjung@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-229-8671"
+        path: "tel:031-229-8671"
       },
       {
         color: "pink",
@@ -141,17 +141,17 @@ export const teamData = [
     img: "/img/Data_Science/GIMNAMGUK.jpeg",
     name: "김남국",
     position: "클라우드 컴퓨팅",
-    detailUrl: "",
+    detailUrl: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1174073",
     socials: [
       {
         color: "light-blue",
         name: "envelope",
-        path: "ngkim@suwon.ac.kr"
+        path: "mailto:ngkim@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-229-8655"
+        path: "tel:031-229-8655"
       },
       {
         color: "pink",
@@ -169,12 +169,12 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "ydhwang@suwon.ac.kr"
+        path: "mailto:ydhwang@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-220-2301"
+        path: "tel:031-220-2301"
       },
       {
         color: "pink",
@@ -192,12 +192,12 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "hrahn@suwon.ac.kr"
+        path: "mailto:hrahn@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "글로벌경상관 1012호"
+        path: "tel:글로벌경상관 1012호"
       },
       {
         color: "pink",
@@ -215,12 +215,12 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "huiran.yeom@gmail.com"
+        path: "mailto:huiran.yeom@gmail.com"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-220-8833"
+        path: "tel:031-220-8833"
       },
       {
         color: "pink",
@@ -238,12 +238,12 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "jinhyun.kim@suwon.ac.kr"
+        path: "mailto:jinhyun.kim@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-220-2472"
+        path: "tel:031-220-2472"
       },
       {
         color: "pink",
@@ -261,12 +261,12 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "soonchan.kim@suwon.ac.kr"
+        path: "mailto:soonchan.kim@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-220-2479"
+        path: "tel:031-220-2479"
       },
       {
         color: "pink",
@@ -284,12 +284,12 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "soonchan.kim@suwon.ac.kr"
+        path: "mailto:soonchan.kim@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-220-2479"
+        path: "tel:031-220-2479"
       },
       {
         color: "pink",
@@ -307,12 +307,12 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "hebang@suwon.ac.kr"
+        path: "mailto:hebang@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-229-8763"
+        path: "tel:031-229-8763"
       },
       {
         color: "pink",
@@ -330,17 +330,17 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: ""
+        path: "mailto:jhahn@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: ""
+        path: "tel:031-220-8831"
       },
       {
         color: "pink",
         name: "location-dot",
-        path: ""
+        path: "글로벌경상관 1017호"
       },
     ],
   },
@@ -353,12 +353,12 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "swree@suwon.ac.kr"
+        path: "mailto:swree@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "031-220-2472"
+        path: "tel:031-220-2472"
       },
       {
         color: "pink",
@@ -376,7 +376,7 @@ export const teamData = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "mjeong@suwon.ac.kr"
+        path: "mailto:mjeong@suwon.ac.kr"
       },
       {
         color: "blue",
@@ -392,4 +392,4 @@ export const teamData = [
   },
 ];
 
-export default teamData;
+export default teamData_Data_Science;

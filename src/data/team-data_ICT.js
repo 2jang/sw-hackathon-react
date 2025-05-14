@@ -8,7 +8,7 @@ export const teamData_ICT = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "mailto:ygyang@suwon.ac.kr"
+        path: "mailto:-"
       },
       {
         color: "blue",
