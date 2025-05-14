@@ -9,7 +9,7 @@ import {
     Textarea,
     Typography
 } from "@material-tailwind/react";
-import {contactData, featuresDataDepartment1, teamData_ICT} from "@/data/index.js";
+import {contactData, featuresDataDepartment1} from "@/data/index.js";
 import {FeatureCardDepartment1, TeamCard} from "@/widgets/cards/index.js";
 import React from "react";
 import {MapPinIcon} from "@heroicons/react/24/solid/index.js";

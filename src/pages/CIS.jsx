@@ -9,11 +9,11 @@ import {
     Textarea,
     Typography
 } from "@material-tailwind/react";
-import {contactData, teamData_ICT} from "@/data/index.js";
+import { contactData } from "@/data/index.js";
 import {FeatureCardDepartment1, TeamCard} from "@/widgets/cards/index.js";
 import React from "react";
 import {MapPinIcon} from "@heroicons/react/24/solid/index.js";
-import {Footer, PageTitle} from "@/widgets/layout/index.js";
+import { Footer, PageTitle } from "@/widgets/layout/index.js";
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI.jsx";
 import teamData_CIS from "@/data/team-data_CIS.js";
 

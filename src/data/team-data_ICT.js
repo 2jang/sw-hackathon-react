@@ -1,4 +1,4 @@
-export const teamData = [
+export const teamData_ICT = [
   {
     img: "/img/Telecommunication_Engineering/YANGYUNGI.jpeg",
     name: "양윤기",
@@ -139,4 +139,4 @@ export const teamData = [
   },
 ];
 
-export default teamData;
+export default teamData_ICT;
