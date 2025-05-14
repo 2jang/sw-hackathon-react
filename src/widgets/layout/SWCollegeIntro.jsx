@@ -81,7 +81,7 @@ const SWCollegeIntro = () => {
                     viewport={{ once: true, amount: 0.3 }}
                 >
                     <h2 className="text-[#1e293b] text-xl font-semibold mb-2">
-                        #1 in Smart Education
+                        Leader in IT Education
                     </h2>
                     <h1 className="text-3xl text-[#1e293b] md:text-4xl font-extrabold mb-6">
                         지능형SW융합대학 소개
