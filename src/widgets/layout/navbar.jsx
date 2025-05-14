@@ -111,13 +111,13 @@ export function Navbar({ brandName, routes, action }) {
     const socialButtons = (
         <div className="flex items-center gap-4">
             <a href="https://www.instagram.com/usw_rut_22nd/" target="_blank" rel="noopener noreferrer">
-                <IconButton className="rounded-full bg-pink-500 p-2">
-                    <i className="fab fa-instagram text-lg"></i>
+                <IconButton variant="text" color="white" className="rounded-full">
+                    <i className="fab fa-instagram text-xl"></i>
                 </IconButton>
             </a>
             <a href="https://www.youtube.com/@rut2025" target="_blank" rel="noopener noreferrer">
-                <IconButton className="rounded-full bg-red-600 p-2">
-                    <i className="fab fa-youtube text-lg"></i>
+                <IconButton variant="text" color="white" className="rounded-full">
+                    <i className="fab fa-youtube text-xl"></i>
                 </IconButton>
             </a>
         </div>

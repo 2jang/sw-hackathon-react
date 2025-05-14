@@ -1,4 +1,3 @@
-// CampusGuide.jsx
 import {
     Card,
     CardHeader,
@@ -61,30 +60,37 @@ const CampusGuide = () => {
                 variants={fadeIn}
                 custom={0.2}
             >
-                <Card className="shadow-lg border shadow-gray-500/10 rounded-lg w-full max-w-sm">
-                    <CardHeader floated={false} className="relative h-56">
-                        <img
-                            alt="Card Image"
-                            src="/img/teamwork.png"
-                            className="h-full w-full object-cover"
-                        />
-                    </CardHeader>
-                    <CardBody>
-                        <Typography variant="small" color="blue-gray" className="font-normal">
-                            Enterprise
-                        </Typography>
-                        <Typography
-                            variant="h5"
-                            color="blue-gray"
-                            className="mb-3 mt-2 font-bold"
-                        >
-                            수원대학교 길찾기 서비스
-                        </Typography>
-                        <Typography className="font-normal text-blue-gray-500">
-                            캠퍼스 내 건물 이동시간 알아보러가기
-                        </Typography>
-                    </CardBody>
-                </Card>
+                {/* Link 컴포넌트로 카드를 감싸서 라우팅 기능 추가 */}
+                <Link to="/path-finding" className="w-full max-w-sm">
+                    <Card className="shadow-lg border shadow-gray-500/10 rounded-lg w-full
+                                 ring-1 ring-gray-200
+                                  hover:ring-green-500 hover:ring-opacity-75
+                                 transition-all duration-300 ease-in-out
+                                 hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105">
+                        <CardHeader floated={false} className="relative h-56">
+                            <img
+                                alt="Card Image"
+                                src="/img/teamwork.png"
+                                className="h-full w-full object-cover"
+                            />
+                        </CardHeader>
+                        <CardBody>
+                            <Typography variant="small" color="blue-gray" className="font-normal">
+                                Campus Navigation
+                            </Typography>
+                            <Typography
+                                variant="h5"
+                                color="blue-gray"
+                                className="mb-3 mt-2 font-bold"
+                            >
+                                수원대학교 길찾기 서비스
+                            </Typography>
+                            <Typography className="font-normal text-blue-gray-500">
+                                캠퍼스 내 건물 이동시간 알아보러가기
+                            </Typography>
+                        </CardBody>
+                    </Card>
+                </Link>
             </motion.div>
         </div>
     );
