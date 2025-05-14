@@ -18,7 +18,7 @@ export const routes = [
     element: <Profile />,
   },
   {
-    name: "졸업요건", // 새 라우트 추가
+    name: "졸업요건", // 네 번째 순서로 변경
     path: "/graduate",
     element: <Graduate />,
   },
