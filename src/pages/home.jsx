@@ -21,6 +21,9 @@ import DeanIntro from "@/widgets/layout/DeanIntro.jsx";
 import CampusGuide from "@/widgets/layout/CampusGuide.jsx";
 
 
+// Home.js 상단 또는 animations.js 등으로 분리 가능
+
+// 기존 fadeIn (FeatureCardCollege용)
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
   visible: (i = 1) => ({
@@ -34,11 +37,48 @@ const fadeIn = {
   }),
 };
 
+// Hero 섹션 제목용 애니메이션 (아래로 슬라이드하며 나타남)
+const heroTitleAnim = {
+  hidden: { opacity: 0, y: -30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
+
+// Hero 섹션 부제목용 애니메이션 (위로 슬라이드하며 나타남)
+const heroSubtitleAnim = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut", delay: 0.3 }, // 제목 후 약간 늦게
+  },
+};
+
+// 섹션 전체를 위한 간단한 페이드인
+const sectionContainerFadeIn = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+// 섹션 전체를 위한 스케일인 (확대되며 나타남)
+const sectionContainerScaleIn = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
+
 export function Home() {
   const [showAllProfessors, setShowAllProfessors] = React.useState(false);
 
-  // 표시할 교수님 목록 결정 (teamData_Data_Science 사용으로 가정)
-  // 만약 다른 교수 데이터(예: teamData_ICT)를 사용해야 한다면 해당 변수로 변경해주세요.
   const professorsToDisplay = showAllProfessors
       ? teamData_Data_Science
       : teamData_Data_Science.slice(0, 8);
@@ -52,35 +92,54 @@ export function Home() {
           <div className="max-w-8xl container relative mx-auto">
             <div className="flex flex-wrap items-center">
               <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12">
-                <Typography
-                    variant="h1"
-                    color="white"
-                    className="mb-6 font-black"
+                <motion.div
+                    initial="hidden"
+                    animate="visible" // Hero는 바로 보이도록 animate 사용
+                    variants={heroTitleAnim}
                 >
-                  지능형SW융합대학
-                </Typography>
-                <Typography variant="lead" color="white" className="opacity-80">
-                  COLLEGE OF INTELLIGENT SOFTWARE CONVERGENCE <br/>
-                  제4차 산업혁명, 수원대학교 지능형SW융합대학이 주도합니다.
-                </Typography>
+                  <Typography
+                      variant="h1"
+                      color="white"
+                      className="mb-6 font-black"
+                  >
+                    지능형SW융합대학
+                  </Typography>
+                </motion.div>
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={heroSubtitleAnim}
+                >
+                  <Typography variant="lead" color="white" className="opacity-80">
+                    COLLEGE OF INTELLIGENT SOFTWARE CONVERGENCE <br/>
+                    제4차 산업혁명, 수원대학교 지능형SW융합대학이 주도합니다.
+                  </Typography>
+                </motion.div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Section 1: SW College Intro & Features with Gradient Background */}
-        <section className="-mt-26 px-4 pt-20 pb-16 md:pb-24">
+        {/* 이 섹션 전체를 감싸는 motion.div 추가 */}
+        <motion.section
+            className="-mt-26 px-4 pt-20 pb-16 md:pb-24"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }} // amount는 섹션이 얼마나 보여야 애니메이션이 시작될지 결정
+            variants={sectionContainerFadeIn} // 간단한 페이드인 효과
+        >
           <div className="container mx-auto max-w-screen-xl">
-            <SWCollegeIntro /> {/* 지능형SW융합대학 소개를 위로 이동 */}
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-2 mt-12"> {/* SWCollegeIntro와 카드 간의 상단 마진 추가 */}
+            <SWCollegeIntro /> {/* SWCollegeIntro는 자체 애니메이션을 가짐 */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-2 mt-12">
               {featuresDataCollege.map(({ color, title, icon, description, links }, index) => (
                   <motion.div
                       key={title}
-                      variants={fadeIn}
+                      variants={fadeIn} // 기존 fadeInUp 효과
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true, amount: 0.2 }}
-                      custom={index}
+                      custom={index} // staggered delay
                   >
                     <FeatureCardCollege
                         color={color}
@@ -95,17 +154,26 @@ export function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Section 2: Dean Intro */}
-        <DeanIntro /> {/* 학장 소개 */}
+        {/* DeanIntro는 자체적으로 다양한 내부 애니메이션을 가짐. 추가 wrapping 불필요. */}
+        <DeanIntro />
 
         {/* Section 3: Campus Guide */}
-        <section className="bg-white px-4 pt-10 md:pt-16 pb-20">
+        {/* 이 섹션 전체를 감싸는 motion.div 추가 */}
+        <motion.section
+            className="bg-white px-4 pt-10 md:pt-16 pb-20"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={sectionContainerScaleIn} // 스케일인 효과
+        >
           <div className="container mx-auto max-w-screen-xl">
-            <CampusGuide /> {/* 캠퍼스 안내 */}
+            <CampusGuide /> {/* CampusGuide는 자체 애니메이션을 가짐 */}
           </div>
-        </section>
+        </motion.section>
+
         <div className="bg-white">
           <Footer />
         </div>
