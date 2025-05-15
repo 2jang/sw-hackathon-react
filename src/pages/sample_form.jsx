@@ -34,7 +34,7 @@ const fadeIn = {
     }),
 };
 
-export function Home() {
+export function Sample_form() {
     const [showAllProfessors, setShowAllProfessors] = React.useState(false);
 
     // 표시할 교수님 목록 결정 (teamData_Data_Science 사용으로 가정)
@@ -180,4 +180,4 @@ export function Home() {
     );
 }
 
-export default Home;
+export default Sample_form;

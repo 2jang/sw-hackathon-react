@@ -1,4 +1,4 @@
-import {Home, Profile, Graduate, TelecommunicationEngineering, ICT, CIS} from "@/pages";
+import {Home, Profile, Graduate, TelecommunicationEngineering, ICT, CIS, Sample_form} from "@/pages";
 
 export const mainRoutes = [
   {
@@ -30,6 +30,11 @@ export const mainRoutes = [
     name: "",
     path: "/cis",
     element: <CIS />,
+  },
+  {
+    name: "",
+    path: "/sample_form",
+    element: <Sample_form />,
   },
 ];
 
