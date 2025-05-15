@@ -8,7 +8,7 @@ import {
     MapPinIcon,
     PhoneIcon,
     EnvelopeIcon,
-    UserCircleIcon,
+    AcademicCapIcon,
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import deanImg from "/public/img/Telecommunication_Engineering/GIMDAEYEOP.jpeg"; // 이미지 경로는 실제 프로젝트 구조에 맞게 확인해주세요.
@@ -73,7 +73,7 @@ const DeanIntro = () => {
         <section className="py-14 px-4 bg-gray-50">
             <div className="container mx-auto max-w-screen-xl"> {/* 최대 너비 1280px 유지 */}
                 {/* gap-10 md:gap-16 에서 gap-12 md:gap-24 으로 변경하여 간격 대폭 확대 */}
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-24">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-1 md:gap-24">
                     {/* 왼쪽: 학장 정보 카드 */}
                     <motion.div
                         className="w-full md:w-1/2"
@@ -136,7 +136,7 @@ const DeanIntro = () => {
                             variants={iconPopIn}
                         >
                             <div className="p-3 rounded-full bg-gray-800 inline-flex items-center justify-center shadow-md">
-                                <UserCircleIcon className="h-7 w-7 text-white" />
+                                <AcademicCapIcon className="h-8 w-8 text-white" />
                             </div>
                         </motion.div>
 

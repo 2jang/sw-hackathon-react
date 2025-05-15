@@ -34,7 +34,7 @@ const CampusGuide = () => {
                 variants={fadeIn}
                 custom={0}
             >
-                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg">
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg">
                     <MapPinIcon className="h-8 w-8 text-white" />
                 </div>
                 <Typography variant="h3" className="mb-3 font-bold" color="blue-gray">
@@ -47,7 +47,11 @@ const CampusGuide = () => {
                     <br />
                 </Typography>
                 <Link to="/path-finding">
-                    <Button variant="filled">시작하기</Button>
+                    <Button size="lg"
+                            variant="text"
+                            color="[#1E293B]"
+                            className="hover:bg-gray-100 transition-all duration-300 ring-1 ring-gray-200 shadow-gray-500/10 rounded-lg"
+                    >시작하기</Button>
                 </Link>
             </motion.div>
 

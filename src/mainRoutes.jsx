@@ -1,4 +1,4 @@
-import {Home, Profile, Graduate, TelecommunicationEngineering, ICT, CIS, Sample_form} from "@/pages";
+import {Home, Profile, Graduate, TelecommunicationEngineering, Suwon_navi, ICT, CIS, Sample_form, } from "@/pages";
 
 export const mainRoutes = [
   {
@@ -20,6 +20,11 @@ export const mainRoutes = [
     name: "졸업요건",
     path: "/graduate",
     element: <Graduate />,
+  },
+  {
+    name: "길찾기",
+    path: "/pathfinder",
+    element: <Suwon_navi />,
   },
   {
     name: "",
