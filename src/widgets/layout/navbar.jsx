@@ -11,11 +11,12 @@ import {
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import { featuresDataCollege } from "@/data/features-data";
 
-export function Navbar({ brandName, routes, action }) {
+// isHovered와 onHoverChange props 추가
+export function Navbar({ brandName, routes, action, isHovered, onHoverChange }) {
     const [openNav, setOpenNav] = React.useState(false);
+    // const [isHovered, setIsHovered] = React.useState(false); // App.jsx로부터 받으므로 제거
 
     React.useEffect(() => {
-        // 모바일 뷰 분기점을 980px로 변경
         window.addEventListener(
             "resize",
             () => window.innerWidth >= 980 && setOpenNav(false)
@@ -30,34 +31,35 @@ export function Navbar({ brandName, routes, action }) {
     }, []);
 
     const navList = (
-        <ul className="mb-1 mt-0.5 flex flex-col gap-0.5 text-inherit lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-[50px]">
+        <ul className={`mb-1 mt-0.5 flex flex-col gap-0.5 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-[50px] ${isHovered ? 'text-black' : 'text-inherit'}`}>
             {routes.map(({ name, path, icon, href, target }) => {
                 const collegeInfo = collegeDataMap[name];
 
                 if (collegeInfo && collegeInfo.path === path) {
                     return (
                         <li key={name} className="relative group">
-                            <div className="capitalize flex items-center gap-1 p-0.5 font text-lg tracking-wide cursor-pointer">
+                            <div className={`capitalize flex items-center gap-1 p-0.5 font text-lg tracking-wide cursor-pointer ${isHovered ? 'text-black' : 'text-white'}`}>
                                 <Link
                                     to={collegeInfo.path}
-                                    className="flex items-center gap-0.5 hover:text-blue-gray-300 transition-colors"
+                                    className={`flex items-center gap-0.5 transition-colors ${isHovered ? 'hover:text-gray-600' : 'hover:text-blue-gray-300'}`}
                                 >
                                     {name}
                                 </Link>
-                                <ChevronDownIcon className="h-4 w-4 ml-1 transition-transform duration-200 group-hover:rotate-180" />
+                                <ChevronDownIcon className={`h-4 w-4 ml-1 transition-transform duration-200 group-hover:rotate-180 ${isHovered ? 'text-black' : 'text-white'}`} />
                             </div>
                             <div
-                                className="absolute left-0 top-full w-full bg-[#263238] border border-gray-700 rounded-md shadow-xl
+                                className={`absolute left-0 top-full w-full border rounded-md shadow-xl
                                            opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                            transform -translate-y-2 group-hover:translate-y-0
-                                           transition-all duration-300 ease-in-out z-50"
+                                           transition-all duration-300 ease-in-out z-50 
+                                           ${isHovered ? 'bg-white border-gray-300' : 'bg-[#263238] border-gray-700'}`}
                             >
                                 <ul className="py-1">
                                     {collegeInfo.links.map((link) => (
                                         <li key={link.text}>
                                             <Link
                                                 to={link.url}
-                                                className="block px-4 py-2 text-sm text-white hover:bg-gray-700 transition-colors duration-150"
+                                                className={`block px-4 py-2 text-sm transition-colors duration-150 ${isHovered ? 'text-black hover:bg-gray-200' : 'text-white hover:bg-gray-700'}`}
                                             >
                                                 {link.text}
                                             </Link>
@@ -73,18 +75,17 @@ export function Navbar({ brandName, routes, action }) {
                             key={name}
                             as="li"
                             variant="small"
-                            color="inherit"
-                            className="capitalize"
+                            className={`capitalize ${isHovered ? 'text-black' : 'text-inherit'}`}
                         >
                             {href ? (
                                 <a
                                     href={href}
                                     target={target}
-                                    className="flex items-center gap-0.5 p-0.5 font text-lg tracking-wide"
+                                    className={`flex items-center gap-0.5 p-0.5 font text-lg tracking-wide transition-colors ${isHovered ? 'hover:text-gray-600' : 'text-white hover:text-blue-gray-300'}`}
                                 >
                                     {icon &&
                                         React.createElement(icon, {
-                                            className: "w-[12px] h-[12px] opacity-75 mr-0.5",
+                                            className: `w-[12px] h-[12px] opacity-75 mr-0.5 ${isHovered ? 'text-black' : ''}`,
                                         })}
                                     {name}
                                 </a>
@@ -92,11 +93,11 @@ export function Navbar({ brandName, routes, action }) {
                                 <Link
                                     to={path}
                                     target={target}
-                                    className="flex items-center gap-1 p-0.5 font text-lg tracking-wide"
+                                    className={`flex items-center gap-1 p-0.5 font text-lg tracking-wide transition-colors ${isHovered ? 'hover:text-gray-600' : 'text-white hover:text-blue-gray-300'}`}
                                 >
                                     {icon &&
                                         React.createElement(icon, {
-                                            className: "w-[12px] h-[12px] opacity-75 mr-0.5",
+                                            className: `w-[12px] h-[12px] opacity-75 mr-0.5 ${isHovered ? 'text-black' : ''}`,
                                         })}
                                     {name}
                                 </Link>
@@ -111,12 +112,12 @@ export function Navbar({ brandName, routes, action }) {
     const socialButtons = (
         <div className="flex items-center gap-4">
             <a href="https://www.instagram.com/usw_rut_22nd/" target="_blank" rel="noopener noreferrer">
-                <IconButton variant="text" color="white" className="rounded-full">
+                <IconButton variant="text" color={isHovered ? "black" : "white"} className="rounded-full transition-colors">
                     <i className="fab fa-instagram text-xl"></i>
                 </IconButton>
             </a>
             <a href="https://www.youtube.com/@rut2025" target="_blank" rel="noopener noreferrer">
-                <IconButton variant="text" color="white" className="rounded-full">
+                <IconButton variant="text" color={isHovered ? "black" : "white"} className="rounded-full transition-colors">
                     <i className="fab fa-youtube text-xl"></i>
                 </IconButton>
             </a>
@@ -124,34 +125,36 @@ export function Navbar({ brandName, routes, action }) {
     );
 
     return (
-        <MTNavbar color="black" className="py-[3px] px-0 bg-[#263238] w-full shadow-none max-w-[98%]">
-            <div className="flex items-center text-white w-full px-12 pb-0">
-                {/* 로고와 네비게이션 메뉴 사이의 간격 반응형 조절 */}
+        <MTNavbar
+            color="transparent"
+            className={`py-[3px] px-0 w-full shadow-none max-w-[98%] transition-colors duration-300 ease-in-out ${isHovered ? 'bg-white text-black' : 'bg-[#263238] text-white'}`}
+            onMouseEnter={() => onHoverChange(true)} // App.jsx의 상태 변경 함수 호출
+            onMouseLeave={() => onHoverChange(false)} // App.jsx의 상태 변경 함수 호출
+        >
+            <div className={`flex items-center w-full px-12 pb-0 ${isHovered ? 'text-black' : 'text-white'}`}>
                 <div className="flex items-center mt-2 gap-[clamp(2rem,calc(36.36vw-20.27rem),7rem)]">
-                    {/* 로고 이미지를 Link 컴포넌트로 감싸서 /home으로 이동하도록 수정 */}
                     <Link to="/home">
-                        <img alt="Logo" src="../../../public/img/usw_white.png" className="h-[35px]" />
+                        <img alt="Logo" src={isHovered ? "/img/usw_black.png" : "/img/usw_white.png"} className="h-[35px] transition-all duration-300 ease-in-out" />
                     </Link>
-                    {/* lg:hidden, lg:block 등은 tailwind.config.js의 screens.lg 값에 따라 980px 기준으로 작동해야 함 */}
                     <div className="hidden lg:block">{navList}</div>
                 </div>
                 <div className="hidden lg:flex mt-2 ml-auto">{socialButtons}</div>
                 <IconButton
                     variant="text"
                     size="sm"
-                    color="white"
-                    className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+                    color={isHovered ? "black" : "white"}
+                    className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden transition-colors"
                     onClick={() => setOpenNav(!openNav)}
                 >
                     {openNav ? (
-                        <XMarkIcon strokeWidth={2} className="h-4 w-4" />
+                        <XMarkIcon strokeWidth={2} className={`h-4 w-4 ${isHovered ? 'text-black' : 'text-white'}`} />
                     ) : (
-                        <Bars3Icon strokeWidth={2} className="h-4 w-4" />
+                        <Bars3Icon strokeWidth={2} className={`h-4 w-4 ${isHovered ? 'text-black' : 'text-white'}`} />
                     )}
                 </IconButton>
             </div>
             <MobileNav
-                className="rounded-xl bg-[#263238] px-1 pt-0.5 pb-1 text-white"
+                className={`rounded-xl px-1 pt-0.5 pb-1 transition-colors duration-300 ease-in-out ${isHovered ? 'bg-white text-black' : 'bg-[#263238] text-white'}`}
                 open={openNav}
             >
                 <div className="container mx-auto">
@@ -183,12 +186,17 @@ Navbar.defaultProps = {
         >
         </a>
     ),
+    // isHovered와 onHoverChange의 기본값 설정 (필수는 아님)
+    isHovered: false,
+    onHoverChange: () => {},
 };
 
 Navbar.propTypes = {
     brandName: PropTypes.string,
     routes: PropTypes.arrayOf(PropTypes.object).isRequired,
     action: PropTypes.node,
+    isHovered: PropTypes.bool.isRequired, // prop 타입 정의
+    onHoverChange: PropTypes.func.isRequired, // prop 타입 정의
 };
 
 Navbar.displayName = "/src/widgets/layout/navbar.jsx";
