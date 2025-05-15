@@ -8,16 +8,29 @@ import {
     ChatBubbleOvalLeftEllipsisIcon,
     PaperAirplaneIcon,
     XMarkIcon,
+    CpuChipIcon,
 } from "@heroicons/react/24/solid";
+
+const initialMessagesForDebugging = [
+    { id: 1, text: "안녕하세요! 저는 AI 챗봇입니다. 무엇을 도와드릴까요?", sender: "bot" },
+    { id: 2, text: "졸업 요건에 대해 알고 싶어요.", sender: "user" },
+    { id: 3, text: "네, 좋습니다! 어느 학과의 졸업 요건 정보가 필요하신가요?", sender: "bot" },
+];
+
+const DEBUG_MODE = true;
 
 export function ChatbotUI() {
     const [isOpen, setIsOpen] = useState(false);
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState(initialMessagesForDebugging);
+    //const [messages, setMessages] = useState([]);
     const [userInput, setUserInput] = useState("");
+    const [botInput, setBotInput] = useState("");
     const [isStreaming, setIsStreaming] = useState(false);
     const [streamingMessage, setStreamingMessage] = useState("");
+
     const messagesEndRef = useRef(null);
     const userInputRef = useRef(null);
+    const botInputRef = useRef(null);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -64,7 +77,7 @@ export function ChatbotUI() {
                 scrollToBottom();
             }
 
-            // ✅ 🎯 여기!!: 응답 스트리밍이 끝난 직후 JSON 파싱 시도
+            // ✅ JSON 파싱 시도
             let parsed = result;
             try {
                 const json = JSON.parse(result);
@@ -72,17 +85,15 @@ export function ChatbotUI() {
                     parsed = json.llmResponse;
                 }
             } catch (e) {
-                console.warn("응답 파싱 실패 → 원본 그대로 출력됨");
+                console.warn("⚠️ 응답 파싱 실패 → 원본 그대로 출력");
             }
 
-            // ✅ 메시지 저장
             setMessages((prev) => [
                 ...prev,
                 { id: Date.now() + 1, text: parsed, sender: "bot" },
             ]);
 
             setStreamingMessage("");
-            setIsStreaming(false);
         } catch (err) {
             console.error("Streaming error:", err);
             setMessages((prev) => [
@@ -92,6 +103,18 @@ export function ChatbotUI() {
         } finally {
             setIsStreaming(false);
         }
+    };
+
+    const handleBotSendMessage = () => {
+        if (!botInput.trim()) return;
+        const newMessage = {
+            id: Date.now() + 1,
+            text: botInput,
+            sender: "bot",
+        };
+        setMessages((prevMessages) => [...prevMessages, newMessage]);
+        setBotInput("");
+        setTimeout(() => botInputRef.current?.focus(), 0);
     };
 
     return (
@@ -119,6 +142,11 @@ export function ChatbotUI() {
                             <Typography variant="h6" color="blue-gray">
                                 GPT 챗봇
                             </Typography>
+                            {DEBUG_MODE && (
+                                <span className="px-1.5 py-0.5 text-xs font-medium bg-red-100 text-red-800 rounded-full">
+                                    디버깅
+                                </span>
+                            )}
                         </div>
                         <IconButton variant="text" size="sm" onClick={toggleChatbot}>
                             <XMarkIcon className="h-5 w-5" />
@@ -131,9 +159,7 @@ export function ChatbotUI() {
                             {messages.map((msg) => (
                                 <div
                                     key={msg.id}
-                                    className={`flex ${
-                                        msg.sender === "user" ? "justify-end" : "justify-start"
-                                    }`}
+                                    className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
                                 >
                                     <div
                                         className={`max-w-[75%] p-3 rounded-xl shadow-sm ${
@@ -149,7 +175,7 @@ export function ChatbotUI() {
                                 </div>
                             ))}
 
-                            {/* 스트리밍 중일 때 임시 출력 */}
+                            {/* 스트리밍 중 출력 */}
                             {isStreaming && (
                                 <div className="flex justify-start">
                                     <div className="max-w-[75%] p-3 rounded-xl shadow-sm bg-white text-black border border-blue-gray-100 rounded-bl-none">
@@ -166,6 +192,26 @@ export function ChatbotUI() {
 
                     {/* 입력 영역 */}
                     <div className="px-3 py-2 border-t border-blue-gray-100">
+                        {DEBUG_MODE && (
+                            <div className="flex items-center gap-2 mb-2">
+                                <input
+                                    ref={botInputRef}
+                                    type="text"
+                                    placeholder="봇 메시지 (디버깅용)"
+                                    className="w-full px-3 py-2 text-sm border border-blue-gray-200 rounded-md focus:outline-none focus:border-blue-500"
+                                    value={botInput}
+                                    onChange={(e) => setBotInput(e.target.value)}
+                                    onKeyPress={(e) => e.key === 'Enter' && handleBotSendMessage()}
+                                />
+                                <button
+                                    className="p-2 text-white bg-blue-gray-500 rounded-full hover:bg-blue-gray-600 focus:outline-none"
+                                    onClick={handleBotSendMessage}
+                                >
+                                    <CpuChipIcon className="h-5 w-5" />
+                                </button>
+                            </div>
+                        )}
+
                         <div className="flex items-center gap-2">
                             <input
                                 ref={userInputRef}
