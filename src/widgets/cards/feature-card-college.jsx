@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import {
   Card,
+  CardHeader,
   CardBody,
   Typography,
   IconButton,
@@ -12,9 +13,10 @@ export function FeatureCardCollege({ color, icon, title, description, links }) {
   return (
       <Card
           className="rounded-lg shadow-lg shadow-gray-500/10 flex flex-col max-w-xs mx-auto
+                 ring-1 ring-gray-300 hover:ring-green-500 hover:ring-opacity-75  // 기본 테두리 및 호버 시 테두리 강조
                  transition-all duration-300 ease-in-out
-                 hover:ring-1 hover:ring-green-500 hover:ring-opacity-50
-                 hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105"
+                 hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105" // 호버 시 그림자 및 확대 효과
+
       >
         <CardBody className="px-8 text-center flex-grow">
           <IconButton
