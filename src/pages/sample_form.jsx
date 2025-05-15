@@ -12,10 +12,10 @@ import {
     Checkbox,
 } from "@material-tailwind/react";
 import { motion } from "framer-motion";
-import { MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
+import { MapPinIcon, UsersIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCardCollege, TeamCard } from "@/widgets/cards";
-import {featuresDataCollege, curriculumData, teamData_ICT} from "@/data";
+import {featuresDataCollege, curriculumData, teamData_ICT, teamData_CIS, teamData_Media_SW, teamData_Data_Science, teamData_Computer_SW} from "@/data";
 import SWCollegeIntro from "@/widgets/layout/SWCollegeIntro.jsx";
 import DeanIntro from "@/widgets/layout/DeanIntro.jsx";
 import CampusGuide from "@/widgets/layout/CampusGuide.jsx";
@@ -35,9 +35,18 @@ const fadeIn = {
 };
 
 export function Home() {
+    const [showAllProfessors, setShowAllProfessors] = React.useState(false);
+
+    // 표시할 교수님 목록 결정 (teamData_Data_Science 사용으로 가정)
+    // 만약 다른 교수 데이터(예: teamData_ICT)를 사용해야 한다면 해당 변수로 변경해주세요.
+    const professorsToDisplay = showAllProfessors
+        ? teamData_Data_Science
+        : teamData_Data_Science.slice(0, 8);
+
     return (
         <>
-            <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
+            {/* Hero Section */}
+            <div className="relative flex h-[50vh] content-center items-center justify-center">
                 <div className="absolute top-0 h-full w-full bg-[url('https://www.suwon.ac.kr/usr/images/suwon/college_top_technology.gif')] bg-cover bg-center" />
                 <div className="absolute top-0 h-full w-full bg-grey/60 bg-cover bg-center" />
                 <div className="max-w-8xl container relative mx-auto">
@@ -58,9 +67,12 @@ export function Home() {
                     </div>
                 </div>
             </div>
-            <section className="-mt-52 bg-white px-4 pb-20 pt-4">
+
+            {/* Section 1: SW College Intro & Features with Gradient Background */}
+            <section className="-mt-26 px-4 pt-20 pb-16 md:pb-24">
                 <div className="container mx-auto max-w-screen-xl">
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-2">
+                    <SWCollegeIntro /> {/* 지능형SW융합대학 소개를 위로 이동 */}
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-2 mt-12"> {/* SWCollegeIntro와 카드 간의 상단 마진 추가 */}
                         {featuresDataCollege.map(({ color, title, icon, description, links }, index) => (
                             <motion.div
                                 key={title}
@@ -82,19 +94,27 @@ export function Home() {
                             </motion.div>
                         ))}
                     </div>
-                    <SWCollegeIntro />
-                    <DeanIntro />
-                    <CampusGuide />
                 </div>
             </section>
+
+            {/* Section 2: Dean Intro */}
+            <DeanIntro /> {/* 학장 소개 */}
+
+            {/* Section 3: Campus Guide */}
+            <section className="bg-white px-4 pt-10 md:pt-16 pb-20">
+                <div className="container mx-auto max-w-screen-xl">
+                    <CampusGuide /> {/* 캠퍼스 안내 */}
+                </div>
+            </section>
+
+            {/* 교수 소개 섹션 */}
             <section className="px-4 pt-20 pb-48 bg-[#f7f8fa]">
-                {/* 이 div에 max-w-screen-xl 추가 */}
                 <div className="container mx-auto max-w-screen-xl">
                     <PageTitle section="교수 소개" heading="정보통신학과">
                         “정보통신의 길, 여러분의 가능성을 열어드립니다.”
                     </PageTitle>
                     <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-                        {teamData_ICT.map(({ img, name, position, socials, detailUrl }) => (
+                        {professorsToDisplay.map(({ img, name, position, socials, detailUrl }) => (
                             <TeamCard
                                 key={name}
                                 img={img}
@@ -105,9 +125,22 @@ export function Home() {
                             />
                         ))}
                     </div>
+                    {!showAllProfessors && teamData_Data_Science.length > 8 && (
+                        <div className="mt-12 text-center">
+                            <Button
+                                variant="text"
+                                color="green"
+                                onClick={() => setShowAllProfessors(true)}
+                                className="flex items-center gap-2 text-sm font-medium text-green-600 hover:text-green-800 mx-auto"
+                            >
+                                더보기
+                                <ChevronDownIcon strokeWidth={2} className="h-5 w-5" />
+                            </Button>
+                        </div>
+                    )}
                 </div>
             </section>
-            {/* Co-Working 섹션 배경색 변경 */}
+
             <section className="relative bg-white py-24 px-4">
                 <div className="container mx-auto">
                     <PageTitle section="교과 과정 소개" heading="핵심 전공 과정">
@@ -119,20 +152,19 @@ export function Home() {
                                 key={title}
                                 color="transparent"
                                 shadow={false}
-                                className="text-center text-blue-gray-900
-                           transition-all duration-300 ease-in-out
-                           hover:ring-1 hover:ring-green-500 hover:ring-opacity-50
-                           hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105"
+                                className="text-center text-blue-gray-900 rounded-xl overflow-hidden shadow-lg
+                               border border-gray-200/80 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out
+                               pt-8"
                             >
                                 <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-blue-gray-900 shadow-lg shadow-gray-500/20">
                                     {React.createElement(icon, {
                                         className: "w-5 h-5 text-white",
                                     })}
                                 </div>
-                                <Typography variant="h5" color="blue-gray" className="mb-2">
+                                <Typography variant="h5" color="blue-gray" className="mb-2 px-4">
                                     {title}
                                 </Typography>
-                                <Typography className="font-normal text-blue-gray-500">
+                                <Typography className="font-normal text-blue-gray-500 px-6 pb-8">
                                     {description}
                                 </Typography>
                             </Card>
