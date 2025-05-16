@@ -1,5 +1,7 @@
 export * from "@/data/features-data";
 export * from "@/data/features-data-department1";
+export * from "@/data/features-data-department2";
+export * from "@/data/features-data-department3";
 export * from "@/data/team-data_ICT";
 export * from "@/data/team-data_CIS";
 export * from "@/data/team-data_Computer_SW";

@@ -1,75 +1,55 @@
 import {
-    Button,
     Card,
     Typography
 } from "@material-tailwind/react";
-import {curriculumData, teamData_ICT} from "@/data/index.js";
-import { TeamCard } from "@/widgets/cards/index.js";
+import {curriculumData, featuresDataDepartment3} from "@/data/index.js";
+import { FeatureCardDepartment3 } from "@/widgets/cards/index.js";
 import React from "react";
-import {ChevronDownIcon, MapPinIcon} from "@heroicons/react/24/solid/index.js";
 import {Footer, PageTitle} from "@/widgets/layout/index.js";
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI.jsx";
+import {Link} from "react-router-dom";
 
-export function ICT() {
-    const [showAllProfessors, setShowAllProfessors] = React.useState(false);
-
-    // 표시할 교수님 목록 결정 (teamData_Data_Science 사용으로 가정)
-    // 만약 다른 교수 데이터(예: teamData_ICT)를 사용해야 한다면 해당 변수로 변경해주세요.
-    const professorsToDisplay = showAllProfessors
-        ? teamData_ICT
-        : teamData_ICT.slice(0, 8);
+export function DataScience() {
     return(
         <>
             <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
-                <div className="absolute top-0 h-full w-full bg-[url('public/img/background-4.png')] bg-cover bg-center" />
+                <div className="absolute top-0 h-full w-full bg-[url('public/img/background-6.png')] bg-cover bg-center" />
                 <div className="absolute top-0 h-full w-full bg-grey/60 bg-cover bg-center" />
                 <div className="max-w-8xl container relative mx-auto">
                     <div className="flex flex-wrap items-center">
-                        <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12">
+                        <div className="ml-auto mr-auto w-full px-4 text-center lg:w-10/12">
                             <Typography
                                 variant="h1"
                                 color="white"
                                 className="mb-6 font-black"
                             >
-                                정보통신학과
+                                데이터과학부
                             </Typography>
                             <Typography variant="lead" color="white" className="opacity-80">
-                                정보통신학과 슬로건
+                                데이터과학부는 4차 산업혁명에 필요한 데이터 분석·AI 역량을 갖춘 창의적 데이터 과학자 양성을 목표로 한다.<br/>
+                                데이터 처리, 머신러닝·딥러닝, 통계, 프로그래밍 등을 기반으로 실무 중심의 교육과 캡스톤 프로젝트를 통해 현장 맞춤형 전문가를 배출한다.
                             </Typography>
                         </div>
                     </div>
                 </div>
             </div>
-            <section className="px-4 pt-20 pb-48 bg-[#f7f8fa]">
-                <div className="container mx-auto max-w-screen-xl">
-                    <PageTitle section="교수 소개" heading="정보통신학과">
-                        “정보통신의 길, 여러분의 가능성을 열어드립니다.”
-                    </PageTitle>
-                    <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-                        {professorsToDisplay.map(({ img, name, position, socials, detailUrl }) => (
-                            <TeamCard
-                                key={name}
-                                img={img}
-                                name={name}
-                                position={position}
-                                socials={socials}
-                                detailUrl={detailUrl}
-                            />
+            <section className="-mt-52 bg-white px-4 pb-20 pt-4">
+                <div className="container mx-auto">
+                    <div className="grid grid-cols-1 gap-2 sm:gap-6 md:gap-16 lg:gap-20 md:grid-cols-2 lg:grid-cols-2">
+                        {featuresDataDepartment3.map(({ color, title, icon, description, path }) => (
+                            <Link key={title} to={path}>
+                                <FeatureCardDepartment3
+                                    key={title}
+                                    color={color}
+                                    title={title}
+                                    icon={React.createElement(icon, {
+                                        className: "w-5 h-5 text-white",
+                                    })}
+                                    description={description}
+                                />
+                            </Link>
                         ))}
                     </div>
-                    {!showAllProfessors && teamData_ICT.length > 8 && (
-                        <div className="mt-12 text-center">
-                            <Button
-                                variant="text"
-                                color="green"
-                                onClick={() => setShowAllProfessors(true)}
-                                className="flex items-center gap-2 text-sm font-medium text-green-600 hover:text-green-800 mx-auto"
-                            >
-                                더보기
-                                <ChevronDownIcon strokeWidth={2} className="h-5 w-5" />
-                            </Button>
-                        </div>
-                    )}
                 </div>
             </section>
             <section className="relative bg-white py-24 px-4">

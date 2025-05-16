@@ -25,7 +25,7 @@ export const teamData_Media_SW = [
     {
         img: "/img/Computer_Science_and_Engineering/DILLIPKUMAL.jpeg",
         name: "딜립 쿠말",
-        position: "Computer Software,& IT Specialist",
+        position: "Computer_SW.jsx Software,& IT Specialist",
         detailUrl: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1164040",
         socials: [
             {

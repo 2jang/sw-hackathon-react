@@ -3,21 +3,21 @@ import {
     Card,
     Typography
 } from "@material-tailwind/react";
-import {curriculumData, teamData_ICT} from "@/data/index.js";
-import { TeamCard } from "@/widgets/cards/index.js";
+import {curriculumData, teamData_Computer_SW} from "@/data/index.js";
+import {TeamCard} from "@/widgets/cards/index.js";
 import React from "react";
-import {ChevronDownIcon, MapPinIcon} from "@heroicons/react/24/solid/index.js";
+import {ChevronDownIcon,} from "@heroicons/react/24/solid/index.js";
 import {Footer, PageTitle} from "@/widgets/layout/index.js";
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI.jsx";
 
-export function ICT() {
+export function Computer_SW() {
     const [showAllProfessors, setShowAllProfessors] = React.useState(false);
 
     // 표시할 교수님 목록 결정 (teamData_Data_Science 사용으로 가정)
     // 만약 다른 교수 데이터(예: teamData_ICT)를 사용해야 한다면 해당 변수로 변경해주세요.
     const professorsToDisplay = showAllProfessors
-        ? teamData_ICT
-        : teamData_ICT.slice(0, 8);
+        ? teamData_Computer_SW
+        : teamData_Computer_SW.slice(0, 8);
     return(
         <>
             <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
@@ -31,10 +31,10 @@ export function ICT() {
                                 color="white"
                                 className="mb-6 font-black"
                             >
-                                정보통신학과
+                                컴퓨터SW
                             </Typography>
                             <Typography variant="lead" color="white" className="opacity-80">
-                                정보통신학과 슬로건
+                                컴퓨터SW 슬로건
                             </Typography>
                         </div>
                     </div>
@@ -42,8 +42,8 @@ export function ICT() {
             </div>
             <section className="px-4 pt-20 pb-48 bg-[#f7f8fa]">
                 <div className="container mx-auto max-w-screen-xl">
-                    <PageTitle section="교수 소개" heading="정보통신학과">
-                        “정보통신의 길, 여러분의 가능성을 열어드립니다.”
+                    <PageTitle section="교수 소개" heading="컴퓨터SW학과">
+                        “컴퓨터SW의 길, 여러분의 가능성을 열어드립니다.”
                     </PageTitle>
                     <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
                         {professorsToDisplay.map(({ img, name, position, socials, detailUrl }) => (
@@ -57,7 +57,7 @@ export function ICT() {
                             />
                         ))}
                     </div>
-                    {!showAllProfessors && teamData_ICT.length > 8 && (
+                    {!showAllProfessors && teamData_Computer_SW.length > 8 && (
                         <div className="mt-12 text-center">
                             <Button
                                 variant="text"

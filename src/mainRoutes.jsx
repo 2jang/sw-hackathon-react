@@ -1,10 +1,24 @@
-import {Home, Profile, Graduate, TelecommunicationEngineering, Suwon_navi, ICT, CIS, Sample_form, } from "@/pages";
+import {
+  Home,
+  Graduate,
+  TelecommunicationEngineering,
+  ComputerScienceAndEngineering,
+  DataScience,
+  Suwon_navi,
+  ICT, CIS, Computer_SW, Media_SW, Data_Science,
+  Sample_form,
+} from "@/pages";
 
 export const mainRoutes = [
   {
-    name: "컴퓨터학부",
+    name: "",
     path: "/home",
     element: <Home />,
+  },
+  {
+    name: "컴퓨터학부",
+    path: "/ComputerScience",
+    element: <ComputerScienceAndEngineering />,
   },
   {
     name: "정보통신학부",
@@ -13,8 +27,8 @@ export const mainRoutes = [
   },
   {
     name: "데이터과학부",
-    path: "/home",
-    element: <Home />,
+    path: "/DataScience",
+    element: <DataScience />,
   },
   {
     name: "졸업요건",
@@ -35,6 +49,21 @@ export const mainRoutes = [
     name: "",
     path: "/cis",
     element: <CIS />,
+  },
+  {
+    name: "",
+    path: "/computer_sw",
+    element: <Computer_SW />,
+  },
+  {
+    name: "",
+    path: "/media_sw",
+    element: <Media_SW />,
+  },
+  {
+    name: "",
+    path: "/data_science",
+    element: <Data_Science />,
   },
   {
     name: "",

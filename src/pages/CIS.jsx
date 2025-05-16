@@ -1,23 +1,23 @@
 import {
     Button,
     Card,
-    CardBody,
-    CardHeader,
-    Checkbox,
-    IconButton,
-    Input,
-    Textarea,
     Typography
 } from "@material-tailwind/react";
-import { curriculumData } from "@/data/index.js";
-import {FeatureCardDepartment1, TeamCard} from "@/widgets/cards/index.js";
+import {curriculumData, teamData_CIS} from "@/data/index.js";
+import { TeamCard } from "@/widgets/cards/index.js";
 import React from "react";
-import {MapPinIcon} from "@heroicons/react/24/solid/index.js";
+import {ChevronDownIcon,} from "@heroicons/react/24/solid/index.js";
 import { Footer, PageTitle } from "@/widgets/layout/index.js";
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI.jsx";
-import teamData_CIS from "@/data/team-data_CIS.js";
 
 export function CIS() {
+    const [showAllProfessors, setShowAllProfessors] = React.useState(false);
+
+    // 표시할 교수님 목록 결정 (teamData_Data_Science 사용으로 가정)
+    // 만약 다른 교수 데이터(예: teamData_ICT)를 사용해야 한다면 해당 변수로 변경해주세요.
+    const professorsToDisplay = showAllProfessors
+        ? teamData_CIS
+        : teamData_CIS.slice(0, 8);
     return(
         <>
             <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
@@ -40,30 +40,36 @@ export function CIS() {
                     </div>
                 </div>
             </div>
-            <section className="px-4 pt-20 pb-48">
-                <div className="container mx-auto">
+            <section className="px-4 pt-20 pb-48 bg-[#f7f8fa]">
+                <div className="container mx-auto max-w-screen-xl">
                     <PageTitle section="교수 소개" heading="정보보호학과">
                         “정보보호의 길, 여러분의 가능성을 열어드립니다.”
                     </PageTitle>
                     <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-                        {teamData_CIS.map(({ img, name, position, socials }) => (
+                        {professorsToDisplay.map(({ img, name, position, socials, detailUrl }) => (
                             <TeamCard
                                 key={name}
                                 img={img}
                                 name={name}
                                 position={position}
-                                socials={
-                                    <div className="flex items-center gap-2">
-                                        {socials.map(({ color, name }) => (
-                                            <IconButton key={name} color={color} variant="text">
-                                                <i className={`fa-solid text-xl fa-${name}`} />
-                                            </IconButton>
-                                        ))}
-                                    </div>
-                                }
+                                socials={socials}
+                                detailUrl={detailUrl}
                             />
                         ))}
                     </div>
+                    {!showAllProfessors && teamData_CIS.length > 8 && (
+                        <div className="mt-12 text-center">
+                            <Button
+                                variant="text"
+                                color="green"
+                                onClick={() => setShowAllProfessors(true)}
+                                className="flex items-center gap-2 text-sm font-medium text-green-600 hover:text-green-800 mx-auto"
+                            >
+                                더보기
+                                <ChevronDownIcon strokeWidth={2} className="h-5 w-5" />
+                            </Button>
+                        </div>
+                    )}
                 </div>
             </section>
             <section className="relative bg-white py-24 px-4">
