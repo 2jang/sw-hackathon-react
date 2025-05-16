@@ -15,13 +15,13 @@ import {BriefcaseIcon} from "@heroicons/react/24/solid";
 const stats = [
     {
         title: "교수진 수",
-        value: 12,
+        value: 17,
         subtitle: "전임 교수 기준",
         icon: AcademicCapIcon,
     },
     {
         title: "취업률",
-        value: 78,
+        value: 82,
         subtitle: "2025.02 졸업생 및 재학생 기준",
         icon: BriefcaseIcon,
         suffix: "%"  // ✅ 백분율 표시 추가
@@ -57,7 +57,7 @@ const CountUp = ({ target, suffix }) => {
     return <motion.span ref={ref}>{rounded}</motion.span>;
 };
 
-const TelecommunicationEngineeringIntro = () => {
+const dataScienceIntro = () => {
     return (
         <section className="bg-[#ffffff] text-black px-8 py-20">
             <div className="max-w-7xl mx-auto grid gap-16">
@@ -73,7 +73,7 @@ const TelecommunicationEngineeringIntro = () => {
                         Leader in IT Education
                     </h2>
                     <h1 className="text-3xl text-[#1e293b] md:text-4xl font-extrabold mb-6">
-                        정보통신학부 소개
+                        데이터과학부 소개
                     </h1>
                 </motion.div>
 
@@ -86,8 +86,8 @@ const TelecommunicationEngineeringIntro = () => {
                     viewport={{ once: true, amount: 0.3 }}
                     custom={2}
                 >
-                    수원대학교 정보통신학부는 정보통신융합(ICT) 기술의 핵심인 정보통신과 정보보호 분야를 깊이 있고 폭넓게 공부하고, <br/>
-                    다양한 실습을 통하여 실무 역량을 갖출 수 있도록 교육함으로써 4차 산업혁명시대에 필요한 핵심 기술 인력을 양성합니다.
+                    데이터과학부는 제4차 산업혁명의 필요한 전문인 양성을 적합한 교육과정을 제공한다. <br/>
+                    이에 따라 데이터 분석에서부터 인공지능 알고리즘 개발 및 실행에 필요한 전문 지식을 익히도록 한다.
                 </motion.p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 max-w-4xl mx-auto">
@@ -117,4 +117,4 @@ const TelecommunicationEngineeringIntro = () => {
     );
 };
 
-export default TelecommunicationEngineeringIntro;
+export default dataScienceIntro;

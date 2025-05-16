@@ -20,8 +20,8 @@ export function Computer_SW() {
         : teamData_Computer_SW.slice(0, 8);
     return(
         <>
-            <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
-                <div className="absolute top-0 h-full w-full bg-[url('public/img/background-4.png')] bg-cover bg-center" />
+            <div className="relative flex h-[50vh] content-center items-center justify-center pt-16 pb-32">
+                <div className="absolute top-0 h-full w-full bg-[url('public/img/background-7.png')] bg-cover bg-center" />
                 <div className="absolute top-0 h-full w-full bg-grey/60 bg-cover bg-center" />
                 <div className="max-w-8xl container relative mx-auto">
                     <div className="flex flex-wrap items-center">
