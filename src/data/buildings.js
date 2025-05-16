@@ -4,7 +4,7 @@ const buildings = [
         id: 0,
         name: "mainGate",
         kr_name: "수원대 정문",
-        polygon: [9, 401, 100, 540],
+        polygon: [3, 401, 150, 540],
         color: "rgba(255, 0, 0, 0.3)"
     },
     {
@@ -18,7 +18,7 @@ const buildings = [
         id: 2,
         name: "gym",
         kr_name: "체육관",
-        polygon: [248, 268, 462, 355],
+        polygon: [253, 266, 396, 343],
         color: "rgba(0, 0, 255, 0.3)"
     },
     {
@@ -67,7 +67,7 @@ const buildings = [
         id: 9,
         name: "engineering4",
         kr_name: "제4공학관",
-        polygon: [740, 57, 832, 141],
+        polygon: [750, 84, 812, 135],
         color: "rgba(233, 150, 122, 0.3)"
     },
     {
