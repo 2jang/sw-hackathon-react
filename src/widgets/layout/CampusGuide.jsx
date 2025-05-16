@@ -74,7 +74,7 @@ const CampusGuide = () => {
                         <CardHeader floated={false} className="relative h-56">
                             <img
                                 alt="Card Image"
-                                src="/img/teamwork.png"
+                                src="public/img/campusmap_img_2024.jpg"
                                 className="h-full w-full object-cover"
                             />
                         </CardHeader>
