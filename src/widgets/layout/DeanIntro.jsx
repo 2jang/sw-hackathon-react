@@ -21,6 +21,7 @@ const DeanIntro = () => {
         office: "지능형SW융합대학 525호",
         phone: "031-229-8352",
         email: "dean@example.com", //실제 이메일 주소로 변경해주세요.
+        website: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1120129", // 학장 또는 학과 웹사이트 URL
     };
 
     const cardFadeIn = {
@@ -82,48 +83,58 @@ const DeanIntro = () => {
                         viewport={{ once: true }}
                         variants={cardFadeIn}
                     >
-                        <Card className="shadow-xl rounded-lg overflow-hidden">
-                            <CardBody className="p-6 md:p-8">
-                                <div className="flex flex-col sm:flex-row items-start">
-                                    <div className="w-32 sm:w-28 flex-shrink-0 mx-auto sm:mx-0 mb-4 sm:mb-0 sm:mr-6 md:mr-7">
-                                        <img
-                                            src={deanImg}
-                                            alt={`${deanInfo.name} 학장`}
-                                            className="w-full h-auto object-cover rounded-lg shadow-md aspect-square"
-                                        />
+                        <a
+                            href={deanInfo.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block cursor-pointer"
+                        >
+                            <Card className="shadow-xl rounded-lg overflow-hidden
+                                ring-1 ring-gray-300 hover:ring-green-500 hover:ring-opacity-75
+                                transition-all duration-300 ease-in-out
+                                hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105">
+                                <CardBody className="p-6 md:p-8">
+                                    <div className="flex flex-col sm:flex-row items-start">
+                                        <div className="w-32 sm:w-28 flex-shrink-0 mx-auto sm:mx-0 mb-4 sm:mb-0 sm:mr-6 md:mr-7">
+                                            <img
+                                                src={deanImg}
+                                                alt={`${deanInfo.name} 학장`}
+                                                className="w-full h-auto object-cover rounded-lg shadow-md aspect-square"
+                                            />
+                                        </div>
+                                        <div className="flex-grow">
+                                            <div className="mb-3 text-center sm:text-left">
+                                                <Typography variant="h5" className="text-xl font-bold text-blue-gray-900">
+                                                    {deanInfo.name}
+                                                </Typography>
+                                                <Typography className="text-sm text-blue-gray-700 font-medium">
+                                                    {deanInfo.position} | {deanInfo.department}
+                                                </Typography>
+                                            </div>
+                                            <div className="space-y-2 mb-4 text-xs sm:text-sm">
+                                                <div className="flex items-center">
+                                                    <MapPinIcon className="h-4 w-4 text-blue-gray-500 mr-2" />
+                                                    <span className="text-gray-700">{deanInfo.office}</span>
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <PhoneIcon className="h-4 w-4 text-blue-gray-500 mr-2" />
+                                                    <span className="text-gray-700">{deanInfo.phone}</span>
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <EnvelopeIcon className="h-4 w-4 text-blue-gray-500 mr-2" />
+                                                    <span className="text-gray-700">{deanInfo.email}</span>
+                                                </div>
+                                            </div>
+                                            <div className="mt-4 pt-4 border-t border-gray-200">
+                                                <Typography className="text-xs text-gray-600 leading-relaxed">
+                                                    지능형SW융합대학의 발전을 위해 힘쓰는 학장님께 궁금한 점이나 건의사항이 있으시면 언제든지 연락주시기 바랍니다.
+                                                </Typography>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="flex-grow">
-                                        <div className="mb-3 text-center sm:text-left">
-                                            <Typography variant="h5" className="text-xl font-bold text-blue-gray-900">
-                                                {deanInfo.name}
-                                            </Typography>
-                                            <Typography className="text-sm text-blue-gray-700 font-medium">
-                                                {deanInfo.position} | {deanInfo.department}
-                                            </Typography>
-                                        </div>
-                                        <div className="space-y-2 mb-4 text-xs sm:text-sm">
-                                            <div className="flex items-center">
-                                                <MapPinIcon className="h-4 w-4 text-blue-gray-500 mr-2" />
-                                                <span className="text-gray-700">{deanInfo.office}</span>
-                                            </div>
-                                            <div className="flex items-center">
-                                                <PhoneIcon className="h-4 w-4 text-blue-gray-500 mr-2" />
-                                                <span className="text-gray-700">{deanInfo.phone}</span>
-                                            </div>
-                                            <div className="flex items-center">
-                                                <EnvelopeIcon className="h-4 w-4 text-blue-gray-500 mr-2" />
-                                                <span className="text-gray-700">{deanInfo.email}</span>
-                                            </div>
-                                        </div>
-                                        <div className="mt-4 pt-4 border-t border-gray-200">
-                                            <Typography className="text-xs text-gray-600 leading-relaxed">
-                                                지능형SW융합대학의 발전을 위해 힘쓰는 학장님께 궁금한 점이나 건의사항이 있으시면 언제든지 연락주시기 바랍니다.
-                                            </Typography>
-                                        </div>
-                                    </div>
-                                </div>
-                            </CardBody>
-                        </Card>
+                                </CardBody>
+                            </Card>
+                        </a>
                     </motion.div>
 
                     {/* 오른쪽: 텍스트 섹션 */}
