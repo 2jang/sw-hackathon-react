@@ -24,7 +24,7 @@ const fadeIn = {
 };
 
 // 디버그 모드 변수 추가
-const DEBUG_MODE = false; // true일 때만 측정 모드 버튼 표시
+const DEBUG_MODE = true; // true일 때만 측정 모드 버튼 표시
 
 export function Suwon_navi() {
     const [clickedPoints, setClickedPoints] = useState([]);
@@ -224,10 +224,10 @@ export function Suwon_navi() {
         setIsLoading(true);
 
         try {
-            // API 호출 URL 구성
-            const apiUrl = `http://ahnai1.suwon.ac.kr:5041/suwon-navi?buildings=${startBuilding.name}&buildings=${endBuilding.name}`;
+            // API 호출 URL 구성 (프록시 경로 사용)
+            const apiUrl = `/api/suwon-navi?buildings=${startBuilding.name}&buildings=${endBuilding.name}`;
 
-            console.log("API 요청:", apiUrl);
+            console.log("API 요청:", apiUrl); // 프록시를 통해 요청되는 URL 확인
 
             // API 호출
             const response = await fetch(apiUrl);
@@ -257,9 +257,6 @@ export function Suwon_navi() {
         } catch (error) {
             console.error("경로 계산 중 오류 발생:", error);
 
-            // // 오류 발생 시 가상 데이터로 대체 (개발 중에만 사용)
-            // const walkTime = Math.floor(Math.random() * 10) + 5; // 5~15분
-
             setPathInfo({
                 walkTime: "null",
                 startBuilding: startBuilding.kr_name,
@@ -277,6 +274,7 @@ export function Suwon_navi() {
             setIsLoading(false);
         }
     };
+
 
 
 

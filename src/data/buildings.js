@@ -160,7 +160,21 @@ const buildings = [
         kr_name: "수원대 후문",
         polygon: [808, 2, 986, 57],
         color: "rgba(139, 0, 0, 0.3)"
-    }
+    },
+    {
+        id: 23,
+        name: "centralLibrary",
+        kr_name: "중앙도서관",
+        polygon: [729, 306, 873, 438],
+        color: "rgba(70, 130, 180, 0.3)"
+    },
+    {
+        id: 24,
+        name: "unionHall",
+        kr_name: "학생회관",
+        polygon: [651, 230, 717, 302],
+        color: "rgba(100, 149, 237, 0.3)"
+    },
 ];
 
 export default buildings;
