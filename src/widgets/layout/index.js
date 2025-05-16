@@ -6,3 +6,4 @@ export * from "@/widgets/layout/ChatbotUI";
 export * from "@/widgets/layout/SWCollegeIntro";
 export * from "@/widgets/layout/DeanIntro";
 export * from "@/widgets/layout/CampusGuide";
+export * from "@/widgets/layout/curriculum";

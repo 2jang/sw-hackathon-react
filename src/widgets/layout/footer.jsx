@@ -79,9 +79,9 @@ export function Footer({ title, description, socials, menus, copyright }) {
 }
 
 Footer.defaultProps = {
-  title: "Material Tailwind",
+  title: "지능형SW융합대학",
   description:
-    "Easy to use React components for Tailwind CSS and Material Design.",
+    "COLLEGE OF INTELLIGENT SOFTWARE CONVERGENCE",
   socials: [
     {
       color: "gray",
@@ -91,32 +91,32 @@ Footer.defaultProps = {
     {
       color: "gray",
       name: "youtube",
-      path: "https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w",
+      path: "https://www.youtube.com/@usw",
     },
     {
       color: "gray",
       name: "instagram",
-      path: "https://www.instagram.com/creativetimofficial/",
+      path: "https://www.instagram.com/usw1982/",
     },
     {
       color: "black",
       name: "github",
-      path: "https://github.com/creativetimofficial/material-tailwind",
+      path: "https://github.com/2025-sw-hackathon",
     },
   ],
   menus: [
     {
       name: "useful links",
       items: [
-        { name: "About Us", path: "https://www.creative-tim.com/presentation" },
-        { name: "Blog", path: "https://www.creative-tim.com/blog" },
+        { name: "대학정보공시", path: "https://www.academyinfo.go.kr/popup/pubinfo1690/list.do?schlId=0000140" },
+        { name: "개인정보처리방침", path: "https://www.suwon.ac.kr/index.html?menuno=1955" },
         {
-          name: "Github",
-          path: "https://www.github.com/creativetimofficial/material-tailwind?ref=mtk",
+          name: "개인정보제공공시",
+          path: "https://www.suwon.ac.kr/index.html?menuno=1928",
         },
         {
-          name: "Free Products",
-          path: "https://www.creative-tim.com/templates/free?ref=mtk",
+          name: "이메일무단수집거부",
+          path: "https://www.suwon.ac.kr/index.html?menuno=1963",
         },
       ],
     },

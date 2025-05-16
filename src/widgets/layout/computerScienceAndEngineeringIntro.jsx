@@ -21,8 +21,8 @@ const stats = [
     },
     {
         title: "취업률",
-        value: 88,
-        subtitle: "2025.02 졸업생 및 재학생 기준",
+        value: 89,
+        subtitle: "20--.-- 졸업생 및 재학생 기준",
         icon: BriefcaseIcon,
         suffix: "%"  // ✅ 백분율 표시 추가
     },

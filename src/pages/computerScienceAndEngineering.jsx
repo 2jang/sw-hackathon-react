@@ -10,17 +10,15 @@ import {
     Typography
 } from "@material-tailwind/react";
 import {curriculumData, featuresDataDepartment2} from "@/data/index.js";
-import {FeatureCardCollege, FeatureCardDepartment2, TeamCard} from "@/widgets/cards/index.js";
+import { FeatureCardCollege } from "@/widgets/cards/index.js";
 import React from "react";
-import {MapPinIcon} from "@heroicons/react/24/solid/index.js";
 import {Footer, PageTitle} from "@/widgets/layout/index.js";
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI.jsx";
 import {Link} from "react-router-dom";
-import SWCollegeIntro from "@/widgets/layout/SWCollegeIntro.jsx";
 import ComputerScienceAndEngineeringIntro from "@/widgets/layout/computerScienceAndEngineeringIntro.jsx";
 import {motion} from "framer-motion";
-import DeanIntro from "@/widgets/layout/DeanIntro.jsx";
 import DeanIntro_ComputerScienceAndEngineering from "@/widgets/layout/DeanIntro_ComputerScienceAndEngineering.jsx";
+import Curriculum from "@/widgets/layout/curriculum.jsx";
 
 // 기존 fadeIn (FeatureCardCollege용)
 const fadeIn = {
@@ -111,7 +109,7 @@ export function ComputerScienceAndEngineering() {
                 <div className="container mx-auto max-w-screen-xl">
                     <ComputerScienceAndEngineeringIntro />
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2 lg:gap-2 mt-12">
-                        {featuresDataDepartment2.map(({ color, title, icon, description, links }, index) => (
+                        {featuresDataDepartment2.map(({ color, title, icon, path, description, links }, index) => (
                             <motion.div
                                 key={title}
                                 variants={fadeIn} // 기존 fadeInUp 효과
@@ -120,21 +118,23 @@ export function ComputerScienceAndEngineering() {
                                 viewport={{ once: true, amount: 0.2 }}
                                 custom={index} // staggered delay
                             >
-                                <FeatureCardCollege
-                                    color={color}
-                                    title={title}
-                                    icon={React.createElement(icon, {
-                                        className: "w-5 h-5 text-white",
-                                    })}
-                                    description={description}
-                                    links={links}
-                                />
+                                <Link to={path}>
+                                    <FeatureCardCollege
+                                        color={color}
+                                        title={title}
+                                        icon={React.createElement(icon, {
+                                            className: "w-5 h-5 text-white",
+                                        })}
+                                        description={description}
+                                        links={links}
+                                    />
+                                </Link>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </motion.section>
-
+            <Curriculum />
             <DeanIntro_ComputerScienceAndEngineering />
             <div className="bg-white">
                 <Footer />
