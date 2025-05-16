@@ -11,17 +11,17 @@ import {
     AcademicCapIcon,
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import deanImg from "/public/img/Telecommunication_Engineering/GIMDAEYEOP.jpeg"; // 이미지 경로는 실제 프로젝트 구조에 맞게 확인해주세요.
+import deanImg from "/public/img/Computer_Science_and_Engineering/GIMJANGYEONG.jpeg"; // 이미지 경로는 실제 프로젝트 구조에 맞게 확인해주세요.
 
 const DeanIntro = () => {
     const deanInfo = {
-        name: "김대엽",
-        department: "정보통신학부",
-        position: "학장",
-        office: "지능형SW융합대학 525호",
-        phone: "031-229-8352",
-        email: "daeyoub69@naver.com", //실제 이메일 주소로 변경해주세요.
-        website: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1120129", // 학장 또는 학과 웹사이트 URL
+        name: "김장영",
+        department: "컴퓨터학부",
+        position: "학부장",
+        office: "지능형SW융합대학 52호",
+        phone: "031-229-8345",
+        email: "jykim77@suwon.ac.kr", //실제 이메일 주소로 변경해주세요.
+        website: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1143596", // 학장 또는 학과 웹사이트 URL
     };
 
     const cardFadeIn = {
@@ -127,7 +127,7 @@ const DeanIntro = () => {
                                             </div>
                                             <div className="mt-4 pt-4 border-t border-gray-200">
                                                 <Typography className="text-xs text-gray-600 leading-relaxed">
-                                                    지능형SW융합대학의 발전을 위해 힘쓰는 학장님께 궁금한 점이나 건의사항이 있으시면 언제든지 연락주시기 바랍니다.
+                                                    컴퓨터학부의 발전을 위해 힘쓰는 학부장님께 궁금한 점이나 건의사항이 있으시면 언제든지 연락주시기 바랍니다.
                                                 </Typography>
                                             </div>
                                         </div>
@@ -161,7 +161,7 @@ const DeanIntro = () => {
                                 variant="h2"
                                 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4"
                             >
-                                지능형SW융합대학의 학장님을 소개합니다!
+                                컴퓨터학부의 학부장님을 소개합니다!
                             </Typography>
                         </motion.div>
 
@@ -172,8 +172,8 @@ const DeanIntro = () => {
                             variants={paragraphFadeUp}
                         >
                             <Typography color="gray" className="text-base md:text-lg text-gray-600 mb-6 md:mb-0">
-                                대학의 발전과 학생들의 성장을 위해 헌신하시는 학장님의 비전을 확인해보세요. <br/>
-                                따뜻한 리더십과 혁신적인 교육 철학으로 지능형SW융합대학을 이끌고 계십니다.
+                                대학의 발전과 학생들의 성장을 위해 헌신하시는 학부장님의 비전을 확인해보세요. <br/>
+                                따뜻한 리더십과 혁신적인 교육 철학으로 컴퓨터학부를 이끌고 계십니다.
                             </Typography>
                         </motion.div>
                     </div>

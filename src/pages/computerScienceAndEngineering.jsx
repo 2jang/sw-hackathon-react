@@ -10,13 +10,70 @@ import {
     Typography
 } from "@material-tailwind/react";
 import {curriculumData, featuresDataDepartment2} from "@/data/index.js";
-import {FeatureCardDepartment2, TeamCard} from "@/widgets/cards/index.js";
+import {FeatureCardCollege, FeatureCardDepartment2, TeamCard} from "@/widgets/cards/index.js";
 import React from "react";
 import {MapPinIcon} from "@heroicons/react/24/solid/index.js";
 import {Footer, PageTitle} from "@/widgets/layout/index.js";
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI.jsx";
 import {Link} from "react-router-dom";
 import SWCollegeIntro from "@/widgets/layout/SWCollegeIntro.jsx";
+import ComputerScienceAndEngineeringIntro from "@/widgets/layout/computerScienceAndEngineeringIntro.jsx";
+import {motion} from "framer-motion";
+import DeanIntro from "@/widgets/layout/DeanIntro.jsx";
+import DeanIntro_ComputerScienceAndEngineering from "@/widgets/layout/DeanIntro_ComputerScienceAndEngineering.jsx";
+
+// 기존 fadeIn (FeatureCardCollege용)
+const fadeIn = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i = 1) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+            delay: i * 0.2,
+            duration: 0.6,
+            ease: "easeOut",
+        },
+    }),
+};
+
+// Hero 섹션 제목용 애니메이션 (아래로 슬라이드하며 나타남)
+const heroTitleAnim = {
+    hidden: { opacity: 0, y: -30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.7, ease: "easeOut" },
+    },
+};
+
+// Hero 섹션 부제목용 애니메이션 (위로 슬라이드하며 나타남)
+const heroSubtitleAnim = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.7, ease: "easeOut", delay: 0.3 }, // 제목 후 약간 늦게
+    },
+};
+
+// 섹션 전체를 위한 간단한 페이드인
+const sectionContainerFadeIn = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { duration: 0.8, ease: "easeOut" },
+    },
+};
+
+// 섹션 전체를 위한 스케일인 (확대되며 나타남)
+const sectionContainerScaleIn = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: { duration: 0.7, ease: "easeOut" },
+    },
+};
 
 export function ComputerScienceAndEngineering() {
     return(
@@ -42,59 +99,43 @@ export function ComputerScienceAndEngineering() {
                     </div>
                 </div>
             </div>
-            <section className="-mt-52 bg-white px-4 pb-20 pt-4">
+            {/* Section 1: SW College Intro & Features with Gradient Background */}
+            {/* 이 섹션 전체를 감싸는 motion.div 추가 */}
+            <motion.section
+                className="-mt-26 px-4 pt-20 pb-16 md:pb-24"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }} // amount는 섹션이 얼마나 보여야 애니메이션이 시작될지 결정
+                variants={sectionContainerFadeIn} // 간단한 페이드인 효과
+            >
                 <div className="container mx-auto max-w-screen-xl">
-                    <div className="grid grid-cols-1 gap-6 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-2 mt-12">
-                        {featuresDataDepartment2.map(({ color, title, icon, description, path }) => (
-                            <Link key={title} to={path}>
-                                <FeatureCardDepartment2
-                                    key={title}
+                    <ComputerScienceAndEngineeringIntro />
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2 lg:gap-2 mt-12">
+                        {featuresDataDepartment2.map(({ color, title, icon, description, links }, index) => (
+                            <motion.div
+                                key={title}
+                                variants={fadeIn} // 기존 fadeInUp 효과
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, amount: 0.2 }}
+                                custom={index} // staggered delay
+                            >
+                                <FeatureCardCollege
                                     color={color}
                                     title={title}
                                     icon={React.createElement(icon, {
                                         className: "w-5 h-5 text-white",
                                     })}
                                     description={description}
+                                    links={links}
                                 />
-                            </Link>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
-            </section>
-            <section className="relative bg-white py-24 px-4">
-                <div className="container mx-auto">
-                    <PageTitle section="Co-Working" heading="Build something">
-                        Put the potentially record low maximum sea ice extent tihs year down
-                        to low ice. According to the National Oceanic and Atmospheric
-                        Administration, Ted, Scambos.
-                    </PageTitle>
-                    <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
-                        {curriculumData.map(({ title, icon, description }) => (
-                            <Card
-                                key={title}
-                                color="transparent"
-                                shadow={false}
-                                className="text-center text-blue-gray-900"
-                            >
-                                <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-blue-gray-900 shadow-lg shadow-gray-500/20">
-                                    {React.createElement(icon, {
-                                        className: "w-5 h-5 text-white",
-                                    })}
-                                </div>
-                                <Typography variant="h5" color="blue-gray" className="mb-2">
-                                    {title}
-                                </Typography>
-                                <Typography className="font-normal text-blue-gray-500">
-                                    {description}
-                                </Typography>
-                            </Card>
-                        ))}
-                    </div>
-                    <PageTitle section="Contact Us" heading="Want to work with us?">
-                        Complete this form and we will get back to you in 24 hours.
-                    </PageTitle>
-                </div>
-            </section>
+            </motion.section>
+
+            <DeanIntro_ComputerScienceAndEngineering />
             <div className="bg-white">
                 <Footer />
             </div>
