@@ -11,17 +11,17 @@ import {
     AcademicCapIcon,
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import deanImg from "/public/img/Telecommunication_Engineering/GIMSIHYEON.jpeg"; // 이미지 경로는 실제 프로젝트 구조에 맞게 확인해주세요.
+import deanImg from "/public/img/Data_Science/JEONGJINMYEONG.jpeg"; // 이미지 경로는 실제 프로젝트 구조에 맞게 확인해주세요.
 
 const DeanIntro_DataScience = () => {
     const deanInfo = {
-        name: "?",
+        name: "정진명",
         department: "데이터과학부",
         position: "학부장",
-        office: "지능형SW융합대학 호",
-        phone: "-",
-        email: "-", //실제 이메일 주소로 변경해주세요.
-        website: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1143596", // 학장 또는 학과 웹사이트 URL
+        office: "지능형SW융합대학 918호",
+        phone: "031-229-8671",
+        email: "jmjung@suwon.ac.kr", //실제 이메일 주소로 변경해주세요.
+        website: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1174107", // 학장 또는 학과 웹사이트 URL
     };
 
     const cardFadeIn = {

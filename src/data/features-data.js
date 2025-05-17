@@ -38,7 +38,7 @@ export const featuresDataCollege = [
     description:
         "데이터 분석에서부터 인공지능 알고리즘 개발 및 실행에 필요한 전문 지식과 개발 기술을 습득",
     links: [
-      { text: "데이터과학부", url: "/DataScience" },
+      { text: "데이터과학", url: "/data_science" },
     ],
   },
 ];

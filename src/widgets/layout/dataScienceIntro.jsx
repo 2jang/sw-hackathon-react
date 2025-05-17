@@ -73,7 +73,7 @@ const dataScienceIntro = () => {
                         Leader in IT Education
                     </h2>
                     <h1 className="text-3xl text-[#1e293b] md:text-4xl font-extrabold mb-6">
-                        데이터과학부 소개
+                        데이터과학과 소개
                     </h1>
                 </motion.div>
 
@@ -86,7 +86,7 @@ const dataScienceIntro = () => {
                     viewport={{ once: true, amount: 0.3 }}
                     custom={2}
                 >
-                    데이터과학부는 제4차 산업혁명의 필요한 전문인 양성을 적합한 교육과정을 제공한다. <br/>
+                    데이터과학과는 제4차 산업혁명의 필요한 전문인 양성을 적합한 교육과정을 제공한다. <br/>
                     이에 따라 데이터 분석에서부터 인공지능 알고리즘 개발 및 실행에 필요한 전문 지식을 익히도록 한다.
                 </motion.p>
 

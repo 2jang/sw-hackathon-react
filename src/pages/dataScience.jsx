@@ -21,6 +21,7 @@ import DeanIntro_ComputerScienceAndEngineering from "@/widgets/layout/DeanIntro_
 import Curriculum from "@/widgets/layout/curriculum.jsx";
 import DataScienceIntro from "@/widgets/layout/dataScienceIntro.jsx";
 import DeanIntro_DataScience from "@/widgets/layout/DeanIntro_DataScience.jsx";
+import CurriculumDataScience from "@/widgets/layout/curriculumDataScience.jsx";
 
 // 기존 fadeIn (FeatureCardCollege용)
 const fadeIn = {
@@ -137,7 +138,7 @@ export function DataScience() {
                 </div>
             </motion.section>
             <DeanIntro_DataScience />
-            <Curriculum />
+            <CurriculumDataScience />
             <div className="bg-white">
                 <Footer />
             </div>
