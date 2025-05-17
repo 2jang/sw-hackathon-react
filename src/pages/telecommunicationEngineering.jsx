@@ -135,8 +135,8 @@ export function TelecommunicationEngineering() {
                     </div>
                 </div>
             </motion.section>
-            <Curriculum />
             <DeanIntro_telecommunicationEngineering />
+            <Curriculum />
             <div className="bg-white">
                 <Footer />
             </div>

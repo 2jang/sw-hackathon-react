@@ -21,7 +21,7 @@ const stats = [
     {
         title: "학생 수",
         value: 1539,
-        subtitle: "2020.07 재학생 및 휴학생 기준",
+        subtitle: "2025.02 재학생 및 휴학생 기준",
         icon: UserGroupIcon,
     },
 ];

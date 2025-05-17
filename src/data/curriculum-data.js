@@ -4,6 +4,7 @@ import {
   PlayIcon,
 } from "@heroicons/react/24/solid";
 
+//정보통신학부 과목소개 데이터
 export const curriculumData = [
   {
     title: "회로이론",

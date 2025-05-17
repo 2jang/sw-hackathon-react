@@ -64,7 +64,7 @@ export function ChatbotUI() {
         setIsStreaming(true);
 
         try {
-            const res = await fetch("http://ahnai1.suwon.ac.kr:5041/route", {
+            const res = await fetch("http://ahnai1.suwon.ac.kr:5041/route/stream", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ question: userInput }),
