@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI";
 import {
   Card,
@@ -79,6 +79,7 @@ const sectionContainerScaleIn = {
 
 export function Home() {
   const [showAllProfessors, setShowAllProfessors] = React.useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   const professorsToDisplay = showAllProfessors
       ? teamData_Data_Science
@@ -87,6 +88,15 @@ export function Home() {
   return (
       <>
         <div className="relative flex h-[100vh] content-center items-center justify-center overflow-hidden">
+          {/* 썸네일 이미지 */}
+          {!videoLoaded && (
+              <img
+                  src="/img/thumbnail.jpg" // 썸네일 경로
+                  alt="썸네일"
+                  className="absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-500"
+              />
+          )}
+
           {/* 🔹 배경 영상 삽입 */}
           <video
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
