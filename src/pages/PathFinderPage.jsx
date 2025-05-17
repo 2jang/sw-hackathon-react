@@ -546,7 +546,14 @@ export function Suwon_navi() {
                                                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 md:h-4 md:w-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
                                                                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                                                                         </svg>
-                                                                        <Typography className="font-bold text-sm md:text-base text-gray-800">
+                                                                        <Typography
+                                                                            className={`font-bold text-lg md:text-xl ${
+                                                                                pathInfo.walkTime === "N/A" ? "text-gray-800" :
+                                                                                    parseInt(pathInfo.walkTime) <= 5 ? "text-green-500" :
+                                                                                        parseInt(pathInfo.walkTime) <= 15 ? "text-orange-500" :
+                                                                                            "text-red-500"
+                                                                            }`}
+                                                                        >
                                                                             {pathInfo.walkTime === "N/A" ? "정보 없음" : `약 ${pathInfo.walkTime}분`}
                                                                         </Typography>
                                                                     </div>
@@ -557,7 +564,7 @@ export function Suwon_navi() {
                                                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 md:h-4 md:w-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
                                                                             <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                                                                         </svg>
-                                                                        <Typography className="font-bold text-sm md:text-base text-gray-800">
+                                                                        <Typography className="font-bold text-lg md:text-xl text-gray-800">
                                                                             {straightDistance !== null ? `${straightDistance}m` : "계산 중..."}
                                                                         </Typography>
                                                                     </div>
