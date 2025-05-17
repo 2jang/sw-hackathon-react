@@ -10,10 +10,9 @@ import {
     XMarkIcon,
     CpuChipIcon,
 } from "@heroicons/react/24/solid";
-import "/public/css/App.css";
 
 const initialMessagesForDebugging = [
-    { id: 1, text: "안녕하세요! 저는 수원아이(SUWONAI) 챗봇입니다. 무엇을 도와드릴까요?", sender: "bot" },
+    { id: 1, text: "안녕하세요! 저는 AI 챗봇입니다. 무엇을 도와드릴까요?", sender: "bot" },
 ];
 
 // 디버깅 모드 활성화 여부 (true = 활성화, false = 비활성화)
@@ -144,13 +143,13 @@ export function ChatbotUI() {
             )}
 
             {isOpen && (
-                <div className="fixed bottom-6 right-6 w-[600px] h-[800px] shadow-xl z-[9999] bg-white rounded-lg border border-blue-gray-50 flex flex-col overflow-hidden">
+                <div className="fixed bottom-6 right-6 w-96 h-[600px] shadow-xl z-[9999] bg-white rounded-lg border border-blue-gray-50 flex flex-col overflow-hidden">
                     {/* 헤더 */}
                     <div className="flex items-center justify-between p-3 bg-white border-b border-blue-gray-100 rounded-t-lg">
                         <div className="flex items-center gap-2">
                             <ChatBubbleOvalLeftEllipsisIcon className="w-6 h-6 text-blue-gray-700" />
                             <Typography variant="h6" color="blue-gray">
-                                SUWONAI
+                                GPT 챗봇
                             </Typography>
                             {DEBUG_MODE && (
                                 <span className="px-1.5 py-0.5 text-xs font-medium bg-red-100 text-red-800 rounded-full">
@@ -178,7 +177,7 @@ export function ChatbotUI() {
                                                 : "bg-white text-black border border-blue-gray-100 rounded-bl-none"
                                         }`}
                                     >
-                                        <Typography variant="large" className="break-words">
+                                        <Typography variant="small" className="break-words">
                                             {msg.text}
                                         </Typography>
                                     </div>
@@ -187,17 +186,11 @@ export function ChatbotUI() {
 
                             {/* 스트리밍 중 출력 */}
                             {isStreaming && (
-                                <div className="flex justify-start items-center gap-2">
+                                <div className="flex justify-start">
                                     <div className="max-w-[75%] p-3 rounded-xl shadow-sm bg-white text-black border border-blue-gray-100 rounded-bl-none">
-                                        <Typography variant="large" className="break-words">
+                                        <Typography variant="small" className="break-words">
                                             {streamingMessage}
                                         </Typography>
-                                        {/* 깜빡이는 점 애니메이션 */}
-                                        <div className="flex items-center space-x-1 mt-[20px]">
-                                            <span className="dot dot1 w-1.5 h-1.5 rounded-full bg-blue-400" />
-                                            <span className="dot dot2 w-1.5 h-1.5 rounded-full bg-blue-400" />
-                                            <span className="dot dot3 w-1.5 h-1.5 rounded-full bg-blue-400" />
-                                        </div>
                                     </div>
                                 </div>
                             )}

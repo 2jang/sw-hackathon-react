@@ -15,7 +15,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import {BrowserRouter} from "react-router-dom";
 import {ThemeProvider} from "@material-tailwind/react";
-import "../public/css/tailwind.css";
+import "./assets/css/tailwind.css";
 import {DevSupport} from "@react-buddy/ide-toolbox";
 import {ComponentPreviews, useInitial} from "../dev/index.js";
 

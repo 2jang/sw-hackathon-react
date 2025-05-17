@@ -11,7 +11,7 @@ import {
     AcademicCapIcon,
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import deanImg from "/public/img/Data_Science/JEONGJINMYEONG.jpeg"; // 이미지 경로는 실제 프로젝트 구조에 맞게 확인해주세요.
+import deanImg from "/img/Data_Science/JEONGJINMYEONG.jpeg"; // 이미지 경로는 실제 프로젝트 구조에 맞게 확인해주세요.
 
 const DeanIntro_DataScience = () => {
     const deanInfo = {
