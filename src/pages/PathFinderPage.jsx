@@ -458,7 +458,7 @@ export function Suwon_navi() {
                                 </div>
 
                                 {!measureMode && (
-                                    <div className="absolute top-4 left-4 bg-white bg-opacity-90 p-3 rounded-lg shadow-md border border-gray-200 pointer-events-none max-w-[calc(100%-3rem)]">
+                                    <div className="absolute top-4 left-4 bg-white bg-opacity-90 p-3 rounded-lg shadow-md border border-gray-200 pointer-events-none max-w-[calc(100%-3rem)] [@media(max-width:430px)]:mb-[90px] [@media(max-width:430px)]:opacity-0">
                                         <Typography variant="h6" className="text-gray-800 text-sm md:text-base leading-tight">
                                             {clickedPoints.length === 0 ? "출발지를 선택하세요." :
                                                 clickedPoints.length === 1 ? `출발: ${clickedPoints[0].building.kr_name}` :
