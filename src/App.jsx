@@ -2,6 +2,7 @@ import React, { useState } from "react"; // useState 임포트
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Navbar } from "@/widgets/layout";
 import mainRoutes from "@/mainRoutes.jsx";
+import ScrollToTop from "@/widgets/layout/ScrollTpTop.jsx";
 
 function App() {
     const { pathname } = useLocation();
@@ -24,6 +25,7 @@ function App() {
                     </div>
                 </div>
             )}
+            <ScrollToTop /> //페이지 변경시 스크롤 상단으로 이동
             <Routes>
                 {mainRoutes.map(
                     ({ path, element }, key) =>

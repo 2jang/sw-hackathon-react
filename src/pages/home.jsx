@@ -19,6 +19,7 @@ import {featuresDataCollege, curriculumData, teamData_ICT, teamData_CIS, teamDat
 import SWCollegeIntro from "@/widgets/layout/SWCollegeIntro.jsx";
 import DeanIntro from "@/widgets/layout/DeanIntro.jsx";
 import CampusGuide from "@/widgets/layout/CampusGuide.jsx";
+import {Link} from "react-router-dom";
 
 
 // Home.js 상단 또는 animations.js 등으로 분리 가능
@@ -132,7 +133,7 @@ export function Home() {
           <div className="container mx-auto max-w-screen-xl">
             <SWCollegeIntro /> {/* SWCollegeIntro는 자체 애니메이션을 가짐 */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-2 mt-12">
-              {featuresDataCollege.map(({ color, title, icon, description, links }, index) => (
+              {featuresDataCollege.map(({ color, title, icon, path, description, links }, index) => (
                   <motion.div
                       key={title}
                       variants={fadeIn} // 기존 fadeInUp 효과
@@ -141,15 +142,17 @@ export function Home() {
                       viewport={{ once: true, amount: 0.2 }}
                       custom={index} // staggered delay
                   >
-                    <FeatureCardCollege
-                        color={color}
-                        title={title}
-                        icon={React.createElement(icon, {
-                          className: "w-5 h-5 text-white",
-                        })}
-                        description={description}
-                        links={links}
-                    />
+                    <Link to={path}>
+                      <FeatureCardCollege
+                          color={color}
+                          title={title}
+                          icon={React.createElement(icon, {
+                            className: "w-5 h-5 text-white",
+                          })}
+                          description={description}
+                          links={links}
+                      />
+                    </Link>
                   </motion.div>
               ))}
             </div>

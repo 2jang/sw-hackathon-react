@@ -46,7 +46,7 @@ const CampusGuide = () => {
                     <br />
                     <br />
                 </Typography>
-                <Link to="/path-finding">
+                <Link to="/pathfinder">
                     <Button size="lg"
                             variant="text"
                             color="[#1E293B]"
@@ -65,7 +65,7 @@ const CampusGuide = () => {
                 custom={0.2}
             >
                 {/* Link 컴포넌트로 카드를 감싸서 라우팅 기능 추가 */}
-                <Link to="/path-finding" className="w-full max-w-sm">
+                <Link to="/pathfinder" className="w-full max-w-sm">
                     <Card className="shadow-lg border shadow-gray-500/10 rounded-lg w-full
                                  ring-1 ring-gray-200
                                   hover:ring-green-500 hover:ring-opacity-75
@@ -74,7 +74,7 @@ const CampusGuide = () => {
                         <CardHeader floated={false} className="relative h-56">
                             <img
                                 alt="Card Image"
-                                src="/img/teamwork.png"
+                                src="public/img/campusmap_img_2024.jpg"
                                 className="h-full w-full object-cover"
                             />
                         </CardHeader>

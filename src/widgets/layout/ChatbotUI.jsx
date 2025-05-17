@@ -41,6 +41,14 @@ export function ChatbotUI() {
 
     const toggleChatbot = () => setIsOpen(!isOpen);
 
+    const typewriterEffect = async (text, appendChar, delay = 20) => {
+        for (let i = 0; i < text.length; i++) {
+            await new Promise((resolve) => setTimeout(resolve, delay));
+            appendChar(text[i]);
+            scrollToBottom();
+        }
+    };
+
     const handleSend = async () => {
         if (!userInput.trim() || isStreaming) return;
 
@@ -72,11 +80,14 @@ export function ChatbotUI() {
 
                 const chunk = decoder.decode(value, { stream: true });
                 result += chunk;
-                setStreamingMessage(result);
-                scrollToBottom();
+
+                // 💬 타자 효과 적용
+                await typewriterEffect(chunk, (char) => {
+                    setStreamingMessage((prev) => prev + char);
+                });
             }
 
-            // ✅ JSON 파싱 시도
+            // JSON 파싱 (옵션)
             let parsed = result;
             try {
                 const json = JSON.parse(result);
@@ -91,7 +102,6 @@ export function ChatbotUI() {
                 ...prev,
                 { id: Date.now() + 1, text: parsed, sender: "bot" },
             ]);
-
             setStreamingMessage("");
         } catch (err) {
             console.error("Streaming error:", err);
