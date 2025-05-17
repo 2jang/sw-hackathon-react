@@ -38,17 +38,18 @@ const CurriculumMediaSW = () => {
                             key={title}
                             color="transparent"
                             shadow={false}
-                            className="text-center text-blue-gray-900"
+                            className="text-center text-blue-gray-900 rounded-xl overflow-hidden border border-gray-200/80 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out pt-8 pb-8" // 스타일 약간 수정
+
                         >
                             <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-blue-gray-900 shadow-lg shadow-gray-500/20">
                                 {React.createElement(icon, {
                                     className: "w-5 h-5 text-white",
                                 })}
                             </div>
-                            <Typography variant="h5" color="blue-gray" className="mb-2">
+                            <Typography variant="h5" color="blue-gray" className="mb-2 px-4">
                                 {title}
                             </Typography>
-                            <Typography className="font-normal text-blue-gray-500">
+                            <Typography className="font-normal text-blue-gray-500 px-6">
                                 {description}
                             </Typography>
                         </Card>
