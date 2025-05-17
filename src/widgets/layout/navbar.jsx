@@ -107,7 +107,7 @@ export function Navbar({ brandName, routes, action, isHovered, onHoverChange }) 
             onMouseEnter={() => onHoverChange(true)}
             onMouseLeave={() => onHoverChange(false)}
         >
-            <div className={`mt-[6px] flex items-center px-12 pb-0 ${isHovered ? 'text-black' : 'text-white'}`}>
+            <div className={`mt-[16px] sm:mt-[15px] lg:mt-[9px] md:mt-[8px] xl:mt-[7px] flex items-center px-12 pb-0 ${isHovered ? 'text-black' : 'text-white'}`}>
                 <Link to="/home">
                     <img alt="Logo" src={isHovered ? "/img/usw_black.png" : "/img/usw_white.png"} className="h-[35px] transition-all duration-300 ease-in-out p-0" />
                 </Link>
@@ -127,20 +127,6 @@ export function Navbar({ brandName, routes, action, isHovered, onHoverChange }) 
                     )}
                 </IconButton>
             </div>
-            <MobileNav
-                className={`rounded-xl px-1 pt-0.5 pb-1 transition-colors duration-300 ease-in-out ${isHovered ? 'bg-white text-black' : ' text-white'}`}
-                open={openNav}
-            >
-                <div className="container mx-auto">
-                    {navList}
-                    <div className="mt-4 flex justify-center">
-                        {socialButtons}
-                    </div>
-                    {React.cloneElement(action, {
-                        className: "w-full block",
-                    })}
-                </div>
-            </MobileNav>
         </MTNavbar>
     );
 }
