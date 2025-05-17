@@ -67,7 +67,7 @@ function ScoreCard({ team, score, onClick }) {
                             animate={{ opacity: 1, y: -30 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 1 }}
-                            className="absolute text-red-500 font-bold text-xl pointer-events-none"
+                            className="absolute text-black-500 font-bold text-[70px] pointer-events-none"
                             style={{ top: "30%", left: `${left}%` }}
                         >
                             +1
