@@ -224,7 +224,7 @@ export function Suwon_navi() {
     const calculatePath = async (startBuilding, endBuilding) => {
         setIsLoading(true);
         try {
-            const apiUrl = `/api/suwon-navi?buildings=${startBuilding.name}&buildings=${endBuilding.name}`;
+            const apiUrl = `http://ahnai1.suwon.ac.kr:5041/suwon-navi?buildings=${startBuilding.name}&buildings=${endBuilding.name}`;
             const response = await fetch(apiUrl);
             if (!response.ok) {
                 const errorData = await response.text();

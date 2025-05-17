@@ -14,3 +14,4 @@ export * from "@/widgets/layout/CampusGuide";
 export * from "@/widgets/layout/curriculum";
 export * from "@/widgets/layout/curriculumComputerScienceAndEngineernig";
 export * from "@/widgets/layout/curriculumDataScience";
+export * from "@/widgets/layout/ScoreCard";

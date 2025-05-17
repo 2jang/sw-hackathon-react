@@ -95,7 +95,7 @@ export function Home() {
               loop
               playsInline
           >
-            <source src="/src/data/USW_video.mp4" type="video/mp4" />
+            <source src="/src/assets/video/USW_video.mp4" type="video/mp4" />
             브라우저가 비디오 태그를 지원하지 않습니다.
           </video>
 

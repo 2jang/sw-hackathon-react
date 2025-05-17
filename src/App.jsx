@@ -30,7 +30,7 @@ function App() {
             {!(pathname === '/sign-in' || pathname === '/sign-up') && (
                 <div
                     ref={containerRef}
-                    className={`z-[999] w-full h-[70px] fixed flex items-center justify-center left-2/4 z-10 mx-auto -translate-x-2/4 p-2 top-0 transition-colors duration-300 ease-in-out ${
+                    className={`z-[999] w-full h-[70px] fixed flex items-center justify-center left-2/4 z-10 mx-auto -translate-x-2/4 p-2 top-0  transition-colors duration-300 ease-in-out ${
                         isBoxVisible ? 'bg-white' : 'bg-[#263238]'
                     }`}
                 >
@@ -59,8 +59,12 @@ function App() {
 
                                 {/* Column 1: 컴퓨터 계열 */}
                                 <div>
-                                    <p className="text-sm mb-3 font-medium text-gray-500">컴퓨터학부</p>
-
+                                    <Link
+                                        to="/ComputerScience"
+                                        onClick={toggleBoxVisible}
+                                    >
+                                        <p className="text-sm mb-3 font-medium text-gray-500 hover:text-[#febe3a] transition-colors duration-300">컴퓨터학부</p>
+                                    </Link>
                                     <Link
                                         to="/computer_sw"
                                         onClick={toggleBoxVisible}
@@ -80,8 +84,12 @@ function App() {
 
                                 {/* Column 2: 정보통신 계열 */}
                                 <div className="border-l pl-6">
-                                    <p className="text-sm mb-3 font-medium text-gray-500">정보통신학부</p>
-
+                                    <Link
+                                        to="/telecommunicationEngineering"
+                                        onClick={toggleBoxVisible}
+                                    >
+                                    <p className="text-sm mb-3 font-medium text-gray-500 hover:text-[#febe3a] transition-colors duration-300">정보통신학부</p>
+                                    </Link>
                                     <Link
                                         to="/ict"
                                         onClick={toggleBoxVisible}
@@ -101,8 +109,12 @@ function App() {
 
                                 {/* Column 3: 데이터과학과 */}
                                 <div className="border-l pl-6">
-                                    <p className="text-sm mb-3 font-medium text-gray-500">데이터학부</p>
-
+                                    <Link
+                                        to="/DataScience"
+                                        onClick={toggleBoxVisible}
+                                    >
+                                        <p className="text-sm mb-3 font-medium text-gray-500 hover:text-[#febe3a] transition-colors duration-300">데이터학부</p>
+                                    </Link>
                                     <Link
                                         to="/data_science"
                                         onClick={toggleBoxVisible}

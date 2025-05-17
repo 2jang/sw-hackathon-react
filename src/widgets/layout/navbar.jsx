@@ -38,7 +38,7 @@ export function Navbar({ brandName, routes, action, isHovered, onHoverChange }) 
                 if (collegeInfo && collegeInfo.path === path) {
                     return (
                         <li key={name} className="relative ml-[100px]">
-                            <div className={`capitalize flex items-center gap-1 p-0.5 font lg:text-[20px] xl:text-xl tracking-wide cursor-pointer ${isHovered ? 'text-black' : 'text-white'}`}>
+                            <div className={`capitalize flex items-center gap-1 p-0.5 font lg:text-[20px] xl:text-xl tracking-wide hover:text-[#febe3a] transition-colors duration-300 cursor-pointer ${isHovered ? 'text-black' : 'text-white'}`}>
                                 {name}
                             </div>
                         </li>
