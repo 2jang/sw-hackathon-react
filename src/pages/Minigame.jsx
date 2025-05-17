@@ -54,6 +54,12 @@ function ScoreCard({ team, score, onClick }) {
                 <h4 className={`block antialiased tracking-normal font-sans text-2xl leading-snug text-blue-600 mb-4 font-bold ${team.textColor} `}>{team.name}</h4>
                 <h1 className="block antialiased tracking-normal font-sans text-blue-gray-900 mb-10 font-extrabold text-7xl">{score}</h1>
                 <button
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            e.stopPropagation();
+                        }
+                    }}
                     onClick={handleClick}
                     className={`align-middle select-none font-sans text-center uppercase disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none py-3.5 px-7 rounded-lg text-white shadow-md shadow-orange-500/20 hover:shadow-lg hover:shadow-orange-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none w-full text-lg font-semibold transition-all hover:scale-105 active:scale-95 bg-${team.tailwindColor} hover:bg-${team.hoverColor}`}
                 >
