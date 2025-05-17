@@ -14,6 +14,7 @@ module.exports = withMT({
       'md': '768px',
       'lg': '970px', // 이 값을 980px로 변경 또는 추가
       'xl': '1280px',
+      'xll' : '1480px',
       '2xl': '1536px',
       // 기존에 다른 커스텀 screen 설정이 있었다면 유지해야 합니다.
     },
