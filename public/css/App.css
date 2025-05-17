@@ -1,0 +1,25 @@
+@keyframes blink {
+    0%, 80%, 100% {
+        opacity: 0.2;
+    }
+    40% {
+        opacity: 1;
+    }
+}
+
+.dot {
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+.dot1 {
+    animation-delay: 0s;
+}
+.dot2 {
+    animation-delay: 0.2s;
+}
+.dot3 {
+    animation-delay: 0.4s;
+}
