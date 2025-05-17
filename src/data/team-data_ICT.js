@@ -54,17 +54,17 @@ export const teamData_ICT = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "mailto:heejungbyun@suwon.ac.kr"
+        path: "mailto:example@example.com"
       },
       {
         color: "blue",
         name: "phone",
-        path: "tel:031-229-8048"
+        path: "tel:010-0000-0000"
       },
       {
         color: "pink",
         name: "location-dot",
-        path: "IT대학 524호"
+        path: "#"
       },
     ],
   },
@@ -82,12 +82,12 @@ export const teamData_ICT = [
       {
         color: "blue",
         name: "phone",
-        path: "tel:-"
+        path: "tel:010-0000-0000"
       },
       {
         color: "pink",
         name: "location-dot",
-        path: "-"
+        path: "#"
       },
     ],
   },
@@ -100,17 +100,17 @@ export const teamData_ICT = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "mailto:infovis@naver.com"
+        path: "mailto:example@example.com"
       },
       {
         color: "blue",
         name: "phone",
-        path: "tel:-"
+        path: "tel:010-0000-0000"
       },
       {
         color: "pink",
         name: "location-dot",
-        path: "-"
+        path: "#"
       },
     ],
   },
@@ -123,17 +123,17 @@ export const teamData_ICT = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "mailto:kchong@suwon.ac.kr"
+        path: "mailto:example@example.com"
       },
       {
         color: "blue",
         name: "phone",
-        path: "tel:-"
+        path: "tel:010-0000-0000"
       },
       {
         color: "pink",
         name: "location-dot",
-        path: "-"
+        path: "#"
       },
     ],
   },

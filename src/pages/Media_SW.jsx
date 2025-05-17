@@ -43,6 +43,8 @@ export function Media_SW() {
                     </div>
                 </div>
             </div>
+            <MediaSWIntro />
+            <CurriculumMediaSW/>
             <section className="px-4 pt-20 pb-48 bg-[#f7f8fa]">
                 <div className="container mx-auto max-w-screen-xl">
                     <PageTitle section="교수 소개" heading="컴퓨터SW학과">
@@ -75,40 +77,7 @@ export function Media_SW() {
                     )}
                 </div>
             </section>
-            <section className="relative bg-white py-24 px-4">
-                <div className="container mx-auto">
-                    <PageTitle section="Co-Working" heading="Build something">
-                        Put the potentially record low maximum sea ice extent tihs year down
-                        to low ice. According to the National Oceanic and Atmospheric
-                        Administration, Ted, Scambos.
-                    </PageTitle>
-                    <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
-                        {curriculumData_ICT.map(({ title, icon, description }) => (
-                            <Card
-                                key={title}
-                                color="transparent"
-                                shadow={false}
-                                className="text-center text-blue-gray-900"
-                            >
-                                <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-blue-gray-900 shadow-lg shadow-gray-500/20">
-                                    {React.createElement(icon, {
-                                        className: "w-5 h-5 text-white",
-                                    })}
-                                </div>
-                                <Typography variant="h5" color="blue-gray" className="mb-2">
-                                    {title}
-                                </Typography>
-                                <Typography className="font-normal text-blue-gray-500">
-                                    {description}
-                                </Typography>
-                            </Card>
-                        ))}
-                    </div>
-                    <PageTitle section="Contact Us" heading="Want to work with us?">
-                        Complete this form and we will get back to you in 24 hours.
-                    </PageTitle>
-                </div>
-            </section>
+
             <div className="bg-white">
                 <Footer />
             </div>

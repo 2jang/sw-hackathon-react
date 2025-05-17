@@ -43,6 +43,8 @@ export function Data_Science() {
                     </div>
                 </div>
             </div>
+            <DataScienceIntro/>
+            <CurriculumDataScience/>
             <section className="px-4 pt-20 pb-48 bg-[#f7f8fa]">
                 <div className="container mx-auto max-w-screen-xl">
                     <PageTitle section="교수 소개" heading="데이터과학과">
@@ -83,7 +85,7 @@ export function Data_Science() {
                         Administration, Ted, Scambos.
                     </PageTitle>
                     <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
-                        {curriculumData.map(({ title, icon, description }) => (
+                        {curriculumData_ICT.map(({ title, icon, description }) => (
                             <Card
                                 key={title}
                                 color="transparent"

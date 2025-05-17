@@ -4,24 +4,25 @@ import {
   PlayIcon,
 } from "@heroicons/react/24/solid";
 
+//정보통신학부 과목소개 데이터
 export const curriculumData_ICT = [
   {
-    title: "전자회로",
+    title: "회로이론",
     icon: BriefcaseIcon,
     description:
-      "디지털논리설계, 회로이론, 전자회로, 마이크로프로세서, 집적회로, VLSI 설계",
+      "회로이론의 기초가 되는 회로해석에 중점을 두어 앞으로 학습할 전자회로이론, 전력전자 이론을 학습하는데 도움을준다.",
   },
   {
-    title: "통신 및 신호처리",
+    title: "네트워크",
     icon: ChartBarIcon,
     description:
-      "신호및시스템, 디지털통신, 디지털신호처리, 멀티미디어신호처리",
+      "컴퓨터 간의 통신 원리를 이해하고, 네트워크 계층 구조 및 데이터 전달 방식에 대한 이론을 학습하여 정보 전달 시스템의 기초를 다진다.",
   },
   {
-    title: "시스템 프로그래밍",
+    title: "디지털논리설계실험",
     icon: PlayIcon,
     description:
-      "임베디드시스템, 컴퓨터네트워크, 웹프로그래밍, 시스템프로그래밍",
+      "논리회로의 기본 원리를 바탕으로 조합논리 및 순차논리 회로를 직접 설계하고 실험함으로써 디지털 시스템 구현 능력을 키운다.",
   },
 ];
 
