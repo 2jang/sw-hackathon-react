@@ -24,3 +24,5 @@ src/.DS_Store
 src/widgets/.DS_Store
 
 /dist/
+
+src/data/USW_video.mp4

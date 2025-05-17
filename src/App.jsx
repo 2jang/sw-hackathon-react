@@ -30,7 +30,7 @@ function App() {
             {!(pathname === '/sign-in' || pathname === '/sign-up') && (
                 <div
                     ref={containerRef}
-                    className={`w-full h-[70px] fixed flex items-center justify-center left-2/4 z-10 mx-auto -translate-x-2/4 p-2 top-0 transition-colors duration-300 ease-in-out ${
+                    className={`z-[999] w-full h-[70px] fixed flex items-center justify-center left-2/4 z-10 mx-auto -translate-x-2/4 p-2 top-0 transition-colors duration-300 ease-in-out ${
                         isBoxVisible ? 'bg-white' : 'bg-[#263238]'
                     }`}
                 >

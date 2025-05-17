@@ -86,16 +86,29 @@ export function Home() {
 
   return (
       <>
-        {/* Hero Section */}
-        <div className="relative flex h-[50vh] content-center items-center justify-center">
-          <div className="absolute top-0 h-full w-full bg-[url('https://www.suwon.ac.kr/usr/images/suwon/college_top_technology.gif')] bg-cover bg-center" />
-          <div className="absolute top-0 h-full w-full bg-grey/60 bg-cover bg-center" />
-          <div className="max-w-8xl container relative mx-auto">
+        <div className="relative flex h-[100vh] content-center items-center justify-center overflow-hidden">
+          {/* 🔹 배경 영상 삽입 */}
+          <video
+              className="absolute top-0 left-0 w-full h-full object-cover z-0"
+              autoPlay
+              muted
+              loop
+              playsInline
+          >
+            <source src="/src/data/USW_video.mp4" type="video/mp4" />
+            브라우저가 비디오 태그를 지원하지 않습니다.
+          </video>
+
+          {/* 🔹 오버레이 (약간 어둡게) */}
+          <div className="absolute top-0 h-full w-full bg-black/40 z-10" />
+
+          {/* 🔹 Hero 콘텐츠 */}
+          <div className="max-w-8xl container relative mx-auto z-20">
             <div className="flex flex-wrap items-center">
               <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12">
                 <motion.div
                     initial="hidden"
-                    animate="visible" // Hero는 바로 보이도록 animate 사용
+                    animate="visible"
                     variants={heroTitleAnim}
                 >
                   <Typography
@@ -112,7 +125,7 @@ export function Home() {
                     variants={heroSubtitleAnim}
                 >
                   <Typography variant="lead" color="white" className="opacity-80">
-                    COLLEGE OF INTELLIGENT SOFTWARE CONVERGENCE <br/>
+                    COLLEGE OF INTELLIGENT SOFTWARE CONVERGENCE <br />
                     제4차 산업혁명, 수원대학교 지능형SW융합대학이 주도합니다.
                   </Typography>
                 </motion.div>
@@ -120,6 +133,7 @@ export function Home() {
             </div>
           </div>
         </div>
+
 
         {/* Section 1: SW College Intro & Features with Gradient Background */}
         {/* 이 섹션 전체를 감싸는 motion.div 추가 */}

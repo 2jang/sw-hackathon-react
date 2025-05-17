@@ -72,7 +72,12 @@ export function Navbar({ brandName, routes, action, isHovered, onHoverChange }) 
         >
             <div className={`mt-[16px] sm:mt-[15px] lg:mt-[9px] md:mt-[8px] xl:mt-[7px] flex items-center px-12 pb-0 ${isHovered ? 'text-black' : 'text-white'}`}>
                 <Link to="/home">
-                    <img alt="Logo" src={isHovered ? "/img/usw_black.png" : "/img/usw_white.png"} className="h-[35px] transition-all duration-300 ease-in-out p-0" />
+                    <img alt="Logo"
+                         src={isHovered ? "/img/usw_black.png" : "/img/usw_white.png"}
+                         className="h-[35px] transition-all duration-300 ease-in-out p-0"
+                         onFocus={(e) => e.target.blur()}
+                         tabIndex={-1} // 포커스 방지
+                    />
                 </Link>
                 <div className="hidden lg:block">{navList}</div>
                 <div className="hidden lg:flex mt-2 ml-auto">{socialButtons}</div>
