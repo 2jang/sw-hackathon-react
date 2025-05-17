@@ -6,7 +6,7 @@ import {
     Button,
 } from "@material-tailwind/react";
 import { motion } from "framer-motion";
-import {curriculumData ,curriculumDataComputerScienceAndEngineering} from "@/data/index.js";
+import { curriculumDataComputerScienceAndEngineering} from "@/data/index.js";
 import React from "react";
 import PageTitle from "@/widgets/layout/page-title.jsx";
 

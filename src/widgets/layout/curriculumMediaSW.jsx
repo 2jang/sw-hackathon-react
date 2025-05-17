@@ -5,8 +5,7 @@ import {
     Typography,
     Button,
 } from "@material-tailwind/react";
-import { motion } from "framer-motion";
-import {curriculumData, curriculumDataMediaSW} from "@/data/index.js";
+import {curriculumDataMediaSW} from "@/data/index.js";
 import React from "react";
 import PageTitle from "@/widgets/layout/page-title.jsx";
 import  { curriculumDataComputerSW } from "@/data/curriculum-data-computerSW.jsx";
