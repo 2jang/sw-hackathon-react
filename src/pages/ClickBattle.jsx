@@ -27,11 +27,14 @@ const CLICK_ID_TO_TEAM_KEY_MAP = TEAMS_CONFIG.reduce((acc, team) => {
     return acc;
 }, {});
 
-// 피버 관련 상수
-const FEVER_GAUGE_MAX = 200; // 피버 게이지 최대치 (예: 20번 클릭)
-const FEVER_POINTS_PER_CLICK = 1; // 클릭당 피버 게이지 증가량
-const FEVER_MODE_DURATION = 10000; // 피버 모드 지속 시간 (10초)
-const FEVER_CLICK_MULTIPLIER = 2; // 피버 시 클릭 배율
+const FEVER_GAUGE_MAX = 300;
+const FEVER_POINTS_PER_CLICK = 1;
+const FEVER_MODE_DURATION = 10000;
+const FEVER_CLICK_MULTIPLIER = 2;
+
+// 피버 게이지 자동 감소 관련 상수
+const FEVER_DECAY_INTERVAL = 500; // 게이지 감소 간격 (ms) - 예: 1.5초마다
+const FEVER_DECAY_AMOUNT = 1;    // 감소량 - 예: 1 포인트씩
 
 // 히트 효과 컴포넌트 (기존과 동일)
 const HitEffect = ({ hit, position }) => {
@@ -215,20 +218,16 @@ export function ClickBattle() {
     const [prevRanks, setPrevRanks] = useState({});
     const rankChangeAudioRef = useRef(null);
 
-    // 피버 상태 추가
     const initialFeverState = TEAMS_CONFIG.reduce((acc, team) => ({ ...acc, [team.key]: 0 }), {});
     const [feverGauges, setFeverGauges] = useState(initialFeverState);
 
     const initialFeverActiveState = TEAMS_CONFIG.reduce((acc, team) => ({ ...acc, [team.key]: false }), {});
     const [feverActive, setFeverActive] = useState(initialFeverActiveState);
 
-    const feverTimersRef = useRef({}); // 각 팀별 피버 타이머 ID 저장
+    const feverTimersRef = useRef({});
 
     useEffect(() => {
-        rankChangeAudioRef.current = new Audio('/img/click.mp3'); // 순위 변경 시 효과음
-        // 피버 발동/클릭 효과음 (필요 시 추가)
-        // feverActivateSoundRef.current = new Audio('/sounds/fever_start.mp3');
-        // feverClickSoundRef.current = new Audio('/sounds/fever_click.mp3');
+        rankChangeAudioRef.current = new Audio('/img/click.mp3');
     }, []);
 
     useEffect(() => {
@@ -241,6 +240,33 @@ export function ClickBattle() {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, []);
 
+    // 피버 게이지 자동 감소 로직
+    useEffect(() => {
+        const decayIntervalId = setInterval(() => {
+            // setFeverGauges를 함수형 업데이트로 호출하여 최신 feverActive 상태를 간접적으로 참조합니다.
+            // 또는 feverActive를 이 useEffect의 의존성 배열에 추가하여, feverActive가 변경될 때마다
+            // 인터벌을 재설정하도록 합니다. 여기서는 후자의 방식을 사용합니다.
+            setFeverGauges(prevGauges => {
+                let newGauges = { ...prevGauges };
+                let changed = false;
+                TEAMS_CONFIG.forEach(team => {
+                    // 현재 팀이 피버 모드가 아니고, 게이지가 0보다 클 때만 감소
+                    if (!feverActive[team.key] && newGauges[team.key] > 0) {
+                        newGauges[team.key] = Math.max(0, newGauges[team.key] - FEVER_DECAY_AMOUNT);
+                        changed = true;
+                    }
+                });
+                // 변경이 있을 때만 상태 업데이트를 트리거하여 불필요한 리렌더링 방지
+                return changed ? newGauges : prevGauges;
+            });
+        }, FEVER_DECAY_INTERVAL);
+
+        return () => {
+            clearInterval(decayIntervalId); // 컴포넌트 언마운트 시 인터벌 정리
+        };
+    }, [feverActive]); // feverActive 상태가 변경될 때마다 effect를 재실행하여 인터벌을 최신 상태로 유지
+
+    // ... (getSortedTeams, getTeamRanks, 기타 useEffect들)
     const getSortedTeams = () => TEAMS_CONFIG.map(team => ({ ...team, score: scores[team.key] || 0 })).sort((a, b) => b.score - a.score);
     const getTeamRanks = () => {
         const sorted = getSortedTeams();
@@ -262,7 +288,6 @@ export function ClickBattle() {
     }, [teamRanks, prevRanks]);
 
     useEffect(() => {
-        // ... (초기 점수 가져오기 및 웹소켓 연결 로직은 기존과 유사하게 유지)
         const fetchInitialScores = async () => {
             try {
                 const response = await fetch('http://ahnai1.suwon.ac.kr:5041/click-num');
@@ -304,7 +329,7 @@ export function ClickBattle() {
         return () => { // Cleanup
             if (clientRef.current?.connected) clientRef.current.deactivate();
             setIsConnected(false);
-            Object.values(feverTimersRef.current).forEach(clearTimeout); // 모든 피버 타이머 정리
+            Object.values(feverTimersRef.current).forEach(clearTimeout);
         };
     }, []);
 
@@ -315,41 +340,39 @@ export function ClickBattle() {
             return;
         }
 
-        let currentGaugeValue = feverGauges[teamKey] || 0;
-        let isCurrentlyFever = feverActive[teamKey];
+        // 현재 feverActive 상태를 직접 참조하여 사용
+        const isCurrentlyInFeverMode = feverActive[teamKey];
         let clickToSend = 1;
+        let newGaugeValueForThisClick = feverGauges[teamKey] || 0;
 
-        if (isCurrentlyFever) {
+
+        if (isCurrentlyInFeverMode) {
             clickToSend = FEVER_CLICK_MULTIPLIER;
-            // 피버 중 클릭 효과음 (필요 시)
-            // if (feverClickSoundRef.current) feverClickSoundRef.current.play().catch(e => console.error("피버 클릭 효과음 오류",e));
+            // 피버 중에는 게이지를 직접 변경하지 않음 (타이머에 의해 종료 시 0으로 리셋됨)
+            // 또는, 피버 중 클릭 시 게이지 유지 또는 약간 회복 등의 로직 추가 가능 (현재는 유지)
         } else {
-            currentGaugeValue += FEVER_POINTS_PER_CLICK;
-            if (currentGaugeValue >= FEVER_GAUGE_MAX) {
-                currentGaugeValue = FEVER_GAUGE_MAX; // 게이지 최대치로 설정
-                isCurrentlyFever = true;          // 피버 모드 발동
-                clickToSend = FEVER_CLICK_MULTIPLIER; // 현재 클릭부터 2배 적용
+            newGaugeValueForThisClick += FEVER_POINTS_PER_CLICK;
+            if (newGaugeValueForThisClick >= FEVER_GAUGE_MAX) {
+                newGaugeValueForThisClick = FEVER_GAUGE_MAX;
+                clickToSend = FEVER_CLICK_MULTIPLIER;
 
                 setFeverActive(prev => ({ ...prev, [teamKey]: true }));
-                // 피버 발동 효과음 (필요 시)
-                // if (feverActivateSoundRef.current) feverActivateSoundRef.current.play().catch(e => console.error("피버 발동 효과음 오류",e));
                 console.log(`${teamKey}팀 피버 모드 발동!`);
 
-                // 기존 타이머가 있다면 해제
                 if (feverTimersRef.current[teamKey]) {
                     clearTimeout(feverTimersRef.current[teamKey]);
                 }
-                // 피버 모드 종료 타이머 설정
                 feverTimersRef.current[teamKey] = setTimeout(() => {
                     setFeverActive(prev => ({ ...prev, [teamKey]: false }));
-                    setFeverGauges(prev => ({ ...prev, [teamKey]: 0 })); // 피버 게이지 초기화
+                    setFeverGauges(prev => ({ ...prev, [teamKey]: 0 })); // 피버 종료 시 게이지 완전 초기화
                     console.log(`${teamKey}팀 피버 모드 종료.`);
                 }, FEVER_MODE_DURATION);
             }
-            setFeverGauges(prev => ({ ...prev, [teamKey]: currentGaugeValue }));
+            // 클릭으로 인한 게이지 변경사항 즉시 반영
+            setFeverGauges(prev => ({ ...prev, [teamKey]: newGaugeValueForThisClick }));
         }
 
-        // 서버로 클릭 메시지 전송
+
         for (let i = 0; i < clickToSend; i++) {
             const clickMessageToServer = { clickId: teamDbClickId };
             try {
@@ -359,12 +382,11 @@ export function ClickBattle() {
                 });
             } catch (e) {
                 console.error("클릭 메시지 발행 중 오류:", e);
-                break; // 오류 발생 시 중단
+                break;
             }
         }
     };
-
-
+    // ... (getGridPositions, return JSX)
     const getGridPositions = () => ({
         1: "md:col-start-2 md:col-span-1 md:row-start-1",
         2: "md:col-start-1 md:col-span-1 md:row-start-1",
@@ -374,7 +396,7 @@ export function ClickBattle() {
 
     return (
         <>
-            {/* ... (헤더 및 배경 부분은 기존과 동일) ... */}
+            {/* Header and background */}
             <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 opacity-90 transition-all duration-500">
                     <div className="absolute inset-0 opacity-20">
@@ -421,7 +443,6 @@ export function ClickBattle() {
             </div>
 
             <style jsx global>{`
-                // ... (기존 @keyframes float, wiggle, ping-slow) ...
                 @keyframes float { 0% { transform: translateY(0) scale(1); } 50% { transform: translateY(-100px) scale(1.2); } 100% { transform: translateY(-200px) scale(0.8); opacity: 0; }}
                 @keyframes wiggle { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); }}
                 .animate-wiggle { animation: wiggle 0.5s ease-in-out infinite; }
@@ -429,9 +450,9 @@ export function ClickBattle() {
                 .animate-ping-slow { animation: ping-slow 1.8s cubic-bezier(0, 0, 0.2, 1) infinite; }
                 .animate-bounce_slight { animation: bounce_slight 1s infinite; }
                 @keyframes bounce_slight { 0%, 100% { transform: translateY(-3%); animation-timing-function: cubic-bezier(0.8,0,1,1); } 50% { transform: translateY(0); animation-timing-function: cubic-bezier(0,0,0.2,1); } }
-
             `}</style>
 
+            {/* Game Section */}
             <section className="-mt-20 px-4 pb-16 pt-8 md:pt-12 bg-gradient-to-b from-transparent to-gray-100">
                 <div className="container mx-auto max-w-screen-xl">
                     {isConnected || Object.values(scores).some(s => s > 0) ? (
@@ -442,7 +463,7 @@ export function ClickBattle() {
                                         team={team}
                                         score={scores[team.key]}
                                         rank={index + 1}
-                                        onClick={() => handleTeamClick(team.dbClickId, team.key)} // teamKey 전달
+                                        onClick={() => handleTeamClick(team.dbClickId, team.key)}
                                         feverGaugeValue={feverGauges[team.key]}
                                         isFeverActive={feverActive[team.key]}
                                         feverGaugeMax={FEVER_GAUGE_MAX}
