@@ -13,6 +13,7 @@ module.exports = withMT({
       'sm': '640px',
       'md': '768px',
       'lg': '970px', // 이 값을 980px로 변경 또는 추가
+      'lgg' : '1075px',
       'xl': '1280px',
       'xll' : '1480px',
       '2xl': '1536px',

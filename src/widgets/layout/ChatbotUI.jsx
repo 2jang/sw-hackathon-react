@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import "/src/assets/css/App.css";
 import {
     Button,
     Typography,
@@ -186,11 +187,16 @@ export function ChatbotUI() {
 
                             {/* 스트리밍 중 출력 */}
                             {isStreaming && (
-                                <div className="flex justify-start">
+                                <div className="flex justify-start items-center gap-2">
                                     <div className="max-w-[75%] p-3 rounded-xl shadow-sm bg-white text-black border border-blue-gray-100 rounded-bl-none">
                                         <Typography variant="small" className="break-words">
                                             {streamingMessage}
                                         </Typography>
+                                        <div className="flex items-center space-x-1 mt-[5px]">
+                                            <span className="dot dot1 w-1.5 h-1.5 rounded-full bg-blue-400" />
+                                            <span className="dot dot2 w-1.5 h-1.5 rounded-full bg-blue-400" />
+                                            <span className="dot dot3 w-1.5 h-1.5 rounded-full bg-blue-400" />
+                                        </div>
                                     </div>
                                 </div>
                             )}
