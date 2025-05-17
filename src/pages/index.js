@@ -8,7 +8,7 @@ export * from "@/pages/telecommunicationEngineering";
 export * from "@/pages/computerScienceAndEngineering.jsx";
 export * from "@/pages/dataScience.jsx";
 export * from "@/pages/PathFinderPage";
-export * from "@/pages/Minigame";
+export * from "@/pages/ClickBattle.jsx";
 export { ICT } from "./ICT.jsx";
 export { CIS } from "./CIS.jsx";
 export { Computer_SW } from "./Computer_SW.jsx";

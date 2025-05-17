@@ -7,7 +7,7 @@ import {
   Suwon_navi,
   ICT, CIS, Computer_SW, Media_SW, Data_Science,
   Sample_form,
-  Minigame,
+  ClickBattle,
 } from "@/pages";
 
 export const mainRoutes = [
@@ -44,7 +44,7 @@ export const mainRoutes = [
   {
     name: "미니게임",
     path: "/minigame",
-    element: <Minigame />,
+    element: <ClickBattle />,
   },
   {
     name: "",
