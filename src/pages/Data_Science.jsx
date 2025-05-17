@@ -36,7 +36,7 @@ export function Data_Science() {
                                 데이터학과
                             </Typography>
                             <Typography variant="lead" color="white" className="opacity-80">
-                                데이터학과 슬로건
+                                "데이터로 세상을 읽고, 통찰로 미래를 설계하다"
                             </Typography>
                         </div>
                     </div>

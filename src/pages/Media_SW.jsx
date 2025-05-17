@@ -37,7 +37,7 @@ export function Media_SW() {
                                 미디어SW
                             </Typography>
                             <Typography variant="lead" color="white" className="opacity-80">
-                                미디어SW
+                                "미디어를 이해하는 개발자, 세상을 바꾸는 창작자"
                             </Typography>
                         </div>
                     </div>

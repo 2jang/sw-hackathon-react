@@ -95,7 +95,7 @@ export function ICT() {
                                 variants={heroSubtitleAnim}
                             >
                                 <Typography variant="lead" color="white" className="opacity-80">
-                                    미래를 연결하는 기술, 세상을 바꾸는 혁신
+                                    "미래를 연결하는 기술, 세상을 바꾸는 혁신"
                                 </Typography>
                             </motion.div>
                         </div>

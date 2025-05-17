@@ -36,7 +36,7 @@ export function Computer_SW() {
                                 컴퓨터SW
                             </Typography>
                             <Typography variant="lead" color="white" className="opacity-80">
-                                컴퓨터SW 슬로건
+                                "SW로 세상을 연결하다, 수원대 컴퓨터소프트웨어학과"
                             </Typography>
                         </div>
                     </div>

@@ -95,7 +95,7 @@ export function CIS() {
                                 variants={heroSubtitleAnim}
                             >
                                 <Typography variant="lead" color="white" className="opacity-80">
-                                    안전한 디지털 세상을 만드는 정보보호 전문가
+                                    "안전한 디지털 세상을 만드는 정보보호 전문가"
                                 </Typography>
                             </motion.div>
                         </div>
