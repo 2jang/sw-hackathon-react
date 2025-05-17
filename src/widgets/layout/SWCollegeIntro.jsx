@@ -102,11 +102,11 @@ const SWCollegeIntro = () => {
                 </motion.p>
 
                 {/* 통계 카드 */}
-                <div className="grid grid-cols-2 gap-20 [@media(max-width:430px)]:gap-5 max-w-4xl mx-auto">
+                <div className="justify-center grid grid-cols-2 gap-20 [@media(max-width:430px)]:gap-4 max-w-4xl mx-auto">
                     {stats.map((stat, i) => (
                         <motion.div
                             key={stat.title}
-                            className="bg-[#1e293b] border border-gray-700 rounded-xl p-6 text-center [@media(max-width:430px)]:w-[160px] [@media(max-width:430px)]:h-[160px]"
+                            className="bg-[#1e293b] border border-gray-700 rounded-xl p-6 text-center [@media(max-width:430px)]:w-[140px] [@media(max-width:430px)]:h-[160px]"
                             variants={fadeIn}
                             initial="hidden"
                             whileInView="visible"

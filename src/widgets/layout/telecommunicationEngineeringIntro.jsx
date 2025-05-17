@@ -90,11 +90,11 @@ const TelecommunicationEngineeringIntro = () => {
                     다양한 실습을 통하여 실무 역량을 갖출 수 있도록 교육함으로써 4차 산업혁명시대에 필요한 핵심 기술 인력을 양성합니다.
                 </motion.p>
 
-                <div className="grid grid-cols-1 [@media(max-width:430px)]:grid-cols-2 sm:grid-cols-2 gap-10 [@media(max-width:430px)]:gap-5max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 [@media(max-width:430px)]:grid-cols-2 sm:grid-cols-2 gap-10 [@media(max-width:430px)]:gap-4 max-w-4xl mx-auto">
                     {stats.map((stat, i) => (
                         <motion.div
                             key={stat.title}
-                            className="bg-[#1e293b] border border-gray-700 rounded-xl p-6 text-center [@media(max-width:430px)]:w-[160px] [@media(max-width:430px)]:h-[160px]"
+                            className="bg-[#1e293b] border border-gray-700 rounded-xl p-6 text-center [@media(max-width:430px)]:w-[140px] [@media(max-width:430px)]:h-[160px]"
                             variants={fadeIn}
                             initial="hidden"
                             whileInView="visible"

@@ -92,14 +92,14 @@ const DeanIntro = () => {
                             <Card className="shadow-xl rounded-lg overflow-hidden
                                 ring-1 ring-gray-300 hover:ring-green-500 hover:ring-opacity-75
                                 transition-all duration-300 ease-in-out
-                                hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105 [@media(max-width:430px)]:w-[400px] [@media(max-width:430px)]:h-[200px]">
+                                hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105 [@media(max-width:430px)]:w-[360px] [@media(max-width:430px)]:h-[210px]">
                                 <CardBody className="p-6 md:p-8">
                                     <div className="flex flex-col sm:flex-row items-start [@media(max-width:430px)]:flex-row">
                                         <div className="w-32 sm:w-28 flex-shrink-0 mx-auto sm:mx-0 mb-4 sm:mb-0 sm:mr-6 md:mr-7">
                                             <img
                                                 src={deanImg}
                                                 alt={`${deanInfo.name} 학장`}
-                                                className="w-full h-auto object-cover rounded-lg shadow-md aspect-square [@media(max-width:430px)]:w-[90px]"
+                                                className="w-full h-auto object-cover rounded-lg shadow-md aspect-square [@media(max-width:430px)]:w-[90px] [@media(max-width:430px)]:h-[110px]"
                                             />
                                         </div>
                                         <div className="flex-grow">

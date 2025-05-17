@@ -90,11 +90,11 @@ const ComputerScienceAndEngineeringIntro = () => {
                     ICT 기반의 소프트웨어 개발 역량을 바탕으로 다양한 산업에 즉시 투입 가능한 전문가를 배출합니다.
                 </motion.p>
 
-                <div className="grid grid-cols-1 [@media(max-width:430px)]:grid-cols-2 sm:grid-cols-2 gap-10 [@media(max-width:430px)]:gap-5 max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 [@media(max-width:430px)]:grid-cols-2 sm:grid-cols-2 gap-10 [@media(max-width:430px)]:gap-4 max-w-4xl mx-auto">
                     {stats.map((stat, i) => (
                         <motion.div
                             key={stat.title}
-                            className="bg-[#1e293b] border border-gray-700 rounded-xl p-6 text-center [@media(max-width:430px)]:w-[160px] [@media(max-width:430px)]:h-[160px]"
+                            className="bg-[#1e293b] border border-gray-700 rounded-xl p-6 text-center [@media(max-width:430px)]:w-[140px] [@media(max-width:430px)]:h-[160px]"
                             variants={fadeIn}
                             initial="hidden"
                             whileInView="visible"
