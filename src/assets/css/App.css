@@ -23,3 +23,7 @@
 .dot3 {
     animation-delay: 0.4s;
 }
+
+.clip-half-circle-left {
+    clip-path: polygon(0% 0%, 25% 0%, 25% 100%, 0% 100%);
+}
