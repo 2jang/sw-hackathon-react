@@ -65,7 +65,7 @@ function App() {
                                         to="/computer_sw"
                                         onClick={toggleBoxVisible}
                                     >
-                                        <p className="text-lg font-bold text-black hover:">컴퓨터SW</p>
+                                        <p className="text-lg font-bold text-black hover:text-[#febe3a] transition-colors duration-300">컴퓨터SW</p>
                                         <p className="text-sm text-gray-500 mb-6">소프트웨어 중심대학 핵심 학과</p>
                                     </Link>
 
@@ -73,7 +73,7 @@ function App() {
                                         to="/media_sw"
                                         onClick={toggleBoxVisible}
                                     >
-                                        <p className="text-lg font-bold text-black">미디어SW</p>
+                                        <p className="text-lg font-bold text-black hover:text-[#febe3a] transition-colors duration-300">미디어SW</p>
                                         <p className="text-sm text-gray-500">게임, 콘텐츠 중심 융합 소프트웨어 학과</p>
                                     </Link>
                                 </div>
@@ -86,7 +86,7 @@ function App() {
                                         to="/ict"
                                         onClick={toggleBoxVisible}
                                     >
-                                        <p className="text-lg font-bold text-black">정보통신학과</p>
+                                        <p className="text-lg font-bold text-black hover:text-[#febe3a] transition-colors duration-300">정보통신학과</p>
                                         <p className="text-sm text-gray-500 mb-6">차세대 통신 기술 기반 응용 전문가 양성</p>
                                     </Link>
 
@@ -94,7 +94,7 @@ function App() {
                                         to="/cis"
                                         onClick={toggleBoxVisible}
                                     >
-                                        <p className="text-lg font-bold text-black">정보보호학과</p>
+                                        <p className="text-lg font-bold text-black hover:text-[#febe3a] transition-colors duration-300">정보보호학과</p>
                                         <p className="text-sm text-gray-500">정보 보안 및 해킹 대응 전문가 양성</p>
                                     </Link>
                                 </div>
@@ -107,7 +107,7 @@ function App() {
                                         to="/data_science"
                                         onClick={toggleBoxVisible}
                                     >
-                                        <p className="text-lg font-bold text-black">데이터과학과</p>
+                                        <p className="text-lg font-bold text-black hover:text-[#febe3a] transition-colors duration-300">데이터과학과</p>
                                         <p className="text-sm text-gray-500">AI와 빅데이터 기반 데이터 전문가 양성</p>
                                     </Link>
                                 </div>
