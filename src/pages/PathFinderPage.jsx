@@ -23,7 +23,7 @@ const fadeIn = {
     }),
 };
 
-const DEBUG_MODE = false;
+const DEBUG_MODE = true;
 
 const ToastIcons = {
     info: (
@@ -223,65 +223,38 @@ export function Suwon_navi() {
 
     const calculatePath = async (startBuilding, endBuilding) => {
         setIsLoading(true);
-
         try {
-            // 직선 거리 계산 (픽셀 기반)
+            const apiUrl = `/api/suwon-navi?buildings=${startBuilding.name}&buildings=${endBuilding.name}`;
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                const errorData = await response.text();
+                throw new Error(` ${response.status} ${errorData}`);
+            }
+            const data = await response.json();
             const [x1_center, y1_center] = [(startBuilding.polygon[0] + startBuilding.polygon[2]) / 2, (startBuilding.polygon[1] + startBuilding.polygon[3]) / 2];
             const [x2_center, y2_center] = [(endBuilding.polygon[0] + endBuilding.polygon[2]) / 2, (endBuilding.polygon[1] + endBuilding.polygon[3]) / 2];
             const pixelDistance = Math.sqrt(Math.pow(x2_center - x1_center, 2) + Math.pow(y2_center - y1_center, 2));
+            const straightDist = Math.round(pixelDistance * 2.5);
 
-            // 인문대학과 글로벌대학 사이의 거리가 840m라는 정보를 기준으로 비율 계산
-            // 인문대학(id: 1)과 글로벌인재대학(id: 20)의 픽셀 거리 계산
-            const humanitiesCollege = buildings.find(b => b.id === 1);
-            const globalTalentCollege = buildings.find(b => b.id === 20);
-
-            const [h_x, h_y] = [(humanitiesCollege.polygon[0] + humanitiesCollege.polygon[2]) / 2, (humanitiesCollege.polygon[1] + humanitiesCollege.polygon[3]) / 2];
-            const [g_x, g_y] = [(globalTalentCollege.polygon[0] + globalTalentCollege.polygon[2]) / 2, (globalTalentCollege.polygon[1] + globalTalentCollege.polygon[3]) / 2];
-
-            const referencePixelDistance = Math.sqrt(Math.pow(g_x - h_x, 2) + Math.pow(g_y - h_y, 2));
-            const scaleFactor = 840 / referencePixelDistance; // 840m에 해당하는 비율
-
-            // 실제 미터 거리 계산
-            const distanceInMeters = Math.round(pixelDistance * scaleFactor);
-            setStraightDistance(distanceInMeters);
-
-            // 도보 소요 시간 계산 (평균 도보 속도 4km/h = 약 67m/분)
-            const walkingTimeMinutes = Math.round(distanceInMeters / 67);
-
+            setStraightDistance(straightDist);
             setPathInfo({
-                walkTime: walkingTimeMinutes,
+                walkTime: data.distance,
                 startBuilding: startBuilding.kr_name,
                 endBuilding: endBuilding.kr_name
             });
-
         } catch (error) {
             console.error("경로 계산 중 오류 발생:", error);
-
-            // 오류 발생 시에도 거리 계산은 수행
-            const [x1_center, y1_center] = [(startBuilding.polygon[0] + startBuilding.polygon[2]) / 2, (startBuilding.polygon[1] + startBuilding.polygon[3]) / 2];
-            const [x2_center, y2_center] = [(endBuilding.polygon[0] + endBuilding.polygon[2]) / 2, (endBuilding.polygon[1] + endBuilding.polygon[3]) / 2];
-            const pixelDistance = Math.sqrt(Math.pow(x2_center - x1_center, 2) + Math.pow(y2_center - y1_center, 2));
-
-            // 인문대학과 글로벌대학 사이의 거리 비율 적용
-            const humanitiesCollege = buildings.find(b => b.id === 1);
-            const globalTalentCollege = buildings.find(b => b.id === 20);
-
-            const [h_x, h_y] = [(humanitiesCollege.polygon[0] + humanitiesCollege.polygon[2]) / 2, (humanitiesCollege.polygon[1] + humanitiesCollege.polygon[3]) / 2];
-            const [g_x, g_y] = [(globalTalentCollege.polygon[0] + globalTalentCollege.polygon[2]) / 2, (globalTalentCollege.polygon[1] + globalTalentCollege.polygon[3]) / 2];
-
-            const referencePixelDistance = Math.sqrt(Math.pow(g_x - h_x, 2) + Math.pow(g_y - h_y, 2));
-            const scaleFactor = 840 / referencePixelDistance;
-
-            const distanceInMeters = Math.round(pixelDistance * scaleFactor);
-            setStraightDistance(distanceInMeters);
-
-            const walkingTimeMinutes = Math.round(distanceInMeters / 67);
-
+            showToast(`경로 계산 오류:${error.message.length > 100 ? error.message.substring(0,100)+'...' : error.message}`, "error", 5000);
             setPathInfo({
-                walkTime: walkingTimeMinutes,
+                walkTime: "N/A",
                 startBuilding: startBuilding.kr_name,
                 endBuilding: endBuilding.kr_name
             });
+            const [x1_center, y1_center] = [(startBuilding.polygon[0] + startBuilding.polygon[2]) / 2, (startBuilding.polygon[1] + startBuilding.polygon[3]) / 2];
+            const [x2_center, y2_center] = [(endBuilding.polygon[0] + endBuilding.polygon[2]) / 2, (endBuilding.polygon[1] + endBuilding.polygon[3]) / 2];
+            const pixelDistance = Math.sqrt(Math.pow(x2_center - x1_center, 2) + Math.pow(y2_center - y1_center, 2));
+            const straightDist = Math.round(pixelDistance * 2.5);
+            setStraightDistance(straightDist);
         } finally {
             setIsLoading(false);
         }
