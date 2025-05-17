@@ -11,17 +11,17 @@ import {
     AcademicCapIcon,
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import deanImg from "/img/Computer_Science_and_Engineering/GIMJANGYEONG.jpeg"; // 이미지 경로는 실제 프로젝트 구조에 맞게 확인해주세요.
+import deanImg from "/img/Computer_Science_and_Engineering/JANGSEONGTAE.jpeg"; // 이미지 경로는 실제 프로젝트 구조에 맞게 확인해주세요.
 
 const DeanIntro_ComputerScienceAndEngineering = () => {
     const deanInfo = {
-        name: "김장영",
+        name: "장성태",
         department: "컴퓨터학부",
         position: "학부장",
-        office: "지능형SW융합대학 522호",
+        office: "지능형SW융합대학 510호",
         phone: "031-229-8345",
-        email: "jykim77@suwon.ac.kr", //실제 이메일 주소로 변경해주세요.
-        website: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1143596", // 학장 또는 학과 웹사이트 URL
+        email: "stjhang@suwon.ac.kr", //실제 이메일 주소로 변경해주세요.
+        website: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1941508", // 학장 또는 학과 웹사이트 URL
     };
 
     const cardFadeIn = {
