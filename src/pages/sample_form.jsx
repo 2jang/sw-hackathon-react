@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 import { MapPinIcon, UsersIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCardCollege, TeamCard } from "@/widgets/cards";
-import {featuresDataCollege, curriculumData, teamData_ICT, teamData_CIS, teamData_Media_SW, teamData_Data_Science, teamData_Computer_SW} from "@/data";
+import {featuresDataCollege, curriculumData_ICT, teamData_ICT, teamData_CIS, teamData_Media_SW, teamData_Data_Science, teamData_Computer_SW} from "@/data";
 import SWCollegeIntro from "@/widgets/layout/SWCollegeIntro.jsx";
 import DeanIntro from "@/widgets/layout/DeanIntro.jsx";
 import CampusGuide from "@/widgets/layout/CampusGuide.jsx";
@@ -147,7 +147,7 @@ export function Sample_form() {
                         “미래 기술의 중심, 당신의 잠재력에 날개를 달아드립니다."
                     </PageTitle>
                     <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
-                        {curriculumData.map(({ title, icon, description }) => (
+                        {curriculumData_ICT.map(({ title, icon, description }) => (
                             <Card
                                 key={title}
                                 color="transparent"

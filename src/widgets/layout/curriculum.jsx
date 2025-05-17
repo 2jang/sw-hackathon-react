@@ -6,7 +6,7 @@ import {
     Button,
 } from "@material-tailwind/react";
 import { motion } from "framer-motion";
-import {curriculumData} from "@/data/index.js";
+import {curriculumData_ICT} from "@/data/index.js";
 import React from "react";
 import PageTitle from "@/widgets/layout/page-title.jsx";
 
@@ -31,7 +31,7 @@ const Curriculum = () => {
                     전자회로, 네트워크, 디지털 논리설계 등 정보통신의 핵심 영역을 중심으로,<br/> 이론과 실습을 통해 실무 역량을 갖춘 인재를 양성합니다.
                 </PageTitle>
                 <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
-                    {curriculumData.map(({ title, icon, description }) => (
+                    {curriculumData_ICT.map(({ title, icon, description }) => (
                         <Card
                             key={title}
                             color="transparent"

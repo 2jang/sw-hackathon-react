@@ -54,17 +54,17 @@ export const teamData_ICT = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "mailto:example@example.com"
+        path: "mailto:heejungbyun@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "tel:010-0000-0000"
+        path: "tel:031-229-8048"
       },
       {
         color: "pink",
         name: "location-dot",
-        path: "#"
+        path: "IT대학 524호"
       },
     ],
   },
@@ -82,17 +82,17 @@ export const teamData_ICT = [
       {
         color: "blue",
         name: "phone",
-        path: "tel:010-0000-0000"
+        path: "tel:-"
       },
       {
         color: "pink",
         name: "location-dot",
-        path: "#"
+        path: "-"
       },
     ],
   },
   {
-    img: "/img/telecommunication_engineering/JEONGWONYONG.jpeg",
+    img: "/img/Telecommunication_Engineering/JEONGWONYONG.jpeg",
     name: "정원용",
     position: "-",
     detailUrl: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1080164",
@@ -100,22 +100,22 @@ export const teamData_ICT = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "mailto:example@example.com"
+        path: "mailto:infovis@naver.com"
       },
       {
         color: "blue",
         name: "phone",
-        path: "tel:010-0000-0000"
+        path: "tel:-"
       },
       {
         color: "pink",
         name: "location-dot",
-        path: "#"
+        path: "-"
       },
     ],
   },
   {
-    img: "/img/telecommunication_engineering/HONGGICHEON.jpeg",
+    img: "/img/Telecommunication_Engineering/HONGGICHEON.jpeg",
     name: "홍기천",
     position: "인공지능 연계 상황인지 시스템,멀티미디어 신호처리 및 시스템",
     detailUrl: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1981649",
@@ -123,17 +123,17 @@ export const teamData_ICT = [
       {
         color: "light-blue",
         name: "envelope",
-        path: "mailto:example@example.com"
+        path: "mailto:kchong@suwon.ac.kr"
       },
       {
         color: "blue",
         name: "phone",
-        path: "tel:010-0000-0000"
+        path: "tel:-"
       },
       {
         color: "pink",
         name: "location-dot",
-        path: "#"
+        path: "-"
       },
     ],
   },

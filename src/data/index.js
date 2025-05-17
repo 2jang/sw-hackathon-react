@@ -12,4 +12,6 @@ export * from "@/data/curriculum-data-computerSW";
 export * from "@/data/curriculum-data-MediaSW";
 export * from "@/data/curriculum-data-computerScienceAndEngineering";
 export * from "@/data/curriculum-data-dataScience";
+export * from "@/data/curriculum-data_ICT";
+export * from "@/data/curriculum-data_CIS";
 export * from "@/data/buildings";

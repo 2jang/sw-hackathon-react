@@ -5,7 +5,7 @@ import {
     Typography,
     Button,
 } from "@material-tailwind/react";
-import { motion, AnimatePresence } from "framer-motion"; // AnimatePresence 추가
+import { motion, AnimatePresence } from "framer-motion";
 import { Footer } from "@/widgets/layout";
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI";
 import buildings from "@/data/buildings";
@@ -63,7 +63,7 @@ export function Suwon_navi() {
     const showToast = (message, type = 'info', duration = 3000) => {
         setToast({ visible: true, message, type });
         setTimeout(() => {
-            setToast(prev => ({ ...prev, visible: false })); // Hide toast by setting visible to false
+            setToast(prev => ({ ...prev, visible: false }));
         }, duration);
     };
 
@@ -223,29 +223,43 @@ export function Suwon_navi() {
 
     const calculatePath = async (startBuilding, endBuilding) => {
         setIsLoading(true);
+        setPathInfo(null); // Reset pathInfo at the beginning
 
-        try {
-            // 직선 거리 계산 (픽셀 기반)
-            const [x1_center, y1_center] = [(startBuilding.polygon[0] + startBuilding.polygon[2]) / 2, (startBuilding.polygon[1] + startBuilding.polygon[3]) / 2];
-            const [x2_center, y2_center] = [(endBuilding.polygon[0] + endBuilding.polygon[2]) / 2, (endBuilding.polygon[1] + endBuilding.polygon[3]) / 2];
-            const pixelDistance = Math.sqrt(Math.pow(x2_center - x1_center, 2) + Math.pow(y2_center - y1_center, 2));
+        // Calculate straight distance first (pixel-based)
+        const [x1_center, y1_center] = [(startBuilding.polygon[0] + startBuilding.polygon[2]) / 2, (startBuilding.polygon[1] + startBuilding.polygon[3]) / 2];
+        const [x2_center, y2_center] = [(endBuilding.polygon[0] + endBuilding.polygon[2]) / 2, (endBuilding.polygon[1] + endBuilding.polygon[3]) / 2];
+        const pixelDistance = Math.sqrt(Math.pow(x2_center - x1_center, 2) + Math.pow(y2_center - y1_center, 2));
 
-            // 인문대학과 글로벌대학 사이의 거리가 840m라는 정보를 기준으로 비율 계산
-            // 인문대학(id: 1)과 글로벌인재대학(id: 20)의 픽셀 거리 계산
-            const humanitiesCollege = buildings.find(b => b.id === 1);
-            const globalTalentCollege = buildings.find(b => b.id === 20);
+        // Reference distance: Humanities College (id: 1) to Global Talent College (id: 20) is 840m
+        const humanitiesCollege = buildings.find(b => b.id === 1);
+        const globalTalentCollege = buildings.find(b => b.id === 20);
 
+        let distanceInMeters = 0;
+        let scaleFactor = 0;
+
+        if (humanitiesCollege && globalTalentCollege) {
             const [h_x, h_y] = [(humanitiesCollege.polygon[0] + humanitiesCollege.polygon[2]) / 2, (humanitiesCollege.polygon[1] + humanitiesCollege.polygon[3]) / 2];
             const [g_x, g_y] = [(globalTalentCollege.polygon[0] + globalTalentCollege.polygon[2]) / 2, (globalTalentCollege.polygon[1] + globalTalentCollege.polygon[3]) / 2];
-
             const referencePixelDistance = Math.sqrt(Math.pow(g_x - h_x, 2) + Math.pow(g_y - h_y, 2));
-            const scaleFactor = 840 / referencePixelDistance; // 840m에 해당하는 비율
 
-            // 실제 미터 거리 계산
-            const distanceInMeters = Math.round(pixelDistance * scaleFactor);
-            setStraightDistance(distanceInMeters);
+            if (referencePixelDistance > 0) {
+                scaleFactor = 840 / referencePixelDistance; // meters per pixel
+                distanceInMeters = Math.round(pixelDistance * scaleFactor);
+            } else {
+                // Handle case where reference distance is zero (should not happen with distinct buildings)
+                console.warn("Reference pixel distance is zero. Cannot calculate scale factor.");
+            }
+        } else {
+            console.warn("Reference buildings (Humanities or Global Talent College) not found. Cannot calculate scale factor.");
+        }
 
-            // 도보 소요 시간 계산 (평균 도보 속도 4km/h = 약 67m/분)
+        setStraightDistance(distanceInMeters); // Set straight distance regardless of time calculation
+
+        try {
+            if (scaleFactor === 0) { // If scaleFactor couldn't be determined, time cannot be calculated
+                throw new Error("축척 계수 계산 불가로 시간 정보를 가져올 수 없습니다.");
+            }
+            // Calculate walking time (average walking speed 4km/h = approx. 67m/min)
             const walkingTimeMinutes = Math.round(distanceInMeters / 67);
 
             setPathInfo({
@@ -253,32 +267,14 @@ export function Suwon_navi() {
                 startBuilding: startBuilding.kr_name,
                 endBuilding: endBuilding.kr_name
             });
+            console.log("통신 성공"); // Log success
 
         } catch (error) {
-            console.error("경로 계산 중 오류 발생:", error);
-
-            // 오류 발생 시에도 거리 계산은 수행
-            const [x1_center, y1_center] = [(startBuilding.polygon[0] + startBuilding.polygon[2]) / 2, (startBuilding.polygon[1] + startBuilding.polygon[3]) / 2];
-            const [x2_center, y2_center] = [(endBuilding.polygon[0] + endBuilding.polygon[2]) / 2, (endBuilding.polygon[1] + endBuilding.polygon[3]) / 2];
-            const pixelDistance = Math.sqrt(Math.pow(x2_center - x1_center, 2) + Math.pow(y2_center - y1_center, 2));
-
-            // 인문대학과 글로벌대학 사이의 거리 비율 적용
-            const humanitiesCollege = buildings.find(b => b.id === 1);
-            const globalTalentCollege = buildings.find(b => b.id === 20);
-
-            const [h_x, h_y] = [(humanitiesCollege.polygon[0] + humanitiesCollege.polygon[2]) / 2, (humanitiesCollege.polygon[1] + humanitiesCollege.polygon[3]) / 2];
-            const [g_x, g_y] = [(globalTalentCollege.polygon[0] + globalTalentCollege.polygon[2]) / 2, (globalTalentCollege.polygon[1] + globalTalentCollege.polygon[3]) / 2];
-
-            const referencePixelDistance = Math.sqrt(Math.pow(g_x - h_x, 2) + Math.pow(g_y - h_y, 2));
-            const scaleFactor = 840 / referencePixelDistance;
-
-            const distanceInMeters = Math.round(pixelDistance * scaleFactor);
-            setStraightDistance(distanceInMeters);
-
-            const walkingTimeMinutes = Math.round(distanceInMeters / 67);
+            console.error("경로 계산 또는 시간 추정 중 오류 발생:", error);
+            console.log("통신 실패:", error.message || error); // Log failure reason
 
             setPathInfo({
-                walkTime: walkingTimeMinutes,
+                walkTime: null, // Set walkTime to null on error
                 startBuilding: startBuilding.kr_name,
                 endBuilding: endBuilding.kr_name
             });
@@ -304,7 +300,7 @@ export function Suwon_navi() {
                         transition={{ type: "spring", stiffness: 200, damping: 20, duration: 0.4 }}
                         className={`fixed bottom-10 left-1/2 transform -translate-x-1/2 
                                     bg-white text-gray-800 p-3 px-4 rounded-lg border border-gray-300 shadow-xl 
-                                    z-[9999] text-sm flex items-center w-auto max-w-[90vw] sm:max-w-md`} // 반응형 max-width
+                                    z-[9999] text-sm flex items-center w-auto max-w-[90vw] sm:max-w-md`}
                     >
                         {ToastIcons[toast.type] || ToastIcons.info}
                         <span className="break-words">{toast.message}</span>
@@ -433,13 +429,11 @@ export function Suwon_navi() {
                                                         <marker id="markerArrowStart" viewBox="0 0 10 10" refX="0" refY="5"
                                                                 markerUnits="strokeWidth" markerWidth="6" markerHeight="5"
                                                                 orient="auto">
-                                                            {/* 왼쪽을 향하는 화살표 (<--) path, 화살촉이 (0,5)에 위치 */}
                                                             <path d="M10,0 L0,5 L10,10 Z" fill="#ff0000" />
                                                         </marker>
                                                         <marker id="markerArrowEnd" viewBox="0 0 10 10" refX="10" refY="5"
                                                                 markerUnits="strokeWidth" markerWidth="6" markerHeight="5"
                                                                 orient="auto">
-                                                            {/* 오른쪽을 향하는 화살표 (-->) path, 화살촉이 (10,5)에 위치 */}
                                                             <path d="M0,0 L10,5 L0,10 Z" fill="#ff0000" />
                                                         </marker>
                                                     </defs>
@@ -550,7 +544,8 @@ export function Suwon_navi() {
                                                                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                                                                         </svg>
                                                                         <Typography className="font-bold text-sm md:text-base text-gray-800">
-                                                                            {pathInfo.walkTime === "N/A" ? "정보 없음" : `약 ${pathInfo.walkTime}분`}
+                                                                            {/* MODIFIED: Display "정보 없음" if walkTime is null */}
+                                                                            {pathInfo.walkTime !== null ? `약 ${pathInfo.walkTime}분` : "정보 없음"}
                                                                         </Typography>
                                                                     </div>
                                                                 </div>
