@@ -23,7 +23,7 @@ const fadeIn = {
     }),
 };
 
-const DEBUG_MODE = false;
+const DEBUG_MODE = true;
 
 const ToastIcons = {
     info: (
@@ -365,6 +365,24 @@ export function Suwon_navi() {
                                             ref={svgRef}
                                             className="absolute top-0 left-0 w-full h-full pointer-events-none"
                                         >
+                                            {DEBUG_MODE && (
+                                                <>
+                                                    {/* 디버깅 모드에서 buildings 데이터를 이용한 SVG 도형 그리기 */}
+                                                    {buildings.map((building) => (
+                                                        <rect
+                                                            key={`debug-building-${building.id}`}
+                                                            x={building.polygon[0]}
+                                                            y={building.polygon[1]}
+                                                            width={building.polygon[2] - building.polygon[0]}
+                                                            height={building.polygon[3] - building.polygon[1]}
+                                                            fill={building.color}
+                                                            stroke="#000000"
+                                                            strokeWidth="1"
+                                                        />
+                                                    ))}
+                                                </>
+                                            )}
+
                                             {DEBUG_MODE && measureMode && (
                                                 <>
                                                     <line x1={currentMousePosition.x} y1="0" x2={currentMousePosition.x} y2={imageSize.height} stroke="rgba(255, 0, 0, 0.5)" strokeWidth="1" strokeDasharray="5,5" />
