@@ -73,10 +73,10 @@ function ScoreCard({ team, score, onClick }) {
                             animate={{ opacity: 1, y: -30 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 1 }}
-                            className="absolute text-black-500 font-bold text-[70px] pointer-events-none"
+                            className="absolute text-black-500 font-bold text-[25px] pointer-events-none"
                             style={{ top: "30%", left: `${left}%` }}
                         >
-                            +1
+                            딸깍!
                         </motion.div>
                     ))}
                 </AnimatePresence>
@@ -180,7 +180,7 @@ export function Minigame() {
             <div className="relative flex h-[40vh] content-center items-center justify-center bg-gray-900 md:h-[50vh]">
                 <div className="max-w-8xl container relative mx-auto text-center">
                     <Typography variant="h1" color="white" className="mb-6 font-black text-4xl md:text-5xl">
-                        클릭 배틀!
+                        "딹깍" 배틀!
                     </Typography>
                     <Typography variant="lead" color="white" className="opacity-80 text-lg md:text-xl">
                         팀을 선택하여 클릭 점수를 올려보세요!

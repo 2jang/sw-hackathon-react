@@ -7,15 +7,16 @@ import {
   IconButton,
   Button,
 } from "@material-tailwind/react";
+import {Link} from "react-router-dom";
 
 // ICT 학부(컴퓨터학부, 정보통신학부, 데이터과학부) 카드 컴포넌트
 export function FeatureCardCollege({ color, icon, title, description, links }) {
   return (
       <Card
           className="rounded-lg shadow-lg shadow-gray-500/10 flex flex-col max-w-xs mx-auto
-                 ring-1 ring-gray-300 hover:ring-green-500 hover:ring-opacity-75  // 기본 테두리 및 호버 시 테두리 강조
+                 ring-1 ring-gray-300 hover:border-[#1e293b]-500 hover:ring-opacity-75  // 기본 테두리 및 호버 시 테두리 강조
                  transition-all duration-300 ease-in-out
-                 hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105" // 호버 시 그림자 및 확대 효과
+                 hover:shadow-2xl hover:shadow-[#1e293b]-900 hover:scale-105" // 호버 시 그림자 및 확대 효과
 
       >
         <CardBody className="px-8 text-center flex-grow">
@@ -39,11 +40,11 @@ export function FeatureCardCollege({ color, icon, title, description, links }) {
             <div className="p-6 pt-0 text-center">
               <div className="flex flex-wrap justify-center gap-2">
                 {links.map((linkItem, index) => (
-                    <a href={linkItem.url} target="_blank" rel="noopener noreferrer" key={index}>
+                    <Link to={linkItem.url}>
                       <Button size="lg" variant="text" color="blue-gray">
                         {linkItem.text}
                       </Button>
-                    </a>
+                    </Link>
                 ))}
               </div>
             </div>

@@ -125,7 +125,7 @@ export function Home() {
                   <Typography
                       variant="h1"
                       color="white"
-                      className="mb-6 font-black"
+                      className="mb-6 font-black [@media(max-width:430px)]:text-2xl"
                   >
                     지능형SW융합대학
                   </Typography>
@@ -135,7 +135,7 @@ export function Home() {
                     animate="visible"
                     variants={heroSubtitleAnim}
                 >
-                  <Typography variant="lead" color="white" className="opacity-80">
+                  <Typography variant="lead" color="white" className="opacity-80 [@media(max-width:430px)]:text-sm">
                     COLLEGE OF INTELLIGENT SOFTWARE CONVERGENCE <br />
                     제4차 산업혁명, 수원대학교 지능형SW융합대학이 주도합니다.
                   </Typography>

@@ -13,10 +13,10 @@ export const curriculumDataComputerScienceAndEngineering = [
             "컴퓨터의 구조, 운영체제, 알고리즘, 프로그래밍 등 핵심 이론과 실습을 통해 소프트웨어 개발 역량을 기릅니다.",
     },
     {
-        title: "인공지능",
+        title: "시스템프로그래밍",
         icon: ChartBarIcon,
         description:
-            "머신러닝, 딥러닝, 자연어처리 등 AI 기술을 기반으로 지능형 시스템 개발 능력을 배양합니다.",
+            "시스템 프로그래밍은 운영체제나 하드웨어와 직접 상호작용하는 저수준 소프트웨어를 개발하는 분야입니다.",
     },
     {
         title: "VR",

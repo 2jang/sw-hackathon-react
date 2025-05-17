@@ -13,7 +13,7 @@ export const curriculumDataMediaSW = [
             "게임 개발, 가상현실(VR), 증강현실(AR), 3D 그래픽스, 인터랙티브 미디어 등",
     },
     {
-        title: "인공지능 및 데이터 기반 미디어 처리",
+        title: "데이터 기반 미디어 처리",
         icon: ChartBarIcon,
         description:
             "머신러닝, 딥러닝, 음성/영상 인식, 자연어처리(NLP), 감정 분석 등",

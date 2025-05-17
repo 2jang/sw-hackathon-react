@@ -51,7 +51,7 @@ function App() {
                         <div
                             className={`absolute top-[70px] bg-white shadow-md transition-opacity duration-300 ease-in-out z-10
                                 ${isBoxVisible
-                                ? "opacity-100 visible h-[400px] w-[95vw] ssm:h-[650px] md:max-w-[900px] lg:w-[900px] lg:ml-[170px] mt-[8px]"
+                                ? "opacity-100 visible h-[400px] w-[95vw] ssm:h-[430px] md:max-w-[900px] lg:w-[900px] lg:ml-[170px] mt-[8px]"
                                 : "opacity-0 invisible h-0"
                             }`}
                         >
@@ -63,7 +63,7 @@ function App() {
                                         to="/ComputerScience"
                                         onClick={toggleBoxVisible}
                                     >
-                                        <p className="text-sm mb-3 font-medium text-gray-500 hover:text-[#febe3a] transition-colors duration-300">컴퓨터학부</p>
+                                        <p className="text-2xl mb-3 font-medium text-gray-500 hover:text-[#febe3a] transition-colors duration-300">컴퓨터학부</p>
                                     </Link>
                                     <Link
                                         to="/computer_sw"
@@ -88,7 +88,7 @@ function App() {
                                         to="/telecommunicationEngineering"
                                         onClick={toggleBoxVisible}
                                     >
-                                    <p className="text-sm mb-3 font-medium text-gray-500 hover:text-[#febe3a] transition-colors duration-300">정보통신학부</p>
+                                    <p className="text-2xl mb-3 font-medium text-gray-500 hover:text-[#febe3a] transition-colors duration-300">정보통신학부</p>
                                     </Link>
                                     <Link
                                         to="/ict"
@@ -113,7 +113,7 @@ function App() {
                                         to="/DataScience"
                                         onClick={toggleBoxVisible}
                                     >
-                                        <p className="text-sm mb-3 font-medium text-gray-500 hover:text-[#febe3a] transition-colors duration-300">데이터학부</p>
+                                        <p className="text-2xl mb-3 font-medium text-gray-500 hover:text-[#febe3a] transition-colors duration-300">데이터학부</p>
                                     </Link>
                                     <Link
                                         to="/data_science"
@@ -156,8 +156,8 @@ function App() {
                                         to="/minigame"
                                         onClick={toggleBoxVisible}
                                     >
-                                        <p className="text-lg font-bold text-black hover:text-[#febe3a] transition-colors duration-300">클릭 배틀</p>
-                                        <p className="text-sm text-gray-500">누가누가 더 미쳤나.</p>
+                                        <p className="text-lg font-bold text-black hover:text-[#febe3a] transition-colors duration-300">"딸깍" 배틀</p>
+                                        <p className="text-sm text-gray-500">학부생들의 단합력을 보여주세요.</p>
                                     </Link>
                                 </div>
                             </div>
