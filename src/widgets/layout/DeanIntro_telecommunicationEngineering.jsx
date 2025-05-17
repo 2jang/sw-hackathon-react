@@ -11,17 +11,17 @@ import {
     AcademicCapIcon,
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import deanImg from "/public/img/Telecommunication_Engineering/GIMSIHYEON.jpeg"; // 이미지 경로는 실제 프로젝트 구조에 맞게 확인해주세요.
+import deanImg from "/public/img/Telecommunication_Engineering/ByunHeejeong.jpeg"; // 이미지 경로는 실제 프로젝트 구조에 맞게 확인해주세요.
 
 const DeanIntro_telecommunicationEngineering = () => {
     const deanInfo = {
-        name: "?",
+        name: "변희정",
         department: "정보통신학부",
         position: "학부장",
-        office: "지능형SW융합대학 호",
-        phone: "-",
-        email: "-", //실제 이메일 주소로 변경해주세요.
-        website: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1143596", // 학장 또는 학과 웹사이트 URL
+        office: "지능형SW융합대학 524호",
+        phone: "031-229-8048",
+        email: "heejungbyun@suwon.ac.kr", //실제 이메일 주소로 변경해주세요.
+        website: "https://www.suwon.ac.kr/mainHp/prointro/detail.html?eno=1100134", // 학장 또는 학과 웹사이트 URL
     };
 
     const cardFadeIn = {
