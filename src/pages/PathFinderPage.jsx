@@ -5,7 +5,7 @@ import {
     Typography,
     Button,
 } from "@material-tailwind/react";
-import { motion, AnimatePresence } from "framer-motion"; // AnimatePresence 추가
+import { motion, AnimatePresence } from "framer-motion";
 import { Footer } from "@/widgets/layout";
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI";
 import buildings from "@/data/buildings";
@@ -63,7 +63,7 @@ export function Suwon_navi() {
     const showToast = (message, type = 'info', duration = 3000) => {
         setToast({ visible: true, message, type });
         setTimeout(() => {
-            setToast(prev => ({ ...prev, visible: false })); // Hide toast by setting visible to false
+            setToast(prev => ({ ...prev, visible: false }));
         }, duration);
     };
 
@@ -222,6 +222,14 @@ export function Suwon_navi() {
     };
 
     const calculatePath = async (startBuilding, endBuilding) => {
+        if (!startBuilding || typeof startBuilding.name !== 'string' || startBuilding.name.trim() === '' ||
+            !endBuilding || typeof endBuilding.name !== 'string' || endBuilding.name.trim() === '') {
+            console.error("경로 계산을 위한 출발지 또는 도착지 정보가 유효하지 않습니다.", { startBuilding, endBuilding });
+            showToast("출발지 또는 도착지 정보가 올바르지 않습니다. 다시 선택해주세요.", "error", 4000);
+            setIsLoading(false);
+            return;
+        }
+
         setIsLoading(true);
         try {
             const apiUrl = `http://ahnai1.suwon.ac.kr:5041/suwon-navi?buildings=${startBuilding.name}&buildings=${endBuilding.name}`;
@@ -357,6 +365,24 @@ export function Suwon_navi() {
                                             ref={svgRef}
                                             className="absolute top-0 left-0 w-full h-full pointer-events-none"
                                         >
+                                            {DEBUG_MODE && (
+                                                <>
+                                                    {/* 디버깅 모드에서 buildings 데이터를 이용한 SVG 도형 그리기 */}
+                                                    {buildings.map((building) => (
+                                                        <rect
+                                                            key={`debug-building-${building.id}`}
+                                                            x={building.polygon[0]}
+                                                            y={building.polygon[1]}
+                                                            width={building.polygon[2] - building.polygon[0]}
+                                                            height={building.polygon[3] - building.polygon[1]}
+                                                            fill={building.color}
+                                                            stroke="#000000"
+                                                            strokeWidth="1"
+                                                        />
+                                                    ))}
+                                                </>
+                                            )}
+
                                             {DEBUG_MODE && measureMode && (
                                                 <>
                                                     <line x1={currentMousePosition.x} y1="0" x2={currentMousePosition.x} y2={imageSize.height} stroke="rgba(255, 0, 0, 0.5)" strokeWidth="1" strokeDasharray="5,5" />
@@ -406,13 +432,11 @@ export function Suwon_navi() {
                                                         <marker id="markerArrowStart" viewBox="0 0 10 10" refX="0" refY="5"
                                                                 markerUnits="strokeWidth" markerWidth="6" markerHeight="5"
                                                                 orient="auto">
-                                                            {/* 왼쪽을 향하는 화살표 (<--) path, 화살촉이 (0,5)에 위치 */}
                                                             <path d="M10,0 L0,5 L10,10 Z" fill="#ff0000" />
                                                         </marker>
                                                         <marker id="markerArrowEnd" viewBox="0 0 10 10" refX="10" refY="5"
                                                                 markerUnits="strokeWidth" markerWidth="6" markerHeight="5"
                                                                 orient="auto">
-                                                            {/* 오른쪽을 향하는 화살표 (-->) path, 화살촉이 (10,5)에 위치 */}
                                                             <path d="M0,0 L10,5 L0,10 Z" fill="#ff0000" />
                                                         </marker>
                                                     </defs>
