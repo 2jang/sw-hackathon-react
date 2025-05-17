@@ -300,7 +300,7 @@ export function Suwon_navi() {
                     <div className="flex flex-wrap items-center">
                         <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12">
                             <Typography variant="h1" color="white" className="mb-6 font-black">
-                                캠퍼스 경로 안내
+                                수벅수벅
                             </Typography>
                             <Typography variant="lead" color="white" className="opacity-80">
                                 출발지와 목적지를 선택하여 최적 경로와 소요시간을 확인하세요

@@ -133,7 +133,7 @@ function App() {
                                         onClick={toggleBoxVisible}
                                     >
                                         <p className="text-lg font-bold text-black hover:text-[#febe3a] transition-colors duration-300 [@media(max-width:430px)]:text-[11px]">수벅수벅</p>
-                                        <p className="text-sm text-gray-500 [@media(max-width:430px)]:text-[10px]">수원인 뚜벅뚜벅 걷는다는 뜻</p>
+                                        <p className="text-sm text-gray-500 [@media(max-width:430px)]:text-[10px]">수원대 학생이 뚜벅뚜벅 걷는다는 뜻</p>
                                     </Link>
                                 </div>
                                 {/* Column 4: 다른 기능 */}
