@@ -126,14 +126,14 @@ function App() {
 
                                 {/* Column 4: 다른 기능 */}
                                 <div className="mt-[20px]">
-                                    <p className="text-sm mb-3 font-medium text-gray-500 [@media(max-width:430px)]:text-[14px]">추가 기능</p>
+                                    <p className="text-sm mb-3 font-medium text-gray-500 [@media(max-width:430px)]:text-[14px]">편의 기능</p>
 
                                     <Link
                                         to="/pathfinder"
                                         onClick={toggleBoxVisible}
                                     >
-                                        <p className="text-lg font-bold text-black hover:text-[#febe3a] transition-colors duration-300 [@media(max-width:430px)]:text-[13px]">수원대 길찾기</p>
-                                        <p className="text-sm text-gray-500 [@media(max-width:430px)]:text-[12px]">캠퍼스 내 건물 이동시간 알아보러가기</p>
+                                        <p className="text-lg font-bold text-black hover:text-[#febe3a] transition-colors duration-300 [@media(max-width:430px)]:text-[13px]">수벅수벅</p>
+                                        <p className="text-sm text-gray-500 [@media(max-width:430px)]:text-[12px]">수원인 뚜벅뚜벅 걷는다는 뜻</p>
                                     </Link>
                                 </div>
                                 {/* Column 4: 다른 기능 */}
