@@ -49,7 +49,7 @@ export function Data_Science() {
                     <PageTitle section="교수 소개" heading="데이터과학과">
                         “데이터과학과의 길, 여러분의 가능성을 열어드립니다.”
                     </PageTitle>
-                    <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
+                    <div className="mt-24 grid grid-cols-1 [@media(max-width:430px)]:grid-cols-2 [@media(max-width:430px)]:gap-8 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
                         {professorsToDisplay.map(({ img, name, position, socials, detailUrl }) => (
                             <TeamCard
                                 key={name}

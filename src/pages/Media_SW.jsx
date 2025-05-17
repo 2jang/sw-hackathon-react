@@ -50,7 +50,7 @@ export function Media_SW() {
                     <PageTitle section="교수 소개" heading="컴퓨터SW학과">
                         “미디어SW의 길, 여러분의 가능성을 열어드립니다.”
                     </PageTitle>
-                    <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
+                    <div className="mt-24 grid grid-cols-1 [@media(max-width:430px)]:grid-cols-2 [@media(max-width:430px)]:gap-8 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
                         {professorsToDisplay.map(({ img, name, position, socials, detailUrl }) => (
                             <TeamCard
                                 key={name}

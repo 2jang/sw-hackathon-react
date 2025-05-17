@@ -177,7 +177,7 @@ export function CIS() {
                     <PageTitle section="교수 소개" heading="정보보호학과 교수진">
                         “정보보호 분야의 발전을 이끄는 최고의 교수진과 함께하세요.”
                     </PageTitle>
-                    <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
+                    <div className="mt-24 grid grid-cols-1 [@media(max-width:430px)]:grid-cols-2 [@media(max-width:430px)]:gap-8 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
                         {professorsToDisplay.map(({ img, name, position, socials, detailUrl }, index) => (
                             <motion.div
                                 key={name}

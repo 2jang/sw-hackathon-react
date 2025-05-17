@@ -51,7 +51,7 @@ function App() {
                         <div
                             className={`absolute top-[70px] bg-white shadow-md transition-opacity duration-300 ease-in-out z-10
                                 ${isBoxVisible
-                                ? "opacity-100 visible h-[400px] w-[95vw] md:max-w-[900px] lg:w-[900px] lg:ml-[170px] mt-[8px]"
+                                ? "opacity-100 visible h-[400px] w-[95vw] ssm:h-[650px] md:max-w-[900px] lg:w-[900px] lg:ml-[170px] mt-[8px]"
                                 : "opacity-0 invisible h-0"
                             }`}
                         >

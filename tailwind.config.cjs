@@ -10,6 +10,7 @@ module.exports = withMT({
       },
     },
     screens: {
+      "ssm" : '430px',
       'sm': '640px',
       'md': '768px',
       'lg': '970px', // 이 값을 980px로 변경 또는 추가

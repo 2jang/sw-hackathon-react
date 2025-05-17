@@ -179,7 +179,7 @@ export function ICT() {
                     <PageTitle section="교수 소개" heading="정보통신학과 교수진">
                         “미래 IT 기술을 선도하는 열정적인 교육자들과 함께 하세요.”
                     </PageTitle>
-                    <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
+                    <div className="mt-24 grid grid-cols-1 [@media(max-width:430px)]:grid-cols-2 [@media(max-width:430px)]:gap-8 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
                         {professorsToDisplay.map(({ img, name, position, socials, detailUrl }, index) => (
                             <motion.div
                                 key={name}

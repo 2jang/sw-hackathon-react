@@ -18,7 +18,7 @@ export function TeamCard({ img, name, position, socials, detailUrl }) {
     const cardContent = (
         <>
             {/* 모바일: h-24 w-24, md 이상: h-32 w-32 */}
-            <CardHeader floated={false} shadow={false} className="mx-auto h-24 w-24 md:h-32 md:w-32 rounded-full">
+            <CardHeader floated={false} shadow={false} className="mx-auto [@media(max-width:430px)]:h-20 [@media(max-width:430px)]:w-20 md:h-32 md:w-32 rounded-full">
                 <img src={img} alt={name} className="h-full w-full object-cover rounded-full" />
             </CardHeader>
             <CardBody className="px-2 py-4">
