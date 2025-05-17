@@ -53,17 +53,17 @@ const ComputerSWIntro = () => {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h2 className="text-[#1e293b] text-xl font-semibold mb-2">
+                    <h2 className="text-[#1e293b] text-xl font-semibold mb-2 [@media(max-width:430px)]:text-sm">
                         Leader in IT Education
                     </h2>
-                    <h1 className="text-3xl text-[#1e293b] md:text-4xl font-extrabold mb-6">
+                    <h1 className="text-3xl text-[#1e293b] md:text-4xl font-extrabold mb-6 [@media(max-width:430px)]:text-2sm">
                         컴퓨터SW학과 소개
                     </h1>
                 </motion.div>
 
                 {/* 소개 본문 */}
                 <motion.p
-                    className="text-[#1e293b] text-lg leading-relaxed text-center max-w-5xl mx-auto"
+                    className="text-[#1e293b] text-lg leading-relaxed text-center max-w-5xl mx-auto [@media(max-width:430px)]:text-sm"
                     variants={fadeIn}
                     initial="hidden"
                     whileInView="visible"

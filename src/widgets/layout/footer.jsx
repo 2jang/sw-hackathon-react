@@ -9,10 +9,10 @@ export function Footer({ title, description, socials, menus, copyright }) {
       <div className="container mx-auto">
         <div className="flex flex-wrap pt-6 text-center lg:text-left">
           <div className="w-full px-4 lg:w-6/12">
-            <Typography variant="h4" className="mb-4" color="blue-gray">
+            <Typography variant="h4" className="mb-4 [@media(max-width:430px)]:text-[16px]" color="blue-gray">
               {title}
             </Typography>
-            <Typography className="font-normal text-blue-gray-500 lg:w-2/5">
+            <Typography className="font-normal text-blue-gray-500 lg:w-2/5 [@media(max-width:430px)]:text-[12px]">
               {description}
             </Typography>
             <div className="mx-auto mt-6 mb-8 flex justify-center gap-2 md:mb-0 lg:justify-start">
@@ -38,7 +38,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
                 <Typography
                   variant="small"
                   color="blue-gray"
-                  className="mb-2 block font-medium uppercase"
+                  className="mb-2 block font-medium uppercase [@media(max-width:430px)]:text-[10px]"
                 >
                   {name}
                 </Typography>
@@ -51,7 +51,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
                         target="_blank"
                         rel="noreferrer"
                         variant="small"
-                        className="mb-2 block font-normal text-blue-gray-500 hover:text-blue-gray-700"
+                        className="mb-2 block font-normal text-blue-gray-500 hover:text-blue-gray-700 [@media(max-width:430px)]:text-[8px]"
                       >
                         {item.name}
                       </Typography>
@@ -67,7 +67,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
           <div className="mx-auto w-full px-4 text-center">
             <Typography
               variant="small"
-              className="font-normal text-blue-gray-500"
+              className="font-normal text-blue-gray-500 [@media(max-width:430px)]:text-[8px]"
             >
               {copyright}
             </Typography>

@@ -22,7 +22,7 @@ const stats = [
     {
         title: "취업률",
         value: 89,
-        subtitle: "20--.-- 졸업생 및 재학생 기준",
+        subtitle: "2025.02 졸업생 및 재학생 기준",
         icon: BriefcaseIcon,
         suffix: "%"  // ✅ 백분율 표시 추가
     },
@@ -69,17 +69,17 @@ const ComputerScienceAndEngineeringIntro = () => {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h2 className="text-[#1e293b] text-xl font-semibold mb-2">
+                    <h2 className="text-[#1e293b] text-xl font-semibold mb-2 [@media(max-width:430px)]:text-sm">
                         Leader in IT Education
                     </h2>
-                    <h1 className="text-3xl text-[#1e293b] md:text-4xl font-extrabold mb-6">
+                    <h1 className="text-3xl text-[#1e293b] md:text-4xl font-extrabold mb-6 [@media(max-width:430px)]:text-2sm">
                         컴퓨터학부 소개
                     </h1>
                 </motion.div>
 
                 {/* 소개 본문 */}
                 <motion.p
-                    className="text-[#1e293b] text-lg leading-relaxed text-center max-w-5xl mx-auto"
+                    className="text-[#1e293b] text-lg leading-relaxed text-center max-w-5xl mx-auto [@media(max-width:430px)]:text-sm"
                     variants={fadeIn}
                     initial="hidden"
                     whileInView="visible"
@@ -90,11 +90,11 @@ const ComputerScienceAndEngineeringIntro = () => {
                     ICT 기반의 소프트웨어 개발 역량을 바탕으로 다양한 산업에 즉시 투입 가능한 전문가를 배출합니다.
                 </motion.p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 [@media(max-width:430px)]:grid-cols-2 sm:grid-cols-2 gap-10 [@media(max-width:430px)]:gap-5 max-w-4xl mx-auto">
                     {stats.map((stat, i) => (
                         <motion.div
                             key={stat.title}
-                            className="bg-[#1e293b] border border-gray-700 rounded-xl p-6 text-center"
+                            className="bg-[#1e293b] border border-gray-700 rounded-xl p-6 text-center [@media(max-width:430px)]:w-[160px] [@media(max-width:430px)]:h-[160px]"
                             variants={fadeIn}
                             initial="hidden"
                             whileInView="visible"
@@ -102,13 +102,13 @@ const ComputerScienceAndEngineeringIntro = () => {
                             custom={i + 3}
                         >
                             <div className="flex justify-center mb-4">
-                                <stat.icon className="h-10 w-10 text-white" />
+                                <stat.icon className="h-10 w-10 [@media(max-width:430px)]:h-5 [@media(max-width:430px)]:w-5 text-white" />
                             </div>
-                            <h3 className="text-4xl font-bold text-white">
+                            <h3 className="text-4xl [@media(max-width:430px)]:text-[25px] font-bold text-white">
                                 <CountUp target={stat.value} suffix={stat.suffix} />
                             </h3>
-                            <p className="text-white text-xl mt-2">{stat.title}</p>
-                            <p className="text-white text-sm mt-1">{stat.subtitle}</p>
+                            <p className="text-white text-xl [@media(max-width:430px)]:text-[16px] mt-2 [@media(max-width:430px)]:mt-1">{stat.title}</p>
+                            <p className="text-white text-sm [@media(max-width:430px)]:text-[8px] mt-1 [@media(max-width:430px)]:mt-0">{stat.subtitle}</p>
                         </motion.div>
                     ))}
                 </div>

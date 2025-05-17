@@ -92,41 +92,41 @@ const DeanIntro = () => {
                             <Card className="shadow-xl rounded-lg overflow-hidden
                                 ring-1 ring-gray-300 hover:ring-green-500 hover:ring-opacity-75
                                 transition-all duration-300 ease-in-out
-                                hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105">
+                                hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105 [@media(max-width:430px)]:w-[400px] [@media(max-width:430px)]:h-[200px]">
                                 <CardBody className="p-6 md:p-8">
-                                    <div className="flex flex-col sm:flex-row items-start">
+                                    <div className="flex flex-col sm:flex-row items-start [@media(max-width:430px)]:flex-row">
                                         <div className="w-32 sm:w-28 flex-shrink-0 mx-auto sm:mx-0 mb-4 sm:mb-0 sm:mr-6 md:mr-7">
                                             <img
                                                 src={deanImg}
                                                 alt={`${deanInfo.name} 학장`}
-                                                className="w-full h-auto object-cover rounded-lg shadow-md aspect-square"
+                                                className="w-full h-auto object-cover rounded-lg shadow-md aspect-square [@media(max-width:430px)]:w-[90px]"
                                             />
                                         </div>
                                         <div className="flex-grow">
                                             <div className="mb-3 text-center sm:text-left">
-                                                <Typography variant="h5" className="text-xl font-bold text-blue-gray-900">
+                                                <Typography variant="h5" className="text-xl font-bold text-blue-gray-900 [@media(max-width:430px)]:text-[16px] [@media(max-width:430px)]:text-left">
                                                     {deanInfo.name}
                                                 </Typography>
-                                                <Typography className="text-sm text-blue-gray-700 font-medium">
+                                                <Typography className="text-sm text-blue-gray-700 font-medium [@media(max-width:430px)]:text-[12px] [@media(max-width:430px)]:text-left">
                                                     {deanInfo.position} | {deanInfo.department}
                                                 </Typography>
                                             </div>
-                                            <div className="space-y-2 mb-4 text-xs sm:text-sm">
+                                            <div className="space-y-2 mb-4 text-xs sm:text-sm [@media(max-width:430px)]:text-[10px] [@media(max-width:430px)]:mb-1">
                                                 <div className="flex items-center">
-                                                    <MapPinIcon className="h-4 w-4 text-blue-gray-500 mr-2" />
+                                                    <MapPinIcon className="h-4 w-4 text-blue-gray-500 mr-2 [@media(max-width:430px)]:h-3"/>
                                                     <span className="text-gray-700">{deanInfo.office}</span>
                                                 </div>
                                                 <div className="flex items-center">
-                                                    <PhoneIcon className="h-4 w-4 text-blue-gray-500 mr-2" />
+                                                    <PhoneIcon className="h-4 w-4 text-blue-gray-500 mr-2 [@media(max-width:430px)]:h-3" />
                                                     <span className="text-gray-700">{deanInfo.phone}</span>
                                                 </div>
                                                 <div className="flex items-center">
-                                                    <EnvelopeIcon className="h-4 w-4 text-blue-gray-500 mr-2" />
+                                                    <EnvelopeIcon className="h-4 w-4 text-blue-gray-500 mr-2 [@media(max-width:430px)]:h-3" />
                                                     <span className="text-gray-700">{deanInfo.email}</span>
                                                 </div>
                                             </div>
-                                            <div className="mt-4 pt-4 border-t border-gray-200">
-                                                <Typography className="text-xs text-gray-600 leading-relaxed">
+                                            <div className="mt-4 pt-4 border-t border-gray-200 [@media(max-width:430px)]:mt-1 [@media(max-width:430px)]:pt-1">
+                                                <Typography className="text-xs text-gray-600 leading-relaxed [@media(max-width:430px)]:text-[9px]">
                                                     지능형SW융합대학의 발전을 위해 힘쓰는 학장님께 궁금한 점이나 건의사항이 있으시면 언제든지 연락주시기 바랍니다.
                                                 </Typography>
                                             </div>
@@ -146,7 +146,7 @@ const DeanIntro = () => {
                             viewport={{ once: true }}
                             variants={iconPopIn}
                         >
-                            <div className="p-3 rounded-full bg-gray-800 inline-flex items-center justify-center shadow-md">
+                            <div className="p-3 rounded-full bg-gray-800 inline-flex items-center justify-center shadow-md [@media(max-width:430px)]:mt-[18px] [@media(max-width:430px)]:w-[40px] [@media(max-width:430px)]:h-[40px]">
                                 <AcademicCapIcon className="h-8 w-8 text-white" />
                             </div>
                         </motion.div>
@@ -159,7 +159,7 @@ const DeanIntro = () => {
                         >
                             <Typography
                                 variant="h2"
-                                className="text-2xl md:text-3xl font-bold text-gray-800 mb-4"
+                                className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 [@media(max-width:430px)]:text-[15px]"
                             >
                                 지능형SW융합대학의 학장님을 소개합니다!
                             </Typography>
@@ -171,7 +171,7 @@ const DeanIntro = () => {
                             viewport={{ once: true }}
                             variants={paragraphFadeUp}
                         >
-                            <Typography color="gray" className="text-base md:text-lg text-gray-600 mb-6 md:mb-0">
+                            <Typography color="gray" className="text-base md:text-lg text-gray-600 mb-6 md:mb-0 [@media(max-width:430px)]:text-[12px]">
                                 대학의 발전과 학생들의 성장을 위해 헌신하시는 학장님의 비전을 확인해보세요. <br/>
                                 따뜻한 리더십과 혁신적인 교육 철학으로 지능형SW융합대학을 이끌고 계십니다.
                             </Typography>

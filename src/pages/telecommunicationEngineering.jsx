@@ -86,11 +86,11 @@ export function TelecommunicationEngineering() {
                             <Typography
                                 variant="h1"
                                 color="white"
-                                className="mb-6 font-black"
+                                className="mb-6 font-black [@media(max-width:430px)]:text-[25px] [@media(max-width:430px)]:mt-[150px]"
                             >
                                 정보통신학부
                             </Typography>
-                            <Typography variant="lead" color="white" className="opacity-80">
+                            <Typography variant="lead" color="white" className="opacity-80 [@media(max-width:430px)]:text-[15px]">
                                 수원대학교 정보통신학부는 정보통신융합(ICT) 기술의 핵심인 정보통신과 정보보호 분야를 깊이 있고 폭넓게 공부하고, <br/>
                                 다양한 실습을 통하여 실무 역량을 갖출 수 있도록 교육함으로써 4차 산업혁명시대에 필요한 핵심 기술 인력을 양성합니다.
                             </Typography>

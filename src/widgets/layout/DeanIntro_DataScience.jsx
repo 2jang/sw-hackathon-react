@@ -146,7 +146,7 @@ const DeanIntro_DataScience = () => {
                             viewport={{ once: true }}
                             variants={iconPopIn}
                         >
-                            <div className="p-3 rounded-full bg-gray-800 inline-flex items-center justify-center shadow-md">
+                            <div className="p-3 rounded-full bg-gray-800 inline-flex items-center justify-center shadow-md [@media(max-width:430px)]:mt-[38px] [@media(max-width:430px)]:w-[40px] [@media(max-width:430px)]:h-[40px]">
                                 <AcademicCapIcon className="h-8 w-8 text-white" />
                             </div>
                         </motion.div>
@@ -159,7 +159,7 @@ const DeanIntro_DataScience = () => {
                         >
                             <Typography
                                 variant="h2"
-                                className="text-2xl md:text-3xl font-bold text-gray-800 mb-4"
+                                className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 [@media(max-width:430px)]:text-[15px]"
                             >
                                 컴퓨터학부의 학부장님을 소개합니다!
                             </Typography>
@@ -171,7 +171,7 @@ const DeanIntro_DataScience = () => {
                             viewport={{ once: true }}
                             variants={paragraphFadeUp}
                         >
-                            <Typography color="gray" className="text-base md:text-lg text-gray-600 mb-6 md:mb-0">
+                            <Typography color="gray" className="text-base md:text-lg text-gray-600 mb-6 md:mb-0 [@media(max-width:430px)]:text-[12px]">
                                 대학의 발전과 학생들의 성장을 위해 헌신하시는 학부장님의 비전을 확인해보세요. <br/>
                                 따뜻한 리더십과 혁신적인 교육 철학으로 컴퓨터학부를 이끌고 계십니다.
                             </Typography>

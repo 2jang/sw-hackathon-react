@@ -9,20 +9,20 @@ import {
 // 데이터과학부(데이터과학과) 카드 컴포넌트
 export function FeatureCardDepartment3({ color, icon, title, description }) {
     return (
-        <Card className="rounded-lg shadow-lg shadow-gray-500/10">
-            <CardBody className="px-8 text-center">
+        <Card className="rounded-lg shadow-lg shadow-gray-500/10 [@media(max-width:430px)]:h-[200px]">
+            <CardBody className="px-8 text-center [@media(max-width:430px)]:p-4">
                 <IconButton
                     variant="gradient"
                     size="lg"
                     color={color}
-                    className="pointer-events-none mb-6 rounded-full"
+                    className="pointer-events-none [@media(max-width:430px)]:mb-2 mb-6 rounded-full"
                 >
                     {icon}
                 </IconButton>
-                <Typography variant="h5" className="mb-2" color="blue-gray">
+                <Typography variant="h5" className="mb-2 [@media(max-width:430px)]:text-[15px]" color="blue-gray">
                     {title}
                 </Typography>
-                <Typography className="font-normal text-blue-gray-600">
+                <Typography className="font-normal text-blue-gray-600 [@media(max-width:430px)]:text-[11px]">
                     {description}
                 </Typography>
             </CardBody>

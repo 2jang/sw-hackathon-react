@@ -84,7 +84,7 @@ export function ICT() {
                                 <Typography
                                     variant="h1"
                                     color="white"
-                                    className="mb-6 font-black"
+                                    className="mb-6 font-black [@media(max-width:430px)]:text-[25px]"
                                 >
                                     정보통신학과
                                 </Typography>
@@ -94,7 +94,7 @@ export function ICT() {
                                 animate="visible"
                                 variants={heroSubtitleAnim}
                             >
-                                <Typography variant="lead" color="white" className="opacity-80">
+                                <Typography variant="lead" color="white" className="opacity-80 [@media(max-width:430px)]:text-[15px]">
                                     "미래를 연결하는 기술, 세상을 바꾸는 혁신"
                                 </Typography>
                             </motion.div>

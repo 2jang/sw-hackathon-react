@@ -84,7 +84,7 @@ export function CIS() {
                                 <Typography
                                     variant="h1"
                                     color="white"
-                                    className="mb-6 font-black"
+                                    className="mb-6 font-black [@media(max-width:430px)]:text-[25px]"
                                 >
                                     정보보호학과
                                 </Typography>
@@ -94,7 +94,7 @@ export function CIS() {
                                 animate="visible"
                                 variants={heroSubtitleAnim}
                             >
-                                <Typography variant="lead" color="white" className="opacity-80">
+                                <Typography variant="lead" color="white" className="opacity-80 [@media(max-width:430px)]:text-[15px]">
                                     "안전한 디지털 세상을 만드는 정보보호 전문가"
                                 </Typography>
                             </motion.div>

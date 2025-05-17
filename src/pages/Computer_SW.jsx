@@ -31,11 +31,11 @@ export function Computer_SW() {
                             <Typography
                                 variant="h1"
                                 color="white"
-                                className="mb-6 font-black"
+                                className="mb-6 font-black [@media(max-width:430px)]:text-[25px]"
                             >
                                 컴퓨터SW
                             </Typography>
-                            <Typography variant="lead" color="white" className="opacity-80">
+                            <Typography variant="lead" color="white" className="opacity-80 [@media(max-width:430px)]:text-[15px]">
                                 "SW로 세상을 연결하다, 수원대 컴퓨터소프트웨어학과"
                             </Typography>
                         </div>

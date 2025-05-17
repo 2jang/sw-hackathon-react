@@ -77,11 +77,11 @@ export function DataScience() {
                             <Typography
                                 variant="h1"
                                 color="white"
-                                className="mb-6 font-black"
+                                className="mb-6 font-black [@media(max-width:430px)]:text-[25px] [@media(max-width:430px)]:mt-[150px]"
                             >
                                 데이터과학부
                             </Typography>
-                            <Typography variant="lead" color="white" className="opacity-80">
+                            <Typography variant="lead" color="white" className="opacity-80 [@media(max-width:430px)]:text-[15px]">
                                 데이터과학부는 제4차 산업혁명의 필요한 전문인 양성을 적합한 교육과정을 제공한다. <br/>
                                 이에 따라 데이터 분석에서부터 인공지능 알고리즘 개발 및 실행에 필요한 전문 지식을 익히도록 한다.
                             </Typography>

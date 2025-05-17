@@ -34,14 +34,14 @@ const CampusGuide = () => {
                 variants={fadeIn}
                 custom={0}
             >
-                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg">
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg [@media(max-width:430px)]:w-[40px] [@media(max-width:430px)]:h-[40px]">
                     <MapPinIcon className="h-8 w-8 text-white" />
                 </div>
-                <Typography variant="h3" className="mb-3 font-bold" color="blue-gray">
+                <Typography variant="h3" className="mb-3 font-bold [@media(max-width:430px)]:text-[20px]" color="blue-gray">
                     캠퍼스 내 최적의 동선,
                     <br /> 시간표를 효율적으로 계획하세요!
                 </Typography>
-                <Typography className="mb-8 font-normal text-blue-gray-500">
+                <Typography className="mb-8 font-normal text-blue-gray-500 [@media(max-width:430px)]:text-[16px]">
                     이동은 짧게, 수업은 알차게. 캠퍼스 길찾기로 시간표를 전략적으로 구성하세요!
                     <br />
                     <br />
@@ -57,7 +57,7 @@ const CampusGuide = () => {
 
             {/* 오른쪽 카드 영역 */}
             <motion.div
-                className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0"
+                className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0 [@media(max-width:430px)]:mt-12"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}

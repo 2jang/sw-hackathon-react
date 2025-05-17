@@ -32,11 +32,11 @@ export function Media_SW() {
                             <Typography
                                 variant="h1"
                                 color="white"
-                                className="mb-6 font-black"
+                                className="mb-6 font-black [@media(max-width:430px)]:text-[25px]"
                             >
                                 미디어SW
                             </Typography>
-                            <Typography variant="lead" color="white" className="opacity-80">
+                            <Typography variant="lead" color="white" className="opacity-80 [@media(max-width:430px)]:text-[15px]">
                                 "미디어를 이해하는 개발자, 세상을 바꾸는 창작자"
                             </Typography>
                         </div>

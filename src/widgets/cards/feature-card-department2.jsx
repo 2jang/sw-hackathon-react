@@ -13,22 +13,22 @@ export function FeatureCardDepartment2({ color, icon, title, description }) {
             className="rounded-lg shadow-lg shadow-gray-500/10 flex flex-col max-w-xs mx-auto
                  ring-1 ring-gray-300 hover:ring-green-500 hover:ring-opacity-75  // 기본 테두리 및 호버 시 테두리 강조
                  transition-all duration-300 ease-in-out
-                 hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105" // 호버 시 그림자 및 확대 효과
+                 hover:shadow-2xl hover:shadow-green-500/40 hover:scale-105 [@media(max-width:430px)]:h-[200px]" // 호버 시 그림자 및 확대 효과
 
         >
-            <CardBody className="px-8 text-center flex-grow">
+            <CardBody className="px-8 text-center flex-grow [@media(max-width:430px)]:p-4">
                 <IconButton
                     variant="gradient"
                     size="lg"
                     color={color}
-                    className="pointer-events-none mb-6 rounded-full"
+                    className="pointer-events-none [@media(max-width:430px)]:mb-2 mb-6 rounded-full"
                 >
                     {icon}
                 </IconButton>
-                <Typography variant="h5" className="mb-2" color="blue-gray">
+                <Typography variant="h5" className="mb-2 [@media(max-width:430px)]:text-[15px]" color="blue-gray">
                     {title}
                 </Typography>
-                <Typography className="font-normal text-blue-gray-600">
+                <Typography className="font-normal text-blue-gray-600 [@media(max-width:430px)]:text-[11px]">
                     {description}
                 </Typography>
             </CardBody>

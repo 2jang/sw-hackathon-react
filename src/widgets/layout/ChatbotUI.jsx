@@ -11,9 +11,10 @@ import {
     XMarkIcon,
     CpuChipIcon,
 } from "@heroicons/react/24/solid";
+import { motion, AnimatePresence } from "framer-motion";
 
 const initialMessagesForDebugging = [
-    { id: 1, text: "안녕하세요! 저는 AI 챗봇입니다. 무엇을 도와드릴까요?", sender: "bot" },
+    { id: 1, text: "안녕하세요! 저는 수원아이입니다. 무엇을 도와드릴까요?", sender: "bot" },
 ];
 
 // 디버깅 모드 활성화 여부 (true = 활성화, false = 비활성화)
@@ -150,7 +151,7 @@ export function ChatbotUI() {
                         <div className="flex items-center gap-2">
                             <ChatBubbleOvalLeftEllipsisIcon className="w-6 h-6 text-blue-gray-700" />
                             <Typography variant="h6" color="blue-gray">
-                                GPT 챗봇
+                                수원아이 SUWONAI
                             </Typography>
                             {DEBUG_MODE && (
                                 <span className="px-1.5 py-0.5 text-xs font-medium bg-red-100 text-red-800 rounded-full">

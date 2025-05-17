@@ -31,11 +31,11 @@ export function Data_Science() {
                             <Typography
                                 variant="h1"
                                 color="white"
-                                className="mb-6 font-black"
+                                className="mb-6 font-black [@media(max-width:430px)]:text-[25px]"
                             >
                                 데이터학과
                             </Typography>
-                            <Typography variant="lead" color="white" className="opacity-80">
+                            <Typography variant="lead" color="white" className="opacity-80 [@media(max-width:430px)]:text-[15px]">
                                 "데이터로 세상을 읽고, 통찰로 미래를 설계하다"
                             </Typography>
                         </div>

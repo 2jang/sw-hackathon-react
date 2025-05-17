@@ -86,11 +86,11 @@ export function ComputerScienceAndEngineering() {
                             <Typography
                                 variant="h1"
                                 color="white"
-                                className="mb-6 font-black"
+                                className="mb-6 font-black [@media(max-width:430px)]:text-[25px] [@media(max-width:430px)]:mt-[150px]"
                             >
                                 컴퓨터학부
                             </Typography>
-                            <Typography variant="lead" color="white" className="opacity-80">
+                            <Typography variant="lead" color="white" className="opacity-80 [@media(max-width:430px)]:text-[15px]">
                                 수원대학교 컴퓨터학부는 컴퓨터 과학 및 공학 분야의 창의적이고 경쟁력 있는 전문가 양성을 목표로 한다. <br/>
                                 ICT 기반 기술과 소프트웨어 개발 역량을 바탕으로 실무에 즉시 투입 가능한 전문 인력을 배출한다.
                             </Typography>
