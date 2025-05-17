@@ -20,6 +20,7 @@ import SWCollegeIntro from "@/widgets/layout/SWCollegeIntro.jsx";
 import DeanIntro from "@/widgets/layout/DeanIntro.jsx";
 import CampusGuide from "@/widgets/layout/CampusGuide.jsx";
 import {Link} from "react-router-dom";
+import thumbnail from "/img/thumbnail.png"
 
 
 // Home.js 상단 또는 animations.js 등으로 분리 가능
@@ -91,7 +92,7 @@ export function Home() {
           {/* 썸네일 이미지 */}
           {!videoLoaded && (
               <img
-                  src="/img/thumbnail.jpg" // 썸네일 경로
+                  src= { thumbnail } // 썸네일 경로
                   alt="썸네일"
                   className="absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-500"
               />
