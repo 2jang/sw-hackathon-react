@@ -3,7 +3,7 @@ import {
     Card,
     Typography
 } from "@material-tailwind/react";
-import {curriculumData,teamData_Media_SW} from "@/data/index.js";
+import {curriculumData_ICT,teamData_Media_SW} from "@/data/index.js";
 import { TeamCard } from "@/widgets/cards/index.js";
 import React from "react";
 import {ChevronDownIcon } from "@heroicons/react/24/solid/index.js";
@@ -80,7 +80,7 @@ export function Media_SW() {
                         Administration, Ted, Scambos.
                     </PageTitle>
                     <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
-                        {curriculumData.map(({ title, icon, description }) => (
+                        {curriculumData_ICT.map(({ title, icon, description }) => (
                             <Card
                                 key={title}
                                 color="transparent"

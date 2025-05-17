@@ -9,7 +9,7 @@ import {
     Textarea,
     Typography
 } from "@material-tailwind/react";
-import {curriculumData, featuresDataDepartment3} from "@/data/index.js";
+import {curriculumData_ICT, featuresDataDepartment3} from "@/data/index.js";
 import { FeatureCardCollege } from "@/widgets/cards/index.js";
 import React from "react";
 import {Footer, PageTitle} from "@/widgets/layout/index.js";

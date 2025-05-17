@@ -7,5 +7,6 @@ export * from "@/data/team-data_CIS";
 export * from "@/data/team-data_Computer_SW";
 export * from "@/data/team-data_Media_SW.js";
 export * from "@/data/team-data_Data_Science";
-export * from "@/data/curriculum-data.js";
+export * from "@/data/curriculum-data_ICT";
+export * from "@/data/curriculum-data_CIS";
 export * from "@/data/buildings";
