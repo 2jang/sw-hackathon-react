@@ -30,55 +30,18 @@ export function Navbar({ brandName, routes, action, isHovered, onHoverChange }) 
     const navList = (
         <ul className={`
             flex flex-col items-start mt-2 mb-2 gap-2
-            lg:flex-row lg:items-center lg:mt-0 lg:mb-0 lg:gap-[15px]
-            xl:gap-[30px]
-            2xl:gap-[50px]
+            lg:flex-row lg:items-center lg:mt-0 lg:mb-0 
             ${isHovered ? 'text-black' : 'text-inherit'}`}>
             {routes.map(({ name, path, icon, href, target }) => {
                 const collegeInfo = collegeDataMap[name];
 
                 if (collegeInfo && collegeInfo.path === path) {
                     return (
-                        <li key={name} className="relative">
-                            <div className={`capitalize flex items-center gap-1 p-0.5 font lg:text-[14px] xl:text-xl tracking-wide cursor-pointer ${isHovered ? 'text-black' : 'text-white'}`}>
+                        <li key={name} className="relative ml-[100px]">
+                            <div className={`capitalize flex items-center gap-1 p-0.5 font lg:text-[20px] xl:text-xl tracking-wide cursor-pointer ${isHovered ? 'text-black' : 'text-white'}`}>
                                 {name}
                             </div>
                         </li>
-                    );
-                } else {
-                    return (
-                        <Typography
-                            key={name}
-                            as="li"
-                            variant="small"
-                            className={`capitalize ${isHovered ? 'text-black' : 'text-inherit'}`}
-                        >
-                            {href ? (
-                                <a
-                                    href={href}
-                                    target={target}
-                                    className={`flex items-center gap-0.5 p-0.5 font text-lg tracking-wide transition-colors ${isHovered ? 'hover:text-gray-600' : 'text-white hover:text-blue-gray-300'}`}
-                                >
-                                    {icon &&
-                                        React.createElement(icon, {
-                                            className: `w-[12px] h-[12px] opacity-75 mr-0.5 ${isHovered ? 'text-black' : ''}`,
-                                        })}
-                                    {name}
-                                </a>
-                            ) : (
-                                <Link
-                                    to={path}
-                                    target={target}
-                                    className={`flex items-center gap-1 p-0.5 font text-lg tracking-wide transition-colors ${isHovered ? 'hover:text-gray-600' : 'text-white hover:text-blue-gray-300'}`}
-                                >
-                                    {icon &&
-                                        React.createElement(icon, {
-                                            className: `w-[12px] h-[12px] opacity-75 mr-0.5 ${isHovered ? 'text-black' : ''}`,
-                                        })}
-                                    {name}
-                                </Link>
-                            )}
-                        </Typography>
                     );
                 }
             })}

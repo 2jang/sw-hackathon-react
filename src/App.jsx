@@ -111,6 +111,43 @@ function App() {
                                         <p className="text-sm text-gray-500">AI와 빅데이터 기반 데이터 전문가 양성</p>
                                     </Link>
                                 </div>
+
+                                {/* Column 4: 다른 기능 */}
+                                <div className="mt-[20px]">
+                                    <p className="text-sm mb-3 font-medium text-gray-500">추가 기능</p>
+
+                                    <Link
+                                        to="/pathfinder"
+                                        onClick={toggleBoxVisible}
+                                    >
+                                        <p className="text-lg font-bold text-black hover:text-[#febe3a] transition-colors duration-300">수원대 길찾기</p>
+                                        <p className="text-sm text-gray-500">캠퍼스 내 건물 이동시간 알아보러가기</p>
+                                    </Link>
+                                </div>
+                                {/* Column 4: 다른 기능 */}
+                                <div className="border-l pl-6 mt-[40px]">
+                                    <p className="text-sm mb-3 font-medium text-gray-500"></p>
+
+                                    <Link
+                                        to="/graduate"
+                                        onClick={toggleBoxVisible}
+                                    >
+                                        <p className="text-lg font-bold text-black hover:text-[#febe3a] transition-colors duration-300">졸업요건</p>
+                                        <p className="text-sm text-gray-500">각 학과별 졸업 요건 및 공통 요건을 확인하여 성공적인 졸업을 준비하세요.</p>
+                                    </Link>
+                                </div>
+                                {/* Column 4: 다른 기능 */}
+                                <div className="border-l pl-6 mt-[40px]">
+                                    <p className="text-sm mb-3 font-medium text-gray-500"></p>
+
+                                    <Link
+                                        to="/minigame"
+                                        onClick={toggleBoxVisible}
+                                    >
+                                        <p className="text-lg font-bold text-black hover:text-[#febe3a] transition-colors duration-300">클릭 배틀</p>
+                                        <p className="text-sm text-gray-500">누가누가 더 미쳤나.</p>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
