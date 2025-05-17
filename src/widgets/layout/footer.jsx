@@ -85,8 +85,8 @@ Footer.defaultProps = {
   socials: [
     {
       color: "gray",
-      name: "twitter",
-      path: "https://www.twitter.com/creativetim",
+      name: "figma",
+      path: "https://www.figma.com/design/3YCKKNRUibX3zevfhov3wN/ICT%ED%95%B4%EC%BB%A4%ED%86%A4?node-id=0-1&t=dse7JdGJIDWxCbXu-1",
     },
     {
       color: "gray",
@@ -118,39 +118,47 @@ Footer.defaultProps = {
           name: "이메일무단수집거부",
           path: "https://www.suwon.ac.kr/index.html?menuno=1963",
         },
+        {
+          name: "정보보호",
+          path: "https://www.suwon.ac.kr/index.html?menuno=1964",
+        },
       ],
     },
     {
       name: "other resources",
       items: [
         {
-          name: "MIT License",
-          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/LICENSE.md?ref=mtk",
+          name: "대학 입학",
+          path: "https://ipsi.suwon.ac.kr/",
         },
         {
-          name: "Contribute",
-          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CONTRIBUTING.md?ref=mtk",
+          name: "대학원 입학",
+          path: "https://www.suwon.ac.kr/index.html?menuno=782",
         },
         {
-          name: "Change Log",
-          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CHANGELOG.md?ref=mtk",
+          name: "전화번호",
+          path: "https://www.suwon.ac.kr/index.html?menuno=653",
         },
         {
-          name: "Contact Us",
-          path: "https://creative-tim.com/contact-us?ref=mtk",
+          name: "찾아오시는 길",
+          path: "https://www.suwon.ac.kr/index.html?menuno=654",
+        },
+        {
+          name: "대중교통 안내",
+          path: "https://www.suwon.ac.kr/index.html?menuno=656",
         },
       ],
     },
   ],
   copyright: (
     <>
-      Copyright © {year} Material Tailwind by{" "}
+      Copyright © {year} USW Hackathon by{" "}
       <a
-        href="https://www.creative-tim.com?ref=mtk"
+        href="https://github.com/2025-sw-hackathon"
         target="_blank"
         className="text-blue-gray-500 transition-colors hover:text-blue-500"
       >
-        Creative Tim
+        1조 SuwonAI
       </a>
       .
     </>
