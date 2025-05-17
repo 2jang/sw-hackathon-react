@@ -13,7 +13,7 @@ import {
 import { motion } from "framer-motion";
 import deanImg from "/public/img/Computer_Science_and_Engineering/GIMJANGYEONG.jpeg"; // 이미지 경로는 실제 프로젝트 구조에 맞게 확인해주세요.
 
-const DeanIntro = () => {
+const DeanIntro_ComputerScienceAndEngineering = () => {
     const deanInfo = {
         name: "김장영",
         department: "컴퓨터학부",
@@ -183,4 +183,4 @@ const DeanIntro = () => {
     );
 };
 
-export default DeanIntro;
+export default DeanIntro_ComputerScienceAndEngineering;

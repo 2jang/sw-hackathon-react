@@ -1,24 +1,13 @@
 import {
-    Button,
-    Card,
-    CardBody,
-    CardHeader,
-    Checkbox,
-    IconButton,
-    Input,
-    Textarea,
     Typography
 } from "@material-tailwind/react";
-import {curriculumData_ICT, featuresDataDepartment3} from "@/data/index.js";
+import { featuresDataDepartment3 } from "@/data/index.js";
 import { FeatureCardCollege } from "@/widgets/cards/index.js";
 import React from "react";
-import {Footer, PageTitle} from "@/widgets/layout/index.js";
+import {Footer } from "@/widgets/layout/index.js";
 import { ChatbotUI } from "@/widgets/layout/ChatbotUI.jsx";
 import {Link} from "react-router-dom";
-import ComputerScienceAndEngineeringIntro from "@/widgets/layout/computerScienceAndEngineeringIntro.jsx";
 import {motion} from "framer-motion";
-import DeanIntro_ComputerScienceAndEngineering from "@/widgets/layout/DeanIntro_ComputerScienceAndEngineering.jsx";
-import Curriculum from "@/widgets/layout/curriculum.jsx";
 import DataScienceIntro from "@/widgets/layout/dataScienceIntro.jsx";
 import DeanIntro_DataScience from "@/widgets/layout/DeanIntro_DataScience.jsx";
 import CurriculumDataScience from "@/widgets/layout/curriculumDataScience.jsx";
