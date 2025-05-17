@@ -19,6 +19,7 @@ import ComputerScienceAndEngineeringIntro from "@/widgets/layout/computerScience
 import {motion} from "framer-motion";
 import DeanIntro_ComputerScienceAndEngineering from "@/widgets/layout/DeanIntro_ComputerScienceAndEngineering.jsx";
 import Curriculum from "@/widgets/layout/curriculum.jsx";
+import CurriculumComputerScienceAndEngineering from "@/widgets/layout/curriculumComputerScienceAndEngineernig.jsx";
 
 // 기존 fadeIn (FeatureCardCollege용)
 const fadeIn = {
@@ -134,8 +135,8 @@ export function ComputerScienceAndEngineering() {
                     </div>
                 </div>
             </motion.section>
-            <Curriculum />
             <DeanIntro_ComputerScienceAndEngineering />
+            <CurriculumComputerScienceAndEngineering />
             <div className="bg-white">
                 <Footer />
             </div>

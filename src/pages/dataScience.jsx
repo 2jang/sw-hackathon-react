@@ -136,8 +136,8 @@ export function DataScience() {
                     </div>
                 </div>
             </motion.section>
-            <Curriculum />
             <DeanIntro_DataScience />
+            <Curriculum />
             <div className="bg-white">
                 <Footer />
             </div>
