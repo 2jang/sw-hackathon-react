@@ -99,10 +99,13 @@ function TeamScoreCard({ team, score, rank, onClick }) {
     }, []);
 
     const handleClick = (e) => {
-        e.preventDefault();
+        // 클릭 이벤트 핸들러에서 e.preventDefault()를 호출하면
+        // 버튼 클릭 자체가 막힐 수 있으므로, 여기서는 호출하지 않습니다.
+        // 스페이스/엔터로 인한 버튼 활성화는 window의 keydown 핸들러에서 처리합니다.
+
         if (audioRef.current) {
             audioRef.current.currentTime = 0;
-            audioRef.current.play().catch(e => console.error("오디오 재생 오류:", e));
+            audioRef.current.play().catch(err => console.error("오디오 재생 오류:", err));
         }
 
         if (buttonRef.current) {
@@ -116,7 +119,7 @@ function TeamScoreCard({ team, score, rank, onClick }) {
 
             if (hitSoundRef.current) {
                 hitSoundRef.current.volume = 0.8;
-                hitSoundRef.current.play().catch(e => console.error("히트 오디오 재생 오류:", e));
+                hitSoundRef.current.play().catch(err => console.error("히트 오디오 재생 오류:", err));
             }
         }
 
@@ -281,9 +284,10 @@ function TeamScoreCard({ team, score, rank, onClick }) {
                                 ref={buttonRef}
                                 color={team.color}
                                 size="lg"
-                                onClick={handleClick}
+                                onClick={handleClick} // onClick 자체는 유지하여 마우스 클릭은 동작하도록 함
                                 onTouchStart={(e) => {
-                                    e.preventDefault();
+                                    // 터치 이벤트 처리로 줌 방지
+                                    // e.preventDefault(); // 이 부분은 클릭과 관련 없으므로 그대로 두거나, 필요에 따라 handleClick에서 마우스 이벤트와 함께 처리
                                 }}
                                 className={`w-full py-3 text-base font-bold transition-all hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden
                                   ${rank === 1 ? 'bg-gradient-to-r from-yellow-400 to-yellow-600 border-2 border-yellow-700' : ''}`}
@@ -312,11 +316,32 @@ export function ClickBattle() {
     const clientRef = useRef(null);
     const [prevRanks, setPrevRanks] = useState({});
     const rankChangeAudioRef = useRef(null);
-    // const [rainbowBackground, setRainbowBackground] = useState(false); // REMOVED
 
     useEffect(() => {
         rankChangeAudioRef.current = new Audio('/img/click.mp3');
     }, []);
+
+    // 이 useEffect는 스페이스와 엔터 키 입력을 페이지 전체에서 무시합니다.
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            // INPUT, TEXTAREA 등 텍스트 입력이 필요한 요소에서는 스페이스, 엔터 허용
+            const targetTagName = event.target.tagName;
+            if (targetTagName === 'INPUT' || targetTagName === 'TEXTAREA' || event.target.isContentEditable) {
+                return;
+            }
+
+            if (event.key === ' ' || event.key === 'Enter') {
+                event.preventDefault();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        // 컴포넌트 언마운트 시 이벤트 리스너 제거
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []); // 빈 배열은 컴포넌트 마운트 시 한 번만 실행됨을 의미
 
     const getSortedTeams = () => {
         const teamsWithScores = TEAMS_CONFIG.map(team => ({
@@ -341,8 +366,8 @@ export function ClickBattle() {
     const teamRanks = getTeamRanks();
     const sortedTeams = getSortedTeams();
 
-    const firstPlaceTeam = sortedTeams[0];
-    const thirdPlaceTeam = sortedTeams[2];
+    // const firstPlaceTeam = sortedTeams[0]; // 현재 사용되지 않음
+    // const thirdPlaceTeam = sortedTeams[2]; // 현재 사용되지 않음
 
     useEffect(() => {
         if (Object.keys(prevRanks).length > 0) {
@@ -354,21 +379,19 @@ export function ClickBattle() {
                 if (rankChangeAudioRef.current) {
                     rankChangeAudioRef.current.play().catch(e => console.error("순위 변동 오디오 재생 오류:", e));
                 }
-                // setRainbowBackground(true); // REMOVED
-                // setTimeout(() => setRainbowBackground(false), 2000); // REMOVED
                 console.log("순위 변동 발생!");
             }
         }
         setPrevRanks(teamRanks);
-    }, [teamRanks, prevRanks]); // Added prevRanks to dependency array for correctness
+    }, [teamRanks, prevRanks]);
 
     useEffect(() => {
         const fetchInitialScores = async () => {
             try {
                 const response = await fetch('http://ahnai1.suwon.ac.kr:5041/click-num');
                 const initialDataArray = await response.json();
-                setScores(prevScores => {
-                    const updatedScores = { ...initialScoresState };
+                setScores(prevScores => { // prevScores를 사용하여 이전 상태 기반으로 업데이트
+                    const updatedScores = { ...initialScoresState }; // 초기 상태 복사
                     initialDataArray.forEach(item => {
                         const teamKey = CLICK_ID_TO_TEAM_KEY_MAP[item.clinkId];
                         if (teamKey) {
@@ -425,7 +448,7 @@ export function ClickBattle() {
             }
             setIsConnected(false);
         };
-    }, []); // initialScoresState was removed from dependency array as it's stable
+    }, []); // 의존성 배열에서 initialScoresState 제거 (정적)
 
     const handleTeamClick = (teamDbClickId) => {
         if (clientRef.current?.connected && isConnected) {
@@ -457,7 +480,6 @@ export function ClickBattle() {
     return (
         <>
             <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-                {/* 배경 애니메이션 레이어 - rainbowBackground 관련 클래스 및 조건부 스타일 제거 */}
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 opacity-90 transition-all duration-500">
                     <div className="absolute inset-0 opacity-20">
                         {Array.from({ length: 20 }).map((_, index) => (
@@ -587,7 +609,6 @@ export function ClickBattle() {
                         opacity: 0;
                     }
                 }
-                /* REMOVED @keyframes animate-gradient-x and .animate-gradient-x class */
                 @keyframes wiggle {
                     0%, 100% { transform: rotate(-5deg); }
                     50% { transform: rotate(5deg); }
