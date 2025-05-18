@@ -1,4 +1,4 @@
-# 수원대학교 지능형SW융합대학 안내 웹사이트 (가칭)
+# LLM을 이용한 수원대학교 지능형SW융합대학 웹사이트 제작 해커톤(1주일)
 
 ## 🌟 프로젝트 소개
 
@@ -8,8 +8,8 @@
 
 *   **🏠 홈:**
     *   지능형SW융합대학 소개 및 최신 소식
-    *   주요 학과(컴퓨터SW, 미디어SW, 정보통신, 정보보호, 데이터과학) 바로가기
-    *   학장님 인사말 및 캠퍼스 가이드
+    *   주요 학과(컴퓨터SW, 미디어SW, 정보통신, 정보보호, 데이터과학)바로가기
+    *   학장님 인사말 및 캠퍼스 가이드 바로가기
 *   **🎓 졸업 요건 확인:**
     *   학과별(컴퓨터 SW, 미디어 SW, 정보통신, 정보보호, 데이터과학) 졸업 요건 상세 안내
     *   개인별 졸업 요건 충족 여부 체크 및 졸업 가능성 확인 기능
@@ -27,26 +27,21 @@
     *   실시간 점수 반영 및 순위 표시 (WebSocket, StompJS 사용)
     *   피버 모드, 클릭 효과 등 재미 요소 포함
 *   **💬 챗봇 UI:**
-    *   사용자 문의에 응답하는 챗봇 인터페이스 (구체적인 기능은 추가 개발 필요)
+    *   사용자 문의에 응답하는 챗봇 인터페이스
 
 ## 🛠️ 기술 스택
 
 *   **Frontend:**
-    *   React (v18.2.0)
-    *   JavaScript (ES6+)
-    *   Material Tailwind (v2.1.4)
-    *   Framer Motion (v12.12.1) - 애니메이션 효과
-    *   Tailwind CSS (v3.3.4)
+    *   React
+    *   JavaScript
+    *   Tailwind CSS
 *   **Routing:**
-    *   React Router DOM (v6.17.0)
+    *   React Router DOM
 *   **Real-time Communication (클릭 배틀):**
     *   WebSocket
-    *   StompJS (v7.1.1)
+    *   StompJS
 *   **Build Tool:**
-    *   Vite (v6.3.5)
-*   **Icons:**
-    *   Heroicons (v2.0.18)
-    *   Font Awesome (v6.7.2)
+    *   Vite
 *   **Package Manager:**
     *   npm
 
@@ -54,11 +49,11 @@
 
 1.  **프로젝트 클론:**
     ```bash
-    git clone <저장소_URL>
+    git clone https://github.com/2025-sw-hackathon/sw-hackathon-react.git
     ```
 2.  **프로젝트 디렉토리로 이동:**
     ```bash
-    cd <프로젝트_디렉토리>
+    cd sw-hackathon-react
     ```
 3.  **필요한 패키지 설치:**
     ```bash
@@ -69,11 +64,7 @@
     npm run dev
     ```
     이후 브라우저에서 `http://localhost:5173` (또는 Vite 실행 시 터미널에 안내되는 주소)으로 접속하여 확인할 수 있습니다.
-
-## 🧑‍💻 팀원 및 기여자
-
-*   (해커톤 참가팀 또는 팀원 정보를 입력해주세요)
-
+    
 ## 📄 라이선스
 
 본 프로젝트는 (예: MIT) 라이선스를 따릅니다. 자세한 내용은 `LICENSE` 파일을 참고해주세요. (라이선스 파일이 없다면 이 문구는 삭제하거나 적절히 수정해주세요.)
