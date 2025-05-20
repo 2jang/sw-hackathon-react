@@ -1,182 +1,74 @@
-# [Material Tailwind Kit React](http://demos.creative-tim.com/material-tailwind-kit-react/#/?ref=readme-mtkr) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https://www.creative-tim.com/product/material-tailwind-kit-react&text=Check%20Material%20Tailwind%20Kit%20React%20made%20by%20@CreativeTim%20#webdesign%20#kit%20#materialdesign%20#react%20#materialtailwind%20#tailwindcss%20https://www.creative-tim.com/product/material-tailwind-kit-react)
-
-![version](https://img.shields.io/badge/version-2.1.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/material-tailwind-kit-react.svg)](https://github.com/creativetimofficial/material-tailwind-kit-react/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/material-tailwind-kit-react.svg)](https://github.com/creativetimofficial/material-tailwind-kit-react/issues?q=is%3Aissue+is%3Aclosed)
-
-![Image](https://s3.amazonaws.com/creativetim_bucket/products/486/original/material-tailwind-kit-react.jpg)
-
-Material Tailwind Kit React is our newest free Material Tailwind UI Kit based on Tailwind CSS and React. If you’re a developer looking to create an ui kit that is developer-friendly, rich with features, and highly customisable, here is your match. Our innovative Material Tailwind, Tailwind CSS & React ui kit comes with a beautiful design inspired by Google's Material Design and it will help you create stunning websites & web apps to delight your clients.
-
-**Fully Coded Elements**
-
-Material Tailwind Kit React is built with over 40 frontend individual elements coming from @material-tailwind/react, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining. All components can take variations in color, which you can easily modify using props and tailwind css classnames. You will save a lot of time going from prototyping to full-functional code because all elements are implemented.
-
-This free Material Tailwind, Tailwind CSS & React UI Kit is coming with prebuilt design blocks, so the development process is seamless, switching from our pages to the real website is very easy to be done.
-
-View [all components here](https://www.material-tailwind.com/docs/react/button).
-
-**Documentation built by Developers**
-
-Each element is well presented in very complex documentation.
-
-You can read more about the [documentation here](https://www.material-tailwind.com/docs/react/installation).
-
-**Example Pages**
-
-If you want to get inspiration or just show something directly to your clients, you can jump-start your development with our pre-built example pages. You will be able to quickly set up the basic structure for your web project.
-
-View [example pages here](https://demos.creative-tim.com/material-tailwind-kit-react/#/home).
-
-**HELPFUL LINKS**
-
-- View [Github Repository](https://github.com/creativetimofficial/material-tailwind-kit-react)
-- Check [FAQ Page](https://www.creative-tim.com/faq)
-
-#### Special thanks
-
-During the development of this ui kit, we have used many existing resources from awesome developers. We want to thank them for providing their tools open source:
-
-- [Material Tailwind](https://material-tailwind.com/) - Material Tailwind is an easy to use components library for Tailwind CSS and Material Design.
-- [Hero Icons](https://heroicons.com/) - Beautiful hand-crafted SVG icons.
-- [Nepcha Analytics](https://nepcha.com?ref=readme) for the analytics tool. Nepcha is already integrated with Material Tailwind Kit React. You can use it to gain insights into your sources of traffic.
-
-Let us know your thoughts below. And good luck with development!
-
-## Table of Contents
-
-- [Versions](#versions)
-- [Demo](#demo)
-- [Quick Start](#quick-start)
-- [Deploy](#deploy)
-- [Documentation](#documentation)
-- [File Structure](#file-structure)
-- [Browser Support](#browser-support)
-- [Resources](#resources)
-- [Reporting Issues](#reporting-issues)
-- [Technical Support or Questions](#technical-support-or-questions)
-- [Licensing](#licensing)
-- [Useful Links](#useful-links)
-
-## Versions
-
-[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/material-tailwind-kit-react?ref=readme-mtkr)
-
-| React |
-| ----- |
-
-| [![Material Tailwind Kit React](https://s3.amazonaws.com/creativetim_bucket/products/486/thumb/material-tailwind-kit-react.jpg)](http://demos.creative-tim.com/material-tailwind-kit-react/#/?ref=readme-mtkr)
-
-## Demo
-
-- [Home page](https://demos.creative-tim.com/material-tailwind-kit-react/#/home?ref=readme-mtkr)
-- [Profile page](https://demos.creative-tim.com/material-tailwind-kit-react/#/profile?ref=readme-mtkr)
-- [Sign in page](https://demos.creative-tim.com/material-tailwind-kit-react/#/sign-in?ref=readme-mtkr)
-- [Sign up page](https://demos.creative-tim.com/material-tailwind-kit-react/#/sign-up?ref=readme-mtkr)
-
-[View More](https://demos.creative-tim.com/material-tailwind-kit-react/#/?ref=readme-mtkr).
-
-## Quick start
-
-Quick start options:
-
-- Downdload from [Creative Tim](https://www.creative-tim.com/product/material-tailwind-kit-react?ref=readme-mtkr).
-
-## Terminal Commands
-
-1. Download and Install NodeJs LTS version from [NodeJs Official Page](https://nodejs.org/en/download/).
-2. Navigate to the root ./ directory of the product and run `npm install` or `yarn install` or `pnpm install` to install our local dependencies.
-
-## Deploy
-
-:rocket: You can deploy your own version of the template to Genezio with one click:
-
-[![Deploy to Genezio](https://raw.githubusercontent.com/Genez-io/graphics/main/svg/deploy-button.svg)](https://app.genez.io/start/deploy?repository=https://github.com/creativetimofficial/material-tailwind-kit-react&utm_source=github&utm_medium=referral&utm_campaign=github-creativetim&utm_term=deploy-project&utm_content=button-head)
-
-
-## Documentation
-
-The documentation for the Material Tailwind Kit React is hosted at our [website](https://material-tailwind.com/?ref=readme-mtkr).
-
-### What's included
-
-Within the download you'll find the following directories and files:
-
-```
-material-tailwind-kit-react
-    ├── public
-    │   ├── css
-    │   └── img
-    ├── src
-    │   ├── data
-    │   ├── pages
-    │   ├── widgets
-    │   ├── App.jsx
-    │   ├── main.jsx
-    │   └── mainRoutes.jsx
-    ├── .gitignore
-    ├── CHANGELOG.md
-    ├── index.html
-    ├── ISSUE_TEMPLATE.md
-    ├── jsconfig.json
-    ├── LICENSE
-    ├── package.json
-    ├── postcsss.config.cjs
-    ├── prettier.config.cjs
-    ├── README.md
-    ├── tailwind.config.cjs
-    └── vite.config.js
-```
-
-## Browser Support
-
-At present, we officially aim to support the last two versions of the following browsers:
-
-<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
-
-## Resources
-
-- [Live Preview](https://demos.creative-tim.com/material-tailwind-kit-react/#/home?ref=readme-mtkr)
-- [Download Page](https://www.creative-tim.com/product/material-tailwind-kit-react?ref=readme-mtkr)
-- Documentation is [here](https://material-tailwind.com/?ref=readme-mtkr)
-- [License Agreement](https://www.creative-tim.com/license?ref=readme-mtkr)
-- [Support](https://www.creative-tim.com/contact-us?ref=readme-mtkr)
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/material-tailwind-kit-react/issues)
-- [Nepcha Analytics](https://nepcha.com?ref=readme) - Analytics tool for your website
-
-## Reporting Issues
-
-We use GitHub Issues as the official bug tracker for the Material Tailwind Kit React. Here are some advices for our users that want to report an issue:
-
-1. Make sure that you are using the latest version of the Material Tailwind Kit React. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/product/material-tailwind-kit-react?ref=readme-mtkr).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
-
-## Technical Support or Questions
-
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us?ref=readme-mtkr) instead of opening an issue.
-
-## Licensing
-
-- Copyright 2023 [Creative Tim](https://www.creative-tim.com?ref=readme-mtkr)
-- Creative Tim [license](https://www.creative-tim.com/license?ref=readme-mtkr)
-
-## Useful Links
-
-- [More products](https://www.creative-tim.com/templates?ref=readme-mtkr) from Creative Tim
-
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
-
-- [Freebies](https://www.creative-tim.com/bootstrap-themes/free?ref=readme-mtkr) from Creative Tim
-
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=readme-mtkr) (earn money)
-
-##### Social Media
-
-Twitter: <https://twitter.com/CreativeTim>
-
-Facebook: <https://www.facebook.com/CreativeTim>
-
-Dribbble: <https://dribbble.com/creativetim>
-
-Google+: <https://plus.google.com/+CreativetimPage>
-
-Instagram: <https://instagram.com/creativetimofficial>
+# LLM을 이용한 수원대학교 지능형SW융합대학 웹사이트 제작 해커톤
+
+## 🌟 프로젝트 소개
+
+본 프로젝트는 수원대학교 지능형SW융합대학 학생들과 방문자들을 위한 다양한 정보와 편의 기능을 제공하는 웹사이트입니다. 해커톤을 통해 개발되었으며, 학교생활에 도움이 되는 유용한 기능들을 포함하고 있습니다. 해커톤은 1주일동안 진행되었습니다
+
+## ✨ 주요 기능
+
+*   **🏠 홈:**
+    *   지능형SW융합대학 소개 및 최신 소식
+    *   주요 학과(컴퓨터SW, 미디어SW, 정보통신, 정보보호, 데이터과학)바로가기
+    *   학장님 인사말 및 캠퍼스 가이드 바로가기
+*   **🎓 졸업 요건 확인:**
+    *   학과별(컴퓨터 SW, 미디어 SW, 정보통신, 정보보호, 데이터과학) 졸업 요건 상세 안내
+    *   개인별 졸업 요건 충족 여부 체크 및 졸업 가능성 확인 기능
+*   **🗺️ 캠퍼스 길 찾기 (수원대 네비):**
+    *   교내 건물 및 주요 시설물 검색
+    *   출발지와 도착지 설정 시 최단 경로 안내 (API 연동)
+    *   지도 위 건물 위치 표시 및 클릭 정보 확인
+*   **🏢 학과 소개:**
+    *   컴퓨터학부 (컴퓨터SW, 미디어SW)
+    *   정보통신학부 (정보통신, 정보보호)
+    *   데이터과학부
+    *   각 학과별 상세 소개, 교육 과정, 교수진 정보 제공
+*   **🎮 클릭 배틀 미니게임:**
+    *   학부 대항 클릭 대결 게임 (정보통신학부 vs 데이터과학부 vs 컴퓨터학부)
+    *   실시간 점수 반영 및 순위 표시 (WebSocket, StompJS 사용)
+    *   피버 모드, 클릭 효과 등 재미 요소 포함
+*   **💬 챗봇 UI:**
+    *   사용자 문의에 응답하는 챗봇 인터페이스
+
+## 🛠️ 기술 스택
+
+*   **Frontend:**
+    *   React
+    *   JavaScript
+    *   Tailwind CSS
+*   **Routing:**
+    *   React Router DOM
+*   **Real-time Communication (클릭 배틀):**
+    *   WebSocket
+    *   StompJS
+*   **Build Tool:**
+    *   Vite
+*   **Package Manager:**
+    *   npm
+
+## 🚀 설치 및 실행 방법
+
+1.  **프로젝트 클론:**
+    ```bash
+    git clone https://github.com/2025-sw-hackathon/sw-hackathon-react.git
+    ```
+2.  **프로젝트 디렉토리로 이동:**
+    ```bash
+    cd sw-hackathon-react
+    ```
+3.  **필요한 패키지 설치:**
+    ```bash
+    npm install
+    ```
+4.  **개발 서버 실행:**
+    ```bash
+    npm run dev
+    ```
+    이후 브라우저에서 `http://localhost:5173` (또는 Vite 실행 시 터미널에 안내되는 주소)으로 접속하여 확인할 수 있습니다.
+    
+## 📄 라이선스
+
+본 프로젝트는 (예: MIT) 라이선스를 따릅니다. 자세한 내용은 `LICENSE` 파일을 참고해주세요. (라이선스 파일이 없다면 이 문구는 삭제하거나 적절히 수정해주세요.)
+
+---
+
+**참고:** 위 README는 제공해주신 파일 정보를 바탕으로 작성되었으며, 실제 프로젝트 내용과 다를 수 있습니다. 프로젝트의 특성에 맞게 내용을 자유롭게 수정하여 사용하시기 바랍니다.
