@@ -6,7 +6,7 @@ import {
     CardBody,
     Button,
     Chip,
-    Progress, // Material Tailwind의 Progress 컴포넌트 사용 (피버 게이지용)
+    Progress,
 } from "@material-tailwind/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
@@ -32,39 +32,21 @@ const FEVER_POINTS_PER_CLICK = 1;
 const FEVER_MODE_DURATION = 10000;
 const FEVER_CLICK_MULTIPLIER = 2;
 
-// 피버 게이지 자동 감소 관련 상수
-const FEVER_DECAY_INTERVAL = 500; // 게이지 감소 간격 (ms) - 예: 1.5초마다
-const FEVER_DECAY_AMOUNT = 1;    // 감소량 - 예: 1 포인트씩
+const FEVER_DECAY_INTERVAL = 500;
+const FEVER_DECAY_AMOUNT = 1;
+const IDLE_THRESHOLD_FOR_DECAY = 1500; // 1.5초 동안 입력 없으면 게이지 감소 시작
 
-// 히트 효과 컴포넌트 (기존과 동일)
-const HitEffect = ({ hit, position }) => {
-    if (!hit) return null;
-    return (
-        <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[9990]">
-            <motion.div initial={{ opacity: 0, scale: 0, x: position.x, y: position.y }} animate={{ opacity: [0, 1, 0.8, 0], scale: [0, 1.2, 1.3, 1.5], }} transition={{ duration: 0.5, ease: "easeOut" }} className="absolute -translate-x-1/2 -translate-y-1/2">
-                <div className="w-40 h-40 rounded-full bg-white opacity-70 flex items-center justify-center">
-                    <div className="w-32 h-32 rounded-full bg-yellow-100 opacity-80 animate-ping-slow"></div>
-                </div>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: position.x, y: position.y, rotate: Math.random() * 20 - 10 }} animate={{ opacity: [0, 1, 0], scale: [0.5, 1.3], y: position.y - 20 }} transition={{ duration: 0.5 }} className="absolute -translate-x-1/2 -translate-y-1/2 font-black text-3xl text-red-600" style={{ textShadow: '0 0 5px white, 0 0 10px white' }}>
-                딸깍!
-            </motion.div>
-        </div>
-    );
-};
+const MACRO_CLICK_LIMIT = 10; // 초당 클릭 제한
+const MACRO_WINDOW_MS = 1000; // 1초
 
 function TeamScoreCard({ team, score, rank, onClick, feverGaugeValue, isFeverActive, feverGaugeMax }) {
     const [floatingTexts, setFloatingTexts] = useState([]);
-    const [hitActive, setHitActive] = useState(false);
-    const [hitPosition, setHitPosition] = useState({ x: 0, y: 0 });
     const audioRef = useRef(null);
-    const hitSoundRef = useRef(null);
     const buttonRef = useRef(null);
     const [isWobbling, setIsWobbling] = useState(false);
 
     useEffect(() => {
         audioRef.current = new Audio('/img/click.mp3');
-        hitSoundRef.current = new Audio('/img/click.mp3');
     }, []);
 
     useEffect(() => {
@@ -82,18 +64,7 @@ function TeamScoreCard({ team, score, rank, onClick, feverGaugeValue, isFeverAct
             audioRef.current.currentTime = 0;
             audioRef.current.play().catch(err => console.error("오디오 재생 오류:", err));
         }
-        if (buttonRef.current) {
-            const rect = buttonRef.current.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            setHitPosition({ x: centerX, y: centerY });
-            setHitActive(true);
-            setTimeout(() => setHitActive(false), 500);
-            if (hitSoundRef.current) {
-                hitSoundRef.current.volume = 0.8;
-                hitSoundRef.current.play().catch(err => console.error("히트 오디오 재생 오류:", err));
-            }
-        }
+
         const id = uuidv4();
         const randomLeft = Math.random() * 80 + 10;
         setFloatingTexts(prev => [...prev, { id, left: randomLeft }]);
@@ -102,11 +73,10 @@ function TeamScoreCard({ team, score, rank, onClick, feverGaugeValue, isFeverAct
         }, 1000);
         setIsWobbling(true);
         setTimeout(() => setIsWobbling(false), 500);
-        onClick(); // 부모의 handleTeamClick 호출 (teamKey 포함)
+        onClick(); // 부모의 handleTeamClick 호출
     };
 
     const getRankStyles = () => {
-        // ... (기존 순위 스타일 로직)
         if (rank === 1) return { scale: 1.1, zIndex: 10, border: `5px solid #FFD700`, shadow: "shadow-xl", badge: "bg-yellow-500", rotation: "rotate-2" };
         if (rank === 2) return { scale: 0.95, zIndex: 5, border: `3px solid #C0C0C0`, shadow: "shadow-lg", badge: "bg-gray-400", rotation: "rotate-[-1deg]" };
         if (rank === 3) return { scale: 0.95, zIndex: 5, border: `3px solid #CD7F32`, shadow: "shadow-lg", badge: "bg-amber-700", rotation: "rotate-1" };
@@ -125,17 +95,16 @@ function TeamScoreCard({ team, score, rank, onClick, feverGaugeValue, isFeverAct
 
     return (
         <>
-            <HitEffect hit={hitActive} position={hitPosition} />
             <motion.div
                 animate={isWobbling ? { rotate: [0, -2, 3, -3, 2, 0], scale: [1, 1.03, 0.97, 1.02, 0.98, 1] } : {}}
                 transition={{ duration: 0.5 }}
-                className="relative" // This is the stacking context parent
+                className="relative"
             >
-                {isFeverActive && ( // 피버 모드 시 카드 외곽선 애니메이션 효과
-                    <div className="absolute inset-[-5px] rounded-xl border-4 border-red-500 animate-pulse z-[1]" /> // Glow effect with z-index 1
+                {isFeverActive && (
+                    <div className="absolute inset-[-5px] rounded-xl border-4 border-red-500 animate-pulse z-[1]" />
                 )}
                 <Card
-                    className={`relative overflow-hidden ${rankStyles.border ? '' : team.borderColor} ${rankStyles.shadow} transition-all duration-500 ${rankStyles.rotation} ${isFeverActive ? 'shadow-red-500/50' : ''} z-[2]`} // Card with z-index 2 (or higher)
+                    className={`relative overflow-hidden ${rankStyles.border ? '' : team.borderColor} ${rankStyles.shadow} transition-all duration-500 ${rankStyles.rotation} ${isFeverActive ? 'shadow-red-500/50' : ''} z-[2]`}
                     style={{
                         borderColor: isFeverActive ? 'rgb(239 68 68)' : (rankStyles.border.includes('#') ? rankStyles.border.split(' ')[2] : undefined),
                         borderWidth: isFeverActive ? '4px' : (rankStyles.border.includes('#') ? rankStyles.border.split(' ')[0] : undefined),
@@ -144,7 +113,6 @@ function TeamScoreCard({ team, score, rank, onClick, feverGaugeValue, isFeverAct
                                 rank === 3 ? 'linear-gradient(135deg, #f9f3ea, #fff, #f9f3ea)' : '#fff'
                     }}
                 >
-                    {/* ... (기존 장식 요소들) ... */}
                     {rank === 1 && (
                         <>
                             <div className="absolute top-2 left-2 w-6 h-6 bg-yellow-300 rounded-full animate-ping opacity-70 z-[-1]"></div>
@@ -161,10 +129,7 @@ function TeamScoreCard({ team, score, rank, onClick, feverGaugeValue, isFeverAct
                         </div>
                     )}
                     <Chip value={`${rank}위 ${getRankExclamation()}`} className={`absolute -top-2 ${rank === 1 ? 'right-4' : rank === 2 ? 'left-4' : 'right-4'} font-bold ${rankStyles.badge} text-white z-10 ${rank === 1 ? 'animate-pulse' : ''}`} />
-
-                    {/* CardBody 내부 z-index는 Card의 z-index에 상대적이므로 CardBody 자체의 z-10은 유지해도 괜찮습니다. */}
                     <CardBody className={`flex flex-col items-center p-6 relative ${rank === 1 ? 'pt-8' : ''} z-10`}>
-                        {/* ... (Typography, Score, Progress Bar, Button, etc.) ... */}
                         <Typography variant="h5" className={`${team.textColor} font-bold mb-2`}>
                             {team.name}
                         </Typography>
@@ -226,6 +191,13 @@ export function ClickBattle() {
 
     const feverTimersRef = useRef({});
 
+    // 피버 게이지 조건부 감소용: 각 팀 마지막 클릭 시간 저장
+    const lastClickTimestampsRef = useRef(TEAMS_CONFIG.reduce((acc, team) => ({ ...acc, [team.key]: 0 }), {}));
+
+    // 매크로 방지용: 팀별 클릭 기록 저장
+    const teamClickHistoryRef = useRef(TEAMS_CONFIG.reduce((acc, team) => ({ ...acc, [team.key]: [] }), {}));
+
+
     useEffect(() => {
         rankChangeAudioRef.current = new Audio('/img/click.mp3');
     }, []);
@@ -240,33 +212,32 @@ export function ClickBattle() {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, []);
 
-    // 피버 게이지 자동 감소 로직
+    // 피버 게이지 자동 감소 로직 (조건부)
     useEffect(() => {
         const decayIntervalId = setInterval(() => {
-            // setFeverGauges를 함수형 업데이트로 호출하여 최신 feverActive 상태를 간접적으로 참조합니다.
-            // 또는 feverActive를 이 useEffect의 의존성 배열에 추가하여, feverActive가 변경될 때마다
-            // 인터벌을 재설정하도록 합니다. 여기서는 후자의 방식을 사용합니다.
+            const now = Date.now();
             setFeverGauges(prevGauges => {
                 let newGauges = { ...prevGauges };
                 let changed = false;
                 TEAMS_CONFIG.forEach(team => {
-                    // 현재 팀이 피버 모드가 아니고, 게이지가 0보다 클 때만 감소
-                    if (!feverActive[team.key] && newGauges[team.key] > 0) {
+                    // 피버 모드가 아니고, 게이지가 0보다 크고, 마지막 클릭 후 일정 시간이 지났을 때만 감소
+                    if (!feverActive[team.key] &&
+                        newGauges[team.key] > 0 &&
+                        (now - (lastClickTimestampsRef.current[team.key] || 0)) > IDLE_THRESHOLD_FOR_DECAY
+                    ) {
                         newGauges[team.key] = Math.max(0, newGauges[team.key] - FEVER_DECAY_AMOUNT);
                         changed = true;
                     }
                 });
-                // 변경이 있을 때만 상태 업데이트를 트리거하여 불필요한 리렌더링 방지
                 return changed ? newGauges : prevGauges;
             });
         }, FEVER_DECAY_INTERVAL);
 
         return () => {
-            clearInterval(decayIntervalId); // 컴포넌트 언마운트 시 인터벌 정리
+            clearInterval(decayIntervalId);
         };
-    }, [feverActive]); // feverActive 상태가 변경될 때마다 effect를 재실행하여 인터벌을 최신 상태로 유지
+    }, [feverActive]); // feverActive 상태 변경 시 인터벌 재설정 (lastClickTimestampsRef는 ref라 의존성 불필요)
 
-    // ... (getSortedTeams, getTeamRanks, 기타 useEffect들)
     const getSortedTeams = () => TEAMS_CONFIG.map(team => ({ ...team, score: scores[team.key] || 0 })).sort((a, b) => b.score - a.score);
     const getTeamRanks = () => {
         const sorted = getSortedTeams();
@@ -326,7 +297,7 @@ export function ClickBattle() {
         client.activate();
         clientRef.current = client;
 
-        return () => { // Cleanup
+        return () => {
             if (clientRef.current?.connected) clientRef.current.deactivate();
             setIsConnected(false);
             Object.values(feverTimersRef.current).forEach(clearTimeout);
@@ -335,12 +306,31 @@ export function ClickBattle() {
 
 
     const handleTeamClick = (teamDbClickId, teamKey) => {
+        const now = Date.now();
+
+        // 매크로 감지 로직
+        const clickHistory = teamClickHistoryRef.current[teamKey] || [];
+        // MACRO_WINDOW_MS (1초) 이내의 클릭만 필터링
+        const recentClicks = clickHistory.filter(ts => (now - ts) < MACRO_WINDOW_MS);
+
+        if (recentClicks.length >= MACRO_CLICK_LIMIT) {
+            alert("매크로를 사용하면 안됩니다!");
+            // 현재 클릭은 무시하고, 클릭 기록은 최신 상태로 유지 (오래된 기록 제거)
+            teamClickHistoryRef.current[teamKey] = recentClicks;
+            return;
+        }
+        // 매크로가 아니면 현재 클릭 시간을 기록에 추가
+        teamClickHistoryRef.current[teamKey] = [...recentClicks, now];
+
+        // 마지막 클릭 시간 업데이트 (피버 게이지 감소 로직용)
+        lastClickTimestampsRef.current[teamKey] = now;
+
+
         if (!clientRef.current?.connected || !isConnected) {
             alert("서버에 연결되지 않았습니다. 잠시 후 다시 시도해주세요.");
             return;
         }
 
-        // 현재 feverActive 상태를 직접 참조하여 사용
         const isCurrentlyInFeverMode = feverActive[teamKey];
         let clickToSend = 1;
         let newGaugeValueForThisClick = feverGauges[teamKey] || 0;
@@ -348,12 +338,10 @@ export function ClickBattle() {
 
         if (isCurrentlyInFeverMode) {
             clickToSend = FEVER_CLICK_MULTIPLIER;
-            // 피버 중에는 게이지를 직접 변경하지 않음 (타이머에 의해 종료 시 0으로 리셋됨)
-            // 또는, 피버 중 클릭 시 게이지 유지 또는 약간 회복 등의 로직 추가 가능 (현재는 유지)
         } else {
             newGaugeValueForThisClick += FEVER_POINTS_PER_CLICK;
             if (newGaugeValueForThisClick >= FEVER_GAUGE_MAX) {
-                newGaugeValueForThisClick = FEVER_GAUGE_MAX;
+                newGaugeValueForThisClick = FEVER_GAUGE_MAX; // 게이지 최대치 초과 방지
                 clickToSend = FEVER_CLICK_MULTIPLIER;
 
                 setFeverActive(prev => ({ ...prev, [teamKey]: true }));
@@ -364,12 +352,12 @@ export function ClickBattle() {
                 }
                 feverTimersRef.current[teamKey] = setTimeout(() => {
                     setFeverActive(prev => ({ ...prev, [teamKey]: false }));
-                    setFeverGauges(prev => ({ ...prev, [teamKey]: 0 })); // 피버 종료 시 게이지 완전 초기화
+                    setFeverGauges(prev => ({ ...prev, [teamKey]: 0 }));
                     console.log(`${teamKey}팀 피버 모드 종료.`);
                 }, FEVER_MODE_DURATION);
             }
             // 클릭으로 인한 게이지 변경사항 즉시 반영
-            setFeverGauges(prev => ({ ...prev, [teamKey]: newGaugeValueForThisClick }));
+            setFeverGauges(prev => ({ ...prev, [teamKey]: Math.min(newGaugeValueForThisClick, FEVER_GAUGE_MAX) }));
         }
 
 
@@ -386,7 +374,7 @@ export function ClickBattle() {
             }
         }
     };
-    // ... (getGridPositions, return JSX)
+
     const getGridPositions = () => ({
         1: "md:col-start-2 md:col-span-1 md:row-start-1",
         2: "md:col-start-1 md:col-span-1 md:row-start-1",
@@ -397,7 +385,7 @@ export function ClickBattle() {
     return (
         <>
             {/* Header and background */}
-            <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+            <div className="relative h-[50vh] md:h-[40vh] overflow-hidden"> {/* 사용자 코드의 헤더 높이 유지 */}
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 opacity-90 transition-all duration-500">
                     <div className="absolute inset-0 opacity-20">
                         {Array.from({ length: 20 }).map((_, index) => (
@@ -424,7 +412,7 @@ export function ClickBattle() {
                     <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, delay: 0.3 }}>
                         <div className="max-w-2xl mx-auto mt-4">
                             <Typography variant="lead" color="white" className="opacity-90 text-lg md:text-xl" style={{ textShadow: '0 0 10px rgba(0,0,0,0.5)' }}>
-                                여러분의 학부를 응원하세요! 누가 가장 많은 클릭을 받을지 대결을 시작합니다!
+                                {`${sortedTeams.map(team => team.shortName).join('')} 학과의 대결! 과연 승자는?`}
                             </Typography>
                         </div>
                     </motion.div>
@@ -435,7 +423,8 @@ export function ClickBattle() {
                                 <Typography className="text-white font-medium">{isConnected ? "서버 연결됨" : "연결 중..."}</Typography>
                             </div>
                             <div className="p-2 px-4 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
-                                <Typography className="text-white font-bold flex items-center"><span className="mr-1">👆</span> 클릭하고 승리하세요!</Typography>
+                                {/* 사용자 코드의 문구 유지 */}
+                                <Typography className="text-white font-bold flex items-center"><span className="mr-1">👆</span> 상대보다 더 많이 클릭하자!</Typography>
                             </div>
                         </div>
                     </motion.div>
@@ -452,24 +441,43 @@ export function ClickBattle() {
                 @keyframes bounce_slight { 0%, 100% { transform: translateY(-3%); animation-timing-function: cubic-bezier(0.8,0,1,1); } 50% { transform: translateY(0); animation-timing-function: cubic-bezier(0,0,0.2,1); } }
             `}</style>
 
-            {/* Game Section */}
             <section className="-mt-20 px-4 pb-16 pt-8 md:pt-12 bg-gradient-to-b from-transparent to-gray-100">
                 <div className="container mx-auto max-w-screen-xl">
                     {isConnected || Object.values(scores).some(s => s > 0) ? (
                         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:grid-rows-1 md:gap-4 relative">
-                            {sortedTeams.map((team, index) => (
-                                <motion.div key={team.key} layout initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0, scale: index === 0 ? 1.05 : index === 1 ? 0.95 : index === 2 ? 0.95 : 0.9 }} transition={{ duration: 0.5, layout: { duration: 0.5, type: "spring" } }} className={`${gridPositions[index + 1] || ""} ${index === 0 ? 'mt-10' : ''}`}>
-                                    <TeamScoreCard
-                                        team={team}
-                                        score={scores[team.key]}
-                                        rank={index + 1}
-                                        onClick={() => handleTeamClick(team.dbClickId, team.key)}
-                                        feverGaugeValue={feverGauges[team.key]}
-                                        isFeverActive={feverActive[team.key]}
-                                        feverGaugeMax={FEVER_GAUGE_MAX}
-                                    />
-                                </motion.div>
-                            ))}
+                            {sortedTeams.map((team, index) => { // index를 받아옴 (애니메이션 scale 등에 사용)
+                                const currentRank = teamRanks[team.key]; // 현재 팀의 실제 순위
+                                // 사용자가 제공한 카드 className 구조를 최대한 따름
+                                const rankBasedClass = currentRank === 1
+                                    ? 'md:col-start-2 mt-0 md:mt-0'
+                                    : (currentRank === 2
+                                        ? 'md:col-start-1 mt-4 md:mt-10'
+                                        : 'md:col-start-3 mt-4 md:mt-10');
+                                const positionMasterClass = gridPositions[currentRank] || ""; // 기본 포지션 클래스
+
+                                return (
+                                    <motion.div
+                                        key={team.key}
+                                        layout
+                                        initial={{ opacity: 0, y: 20 }}
+                                        // 사용자의 scale 로직 (index 기반) 유지
+                                        animate={{ opacity: 1, y: 0, scale: index === 0 ? 1.05 : (index === 1 || index === 2 ? 0.95 : 0.9) }}
+                                        transition={{ duration: 0.5, layout: { duration: 0.5, type: "spring" } }}
+                                        // className 결합: 포지션 마스터 클래스 + 사용자 정의 랭크 기반 클래스 (중복될 수 있으나 사용자의 의도 존중)
+                                        className={`${positionMasterClass} ${rankBasedClass}`}
+                                    >
+                                        <TeamScoreCard
+                                            team={team}
+                                            score={scores[team.key]}
+                                            rank={currentRank} // 실제 순위 전달
+                                            onClick={() => handleTeamClick(team.dbClickId, team.key)}
+                                            feverGaugeValue={feverGauges[team.key]}
+                                            isFeverActive={feverActive[team.key]}
+                                            feverGaugeMax={FEVER_GAUGE_MAX}
+                                        />
+                                    </motion.div>
+                                );
+                            })}
                         </div>
                     ) : (
                         <div className="bg-white rounded-xl shadow-lg p-10 text-center">
@@ -488,3 +496,4 @@ export function ClickBattle() {
         </>
     );
 }
+export default ClickBattle;

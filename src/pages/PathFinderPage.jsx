@@ -238,11 +238,35 @@ export function Suwon_navi() {
                 const errorData = await response.text();
                 throw new Error(` ${response.status} ${errorData}`);
             }
-            const data = await response.json();
-            const [x1_center, y1_center] = [(startBuilding.polygon[0] + startBuilding.polygon[2]) / 2, (startBuilding.polygon[1] + startBuilding.polygon[3]) / 2];
-            const [x2_center, y2_center] = [(endBuilding.polygon[0] + endBuilding.polygon[2]) / 2, (endBuilding.polygon[1] + endBuilding.polygon[3]) / 2];
-            const pixelDistance = Math.sqrt(Math.pow(x2_center - x1_center, 2) + Math.pow(y2_center - y1_center, 2));
-            const straightDist = Math.round(pixelDistance * 2.5);
+            // 인문사회융합대학과 글로벌인재대학 사이의 실제 거리 (840m)
+            const humanitiesBuilding = buildings.find(b => b.name === "humanitiesCollege");
+            const globalTalentBuilding = buildings.find(b => b.name === "globalTalentCollege");
+
+            if (!humanitiesBuilding || !globalTalentBuilding) {
+                throw new Error("기준 건물을 찾을 수 없습니다");
+            }
+
+            // 두 기준 건물 사이의 픽셀 거리 계산
+            const [x1_ref, y1_ref] = [(humanitiesBuilding.polygon[0] + humanitiesBuilding.polygon[2]) / 2,
+                (humanitiesBuilding.polygon[1] + humanitiesBuilding.polygon[3]) / 2];
+            const [x2_ref, y2_ref] = [(globalTalentBuilding.polygon[0] + globalTalentBuilding.polygon[2]) / 2,
+                (globalTalentBuilding.polygon[1] + globalTalentBuilding.polygon[3]) / 2];
+
+            const refPixelDistance = Math.sqrt(Math.pow(x2_ref - x1_ref, 2) + Math.pow(y2_ref - y1_ref, 2));
+
+            // 픽셀 당 실제 미터 비율 계산 (840m / 픽셀 거리)
+            const pixelToMeterRatio = 840 / refPixelDistance;
+
+            // 선택된 건물들 사이의 픽셀 거리 계산
+            const [x1, y1] = [(startBuilding.polygon[0] + startBuilding.polygon[2]) / 2,
+                (startBuilding.polygon[1] + startBuilding.polygon[3]) / 2];
+            const [x2, y2] = [(endBuilding.polygon[0] + endBuilding.polygon[2]) / 2,
+                (endBuilding.polygon[1] + endBuilding.polygon[3]) / 2];
+
+            const pixelDistance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+
+            // 실제 미터 거리 계산
+            const straightDist = Math.round(pixelDistance * pixelToMeterRatio);
 
             setStraightDistance(straightDist);
             setPathInfo({
@@ -258,10 +282,35 @@ export function Suwon_navi() {
                 startBuilding: startBuilding.kr_name,
                 endBuilding: endBuilding.kr_name
             });
-            const [x1_center, y1_center] = [(startBuilding.polygon[0] + startBuilding.polygon[2]) / 2, (startBuilding.polygon[1] + startBuilding.polygon[3]) / 2];
-            const [x2_center, y2_center] = [(endBuilding.polygon[0] + endBuilding.polygon[2]) / 2, (endBuilding.polygon[1] + endBuilding.polygon[3]) / 2];
-            const pixelDistance = Math.sqrt(Math.pow(x2_center - x1_center, 2) + Math.pow(y2_center - y1_center, 2));
-            const straightDist = Math.round(pixelDistance * 2.5);
+            // 인문사회융합대학과 글로벌인재대학 사이의 실제 거리 (840m)
+            const humanitiesBuilding = buildings.find(b => b.name === "humanitiesCollege");
+            const globalTalentBuilding = buildings.find(b => b.name === "globalTalentCollege");
+
+            if (!humanitiesBuilding || !globalTalentBuilding) {
+                throw new Error("기준 건물을 찾을 수 없습니다");
+            }
+
+            // 두 기준 건물 사이의 픽셀 거리 계산
+            const [x1_ref, y1_ref] = [(humanitiesBuilding.polygon[0] + humanitiesBuilding.polygon[2]) / 2,
+                (humanitiesBuilding.polygon[1] + humanitiesBuilding.polygon[3]) / 2];
+            const [x2_ref, y2_ref] = [(globalTalentBuilding.polygon[0] + globalTalentBuilding.polygon[2]) / 2,
+                (globalTalentBuilding.polygon[1] + globalTalentBuilding.polygon[3]) / 2];
+
+            const refPixelDistance = Math.sqrt(Math.pow(x2_ref - x1_ref, 2) + Math.pow(y2_ref - y1_ref, 2));
+
+            // 픽셀 당 실제 미터 비율 계산 (840m / 픽셀 거리)
+            const pixelToMeterRatio = 840 / refPixelDistance;
+
+            // 선택된 건물들 사이의 픽셀 거리 계산
+            const [x1, y1] = [(startBuilding.polygon[0] + startBuilding.polygon[2]) / 2,
+                (startBuilding.polygon[1] + startBuilding.polygon[3]) / 2];
+            const [x2, y2] = [(endBuilding.polygon[0] + endBuilding.polygon[2]) / 2,
+                (endBuilding.polygon[1] + endBuilding.polygon[3]) / 2];
+
+            const pixelDistance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+
+            // 실제 미터 거리 계산
+            const straightDist = Math.round(pixelDistance * pixelToMeterRatio);
             setStraightDistance(straightDist);
         } finally {
             setIsLoading(false);

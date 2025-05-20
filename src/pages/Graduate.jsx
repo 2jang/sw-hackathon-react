@@ -31,7 +31,7 @@ const departmentsData = [
         name: "컴퓨터 SW",
         icon: ComputerDesktopIcon,
         color: "blue",
-        description: "컴퓨터학부, ICT융합대학 소속",
+        description: "컴퓨터학부",
         requirements: [
             {
                 name: "외국어 인증 (1개 이상)",
@@ -59,7 +59,7 @@ const departmentsData = [
         name: "미디어 SW",
         icon: GlobeAltIcon,
         color: "purple",
-        description: "컴퓨터학부, ICT융합대학 소속",
+        description: "컴퓨터학부",
         requirements: [
             {
                 name: "외국어 인증 (1개 이상)",
@@ -87,7 +87,7 @@ const departmentsData = [
         name: "정보통신",
         icon: ServerIcon,
         color: "green",
-        description: "정보통신학부, ICT대학 소속",
+        description: "정보통신학부",
         requirements: [
             {
                 name: "외국어 인증 (1개 이상)",
@@ -123,7 +123,7 @@ const departmentsData = [
         name: "정보보호",
         icon: LockClosedIcon,
         color: "red",
-        description: "정보통신학부, ICT대학 소속",
+        description: "정보통신학부",
         requirements: [
             {
                 name: "외국어 인증 (1개 이상)",
@@ -157,7 +157,7 @@ const departmentsData = [
         name: "데이터과학",
         icon: ChartBarIcon,
         color: "amber",
-        description: "ICT대학 소속",
+        description: "데이터과학부",
         requirements: [
             {
                 name: "외국어 인증 (1개 이상)",
@@ -430,7 +430,7 @@ export function Graduate() {
                                             {/* 학과 정보 헤더 - 중앙 정렬 */}
                                             <div className={`mb-6 p-4 rounded-lg bg-${dept.color}-50 border w-full max-w-4xl`}>
                                                 <div className="flex items-center justify-center gap-4">
-                                                    <div className={`rounded-full bg-${dept.color}-100 p-3`}>
+                                                    <div className={`rounded-full p-3`}>
                                                         <dept.icon className={`h-8 w-8 text-${dept.color}-500`} />
                                                     </div>
                                                     <div>
