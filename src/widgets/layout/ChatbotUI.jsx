@@ -171,7 +171,7 @@ export function ChatbotUI() {
                         transition={{ duration: 0.2 }}
                         className="fixed bottom-6 right-6 w-96 [@media(max-width:430px)]:w-[340px] h-[600px] shadow-xl z-[9999] bg-white rounded-2xl border border-blue-gray-50 flex flex-col overflow-hidden"
                     >
-                        <div className={`fixed bottom-6 right-6 ${containerWidth} [@media(max-width:430px)]:w-[340px] ${containerHeight} shadow-xl z-[9999] bg-white rounded-2xl border border-blue-gray-50 flex flex-col overflow-hidden`}>
+                        <div className={`fixed bottom-6 right-6 ${containerWidth} [@media(max-width:430px)]:w-[340px] ${containerHeight} shadow-xl z-[9999] bg-white rounded-2xl border border-blue-gray-50 flex flex-col overflow-hidden transition-all`}>
                             {/* 좌측 상단 크기 토글 스팟 */}
                             <button
                                 onClick={toggleSize}
