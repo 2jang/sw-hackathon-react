@@ -356,7 +356,7 @@ export function Graduate() {
         <>
             <div className="relative flex h-[40vh] content-center items-center justify-center">
                 <div className="absolute top-0 h-full w-full bg-[url('https://www.suwon.ac.kr/usr/images/suwon/college_top_technology.gif')] bg-cover bg-center" />
-                <div className="absolute top-0 h-full w-full bg-black/60 bg-cover bg-center" />
+                <div className="absolute top-0 h-full w-full  bg-cover bg-center" />
                 <div className="max-w-8xl container relative mx-auto">
                     <div className="flex flex-wrap items-center">
                         <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12">
