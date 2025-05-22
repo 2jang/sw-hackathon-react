@@ -175,6 +175,13 @@ const buildings = [
         polygon: [651, 230, 717, 302],
         color: "rgba(100, 149, 237, 0.3)"
     },
+    {
+        id: 25,
+        name: "globalTalentColleges",
+        kr_name: "ROTC",
+        polygon: [1056, 298, 1106, 354],
+        color: "rgba(196, 90, 150, 0.3)"
+    },
 ];
 
 export default buildings;
