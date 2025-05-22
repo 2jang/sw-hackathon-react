@@ -586,8 +586,8 @@ export function Suwon_navi() {
                                                                         <Typography
                                                                             className={`font-bold text-lg md:text-xl ${
                                                                                 pathInfo.walkTime === "N/A" ? "text-gray-800" :
-                                                                                    parseInt(pathInfo.walkTime) <= 5 ? "text-green-500" :
-                                                                                        parseInt(pathInfo.walkTime) <= 15 ? "text-orange-500" :
+                                                                                    parseInt(pathInfo.walkTime) <= 10 ? "text-green-500" :
+                                                                                        parseInt(pathInfo.walkTime) <= 20 ? "text-orange-500" :
                                                                                             "text-red-500"
                                                                             }`}
                                                                         >
