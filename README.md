@@ -6,7 +6,7 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white)](https://www.javascript.com/)
 
 LLM을 이용한 수원대학교 지능형SW융합대학의 정보 제공 및 편리한 기능을 제공하는 웹사이트입니다.  
-학과 정보, 졸업 요건, 캠퍼스 네비게이션, 미니게임 등 다양한 기능을 통해 학생들의 적극적인 참여를 유도합니다!
+학과 정보, 졸업 요건, 캠퍼스 네비게이션, 미니게임 등 다양한 기능을 통해 학생들의 적극적인 참여를 유도합니다!🚀  
 1주일  동안의 해커톤 대회 기간동안 제작하였습니다!  
 
 본 프로젝트의 backend 레포지스토리는 [여기에서](https://github.com/2025-sw-hackathon/backend) LLM 레포지스토리는 [여기에서](https://github.com/2025-sw-hackathon/sw-hackathon-LLM) 확인할 수 있습니다
