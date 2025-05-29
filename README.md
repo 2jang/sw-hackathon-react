@@ -11,7 +11,11 @@ LLM을 이용한 수원대학교 지능형SW융합대학의 정보 제공 및 �
 
 본 프로젝트의 backend 레포지스토리는 [여기에서](https://github.com/2025-sw-hackathon/backend) LLM 레포지스토리는 [여기에서](https://github.com/2025-sw-hackathon/sw-hackathon-LLM) 확인할 수 있습니다
 
-<img src="public/img/front_image.png">
+<p align="center">
+    <br>
+    <img src="public/img/front_image.png">
+    <br>
+</p>
 
 ## ✨ 주요 기능
 
