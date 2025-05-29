@@ -1,4 +1,4 @@
-# 🎓 수원대학교 ICT 해커톤 - LLM을 이용한 지능형SW융합대학 웹사이트 🏫
+# 🎓 LLM을 이용한 SW융합대학 웹사이트 제작 해커톤 🏫
 
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.3.5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
