@@ -102,7 +102,7 @@ sw-hackathon-react/
 -   **클릭 배틀 - WebSocket**:
     -   엔드포인트: `ws://ahnai1.suwon.ac.kr:5041/ws-click`
     -   기능: 클릭 배틀 게임의 실시간 데이터 통신 (점수, 팀 정보 등)
--   **더 많은 API는 [DOCS](https://documenter.getpostman.com/view/29676859/2sB2qUo57h)를 참고해주세요!**
+-   **더 많은 API는 [API DOCS](https://documenter.getpostman.com/view/29676859/2sB2qUo57h)를 참고해주세요!**
 
 ## 🧩 사용된 주요 기술
 
