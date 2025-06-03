@@ -232,7 +232,12 @@ export function Suwon_navi() {
 
         setIsLoading(true);
         try {
-            const apiUrl = `http://localhost:5041/suwon-navi?buildings=${startBuilding.name}&buildings=${endBuilding.name}`;
+            // ✨ 수정: API Base URL을 동적으로 설정
+            const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            const apiBaseUrl = isLocalhost ? 'http://localhost:5041' : ''; // 로컬이면 5041 포트, 배포면 상대 경로('')
+
+            // ✨ 수정: apiBaseUrl 변수 사용
+            const apiUrl = `${apiBaseUrl}/suwon-navi?buildings=${startBuilding.name}&buildings=${endBuilding.name}`;
             const response = await fetch(apiUrl);
             if (!response.ok) {
                 const errorData = await response.text();

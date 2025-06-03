@@ -12,7 +12,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
 import {ChatbotUI, Footer} from "@/widgets/layout/index.js";
 
-const WEBSOCKET_URL = 'ws://localhost:5041/ws-click';
+const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+const WEBSOCKET_URL = `${protocol}//${window.location.host}/ws-click`;
 const SEND_DESTINATION = '/app/click';
 const RECEIVE_DESTINATION = '/topic/clicks';
 
@@ -259,9 +260,14 @@ export function ClickBattle() {
     }, [teamRanks, prevRanks]);
 
     useEffect(() => {
+        // ✨ 수정: API Base URL을 동적으로 설정
+        const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        const apiBaseUrl = isLocalhost ? 'http://localhost:5041' : ''; // 로컬이면 5041 포트, 배포면 상대 경로('')
+
         const fetchInitialScores = async () => {
             try {
-                const response = await fetch('http://localhost:5041/click-num');
+                // ✨ 수정: apiBaseUrl 변수 사용
+                const response = await fetch(`${apiBaseUrl}/click-num`);
                 const initialDataArray = await response.json();
                 setScores(prevScores => {
                     const updatedScores = { ...initialScoresState };
