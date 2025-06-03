@@ -12,7 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
 import {ChatbotUI, Footer} from "@/widgets/layout/index.js";
 
-const WEBSOCKET_URL = 'ws://ahnai1.suwon.ac.kr:5041/ws-click';
+const WEBSOCKET_URL = 'ws://localhost:5041/ws-click';
 const SEND_DESTINATION = '/app/click';
 const RECEIVE_DESTINATION = '/topic/clicks';
 
@@ -261,7 +261,7 @@ export function ClickBattle() {
     useEffect(() => {
         const fetchInitialScores = async () => {
             try {
-                const response = await fetch('http://ahnai1.suwon.ac.kr:5041/click-num');
+                const response = await fetch('http://localhost:5041/click-num');
                 const initialDataArray = await response.json();
                 setScores(prevScores => {
                     const updatedScores = { ...initialScoresState };

@@ -232,7 +232,7 @@ export function Suwon_navi() {
 
         setIsLoading(true);
         try {
-            const apiUrl = `http://ahnai1.suwon.ac.kr:5041/suwon-navi?buildings=${startBuilding.name}&buildings=${endBuilding.name}`;
+            const apiUrl = `http://localhost:5041/suwon-navi?buildings=${startBuilding.name}&buildings=${endBuilding.name}`;
             const response = await fetch(apiUrl);
             if (!response.ok) {
                 const errorData = await response.text();

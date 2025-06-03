@@ -12,7 +12,7 @@ export default defineConfig({
     // proxy: {
     //   // '/api'로 시작하는 모든 요청을 target으로 전달
     //   '/api': {
-    //     target: 'http://ahnai1.suwon.ac.kr:5041',
+    //     target: 'http://localhost:5041',
     //     changeOrigin: true,
     //     rewrite: (path) => path.replace(/^\/api/, ''),
     //   },

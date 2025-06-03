@@ -97,10 +97,10 @@ sw-hackathon-react/
 ## 🔄 외부 API 및 서비스 연동
 
 -   **수원맵 길찾기 API**:
-    -   엔드포인트: `http://ahnai1.suwon.ac.kr:5041/suwon-navi`
+    -   엔드포인트: `http://localhost:5041/suwon-navi`
     -   기능: 캠퍼스 내 건물 간 경로 정보 제공
 -   **클릭 배틀 - WebSocket**:
-    -   엔드포인트: `ws://ahnai1.suwon.ac.kr:5041/ws-click`
+    -   엔드포인트: `ws://localhost:5041/ws-click`
     -   기능: 클릭 배틀 게임의 실시간 데이터 통신 (점수, 팀 정보 등)
 -   **더 많은 API는 [API DOCS](https://documenter.getpostman.com/view/29676859/2sB2qUo57h)를 참고해주세요!**
 
