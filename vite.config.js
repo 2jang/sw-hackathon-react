@@ -8,7 +8,7 @@ export default defineConfig({
     alias: [{ find: "@", replacement: "/src" }],
   },
   server: {
-    allowedHosts: ['suwonai.2jang.me'],
+    allowedHosts: ['uswai.2jang.me'],
     // proxy: {
     //   // '/api'로 시작하는 모든 요청을 target으로 전달
     //   '/api': {
