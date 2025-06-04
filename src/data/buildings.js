@@ -177,7 +177,7 @@ const buildings = [
     },
     {
         id: 25,
-        name: "globalTalentColleges",
+        name: "globalTalentCollege",
         kr_name: "ROTC",
         polygon: [1056, 298, 1106, 354],
         color: "rgba(196, 90, 150, 0.3)"
