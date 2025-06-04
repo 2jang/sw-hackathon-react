@@ -144,7 +144,7 @@ const buildings = [
         id: 20,
         name: "globalTalentCollege",
         kr_name: "글로벌인재대학",
-        polygon: [1008, 169, 1056, 243],
+        polygon: [1006, 167, 1107, 354],
         color: "rgba(184, 134, 11, 0.3)"
     },
     {
@@ -174,13 +174,6 @@ const buildings = [
         kr_name: "학생회관",
         polygon: [651, 230, 717, 302],
         color: "rgba(100, 149, 237, 0.3)"
-    },
-    {
-        id: 25,
-        name: "globalTalentCollege",
-        kr_name: "ROTC",
-        polygon: [1056, 298, 1106, 354],
-        color: "rgba(196, 90, 150, 0.3)"
     },
 ];
 
