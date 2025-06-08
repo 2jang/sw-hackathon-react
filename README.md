@@ -1,6 +1,6 @@
 # 🎓 LLM을 이용한 SW융합대학 웹사이트 제작 해커톤 🏫
 
-[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m800668201-c738159d6dea0ef0205cad01?up_message=Server%20is%20UP!&down_message=Server%20is%20DOWN..&style=for-the-badge)](https://uswai.2jang.me)  
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m800668201-c738159d6dea0ef0205cad01?up_message=Online&down_message=Offline&style=for-the-badge&logo=uptimerobot&logoColor=white&label=status&labelColor=065f46&color=10b981)](https://uswai.2jang.me)  
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.3.5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
