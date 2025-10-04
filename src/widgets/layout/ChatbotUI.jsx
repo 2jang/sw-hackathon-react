@@ -26,7 +26,7 @@ const getApiUrl = () => {
     const currentPort = window.location.port;
     const currentProtocol = window.location.protocol;
     
-    // 현재 도메인이 uswai.2jang.dev 또는 suwonai.2jang.dev인 경우 상대 경로 사용
+    // 현재 도메인이 suwonai.2jang.dev 또는 suwonai.2jang.dev인 경우 상대 경로 사용
     if (currentHostname.includes('2jang.dev')) {
         return '/route/stream';
     }
@@ -35,15 +35,15 @@ const getApiUrl = () => {
     if (currentHostname === 'localhost' || currentHostname === '127.0.0.1') {
         // Vite 개발 서버 포트인 경우 nginx 프록시 경유
         if (currentPort === '5173') {
-            return 'http://uswai.2jang.dev/route/stream';
+            return 'http://suwonai.2jang.dev/route/stream';
         }
         // 다른 포트인 경우에도 nginx 프록시 경유 시도
-        return 'http://uswai.2jang.dev/route/stream';
+        return 'http://suwonai.2jang.dev/route/stream';
     }
     
     // IP 주소로 접근하는 경우
     if (/^\d+\.\d+\.\d+\.\d+$/.test(currentHostname)) {
-        return 'http://uswai.2jang.dev/route/stream';
+        return 'http://suwonai.2jang.dev/route/stream';
     }
     
     // 기본값: 상대 경로 (nginx 프록시 경유)
@@ -60,11 +60,11 @@ const getApiBaseUrl = () => {
     }
     
     if (currentHostname === 'localhost' || currentHostname === '127.0.0.1') {
-        return 'http://uswai.2jang.dev';
+        return 'http://suwonai.2jang.dev';
     }
     
     if (/^\d+\.\d+\.\d+\.\d+$/.test(currentHostname)) {
-        return 'http://uswai.2jang.dev';
+        return 'http://suwonai.2jang.dev';
     }
     
     return window.location.origin;

@@ -16,18 +16,12 @@ import App from "./App";
 import {BrowserRouter} from "react-router-dom";
 import {ThemeProvider} from "@material-tailwind/react";
 import "./assets/css/tailwind.css";
-import {DevSupport} from "@react-buddy/ide-toolbox";
-import {ComponentPreviews, useInitial} from "../dev/index.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <BrowserRouter>
             <ThemeProvider>
-                <DevSupport ComponentPreviews={ComponentPreviews}
-                            useInitialHook={useInitial}
-                >
                     <App/>
-                </DevSupport>
             </ThemeProvider>
         </BrowserRouter>
     </React.StrictMode>
