@@ -23,6 +23,29 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: "/src" }],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: [
+            "react",
+            "react-dom",
+            "react-router-dom",
+            "@material-tailwind/react",
+            "framer-motion",
+            "@stomp/stompjs",
+            "@heroicons/react",
+            "@fortawesome/fontawesome-free",
+            "@fortawesome/fontawesome-svg-core",
+            "@fortawesome/free-brands-svg-icons",
+            "@fortawesome/free-regular-svg-icons",
+            "@fortawesome/free-solid-svg-icons",
+            "uuid",
+          ],
+        },
+      },
+    },
+  },
   server: {
     allowedHosts: ["uswai.2jang.dev", "suwonai.2jang.dev"],
   },
