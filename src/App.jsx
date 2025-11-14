@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import {Routes, Route, Navigate, useLocation, Link} from "react-router-dom";
 import { Navbar } from "@/widgets/layout";
 import mainRoutes from "@/mainRoutes.jsx";
@@ -166,13 +166,15 @@ function App() {
                 </div>
             )}
             <ScrollToTop /> {/* 페이지 변경 시 스크롤 상단으로 이동 */}
-            <Routes>
-                {mainRoutes.map(
-                    ({ path, element }, key) =>
-                        element && <Route key={key} exact path={path} element={element} />
-                )}
-                <Route path="*" element={<Navigate to="/home" replace />} />
-            </Routes>
+            <Suspense fallback={<div className="flex items-center justify-center py-10 text-gray-600 text-sm">페이지를 불러오는 중...</div>}>
+                <Routes>
+                    {mainRoutes.map(
+                        ({ path, element }, key) =>
+                            element && <Route key={key} exact path={path} element={element} />
+                    )}
+                    <Route path="*" element={<Navigate to="/home" replace />} />
+                </Routes>
+            </Suspense>
         </>
     );
 }

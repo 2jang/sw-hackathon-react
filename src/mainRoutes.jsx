@@ -1,14 +1,18 @@
-import {
-  Home,
-  Graduate,
-  TelecommunicationEngineering,
-  ComputerScienceAndEngineering,
-  DataScience,
-  Suwon_navi,
-  ICT, CIS, Computer_SW, Media_SW, Data_Science,
-  Sample_form,
-  ClickBattle,
-} from "@/pages";
+import { lazy } from "react";
+
+const Home = lazy(() => import("@/pages/home"));
+const Graduate = lazy(() => import("@/pages/Graduate"));
+const TelecommunicationEngineering = lazy(() => import("@/pages/telecommunicationEngineering"));
+const ComputerScienceAndEngineering = lazy(() => import("@/pages/computerScienceAndEngineering"));
+const DataScience = lazy(() => import("@/pages/dataScience"));
+const Suwon_navi = lazy(() => import("@/pages/PathFinderPage"));
+const ICT = lazy(() => import("@/pages/ICT"));
+const CIS = lazy(() => import("@/pages/CIS"));
+const Computer_SW = lazy(() => import("@/pages/Computer_SW"));
+const Media_SW = lazy(() => import("@/pages/Media_SW"));
+const Data_Science = lazy(() => import("@/pages/Data_Science"));
+const Sample_form = lazy(() => import("@/pages/sample_form"));
+const ClickBattle = lazy(() => import("@/pages/ClickBattle"));
 
 export const mainRoutes = [
   {
