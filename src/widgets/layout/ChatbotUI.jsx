@@ -35,15 +35,15 @@ const getApiUrl = () => {
     if (currentHostname === 'localhost' || currentHostname === '127.0.0.1') {
         // Vite 개발 서버 포트인 경우 nginx 프록시 경유
         if (currentPort === '5173') {
-            return 'http://suwonai.2jang.dev/route/stream';
+            return 'https://suwonai-backend.2jang.dev/route/stream';
         }
         // 다른 포트인 경우에도 nginx 프록시 경유 시도
-        return 'http://suwonai.2jang.dev/route/stream';
+        return 'https://suwonai-backend.2jang.dev/route/stream';
     }
     
     // IP 주소로 접근하는 경우
     if (/^\d+\.\d+\.\d+\.\d+$/.test(currentHostname)) {
-        return 'http://suwonai.2jang.dev/route/stream';
+        return 'https://suwonai-backend.2jang.dev/route/stream';
     }
     
     // 기본값: 상대 경로 (nginx 프록시 경유)
@@ -60,11 +60,11 @@ const getApiBaseUrl = () => {
     }
     
     if (currentHostname === 'localhost' || currentHostname === '127.0.0.1') {
-        return 'http://suwonai.2jang.dev';
+        return 'https://suwonai-backend.2jang.dev';
     }
     
     if (/^\d+\.\d+\.\d+\.\d+$/.test(currentHostname)) {
-        return 'http://suwonai.2jang.dev';
+        return 'https://suwonai-backend.2jang.dev';
     }
     
     return window.location.origin;

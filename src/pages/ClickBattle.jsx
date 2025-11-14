@@ -14,19 +14,18 @@ import {ChatbotUI, Footer} from "@/widgets/layout/index.js";
 
 // 🔧 포트 5041로 수정
 const getWebSocketURL = () => {
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+	const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
-    if (isLocalhost) {
-        return `ws://localhost:5041/ws-click`;  // 5041로 변경
-    } else {
-        return `${protocol}//${window.location.host}/ws-click`;
-    }
+	if (isLocalhost) {
+		return 'ws://localhost:5041/ws-click';  // 5041로 변경
+	} else {
+		return 'wss://suwonai-backend.2jang.dev/ws-click';
+	}
 };
 
 const getApiBaseURL = () => {
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    return isLocalhost ? 'http://localhost:5041' : '';  // 5041로 변경
+	const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+	return isLocalhost ? 'http://localhost:5041' : 'https://suwonai-backend.2jang.dev';
 };
 
 const WEBSOCKET_URL = getWebSocketURL();

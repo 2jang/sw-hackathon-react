@@ -222,8 +222,8 @@ export function Suwon_navi() {
     };
 
     const calculatePath = async (startBuilding, endBuilding) => {
-        if (!startBuilding || typeof startBuilding.name !== 'string' || startBuilding.name.trim() === '' ||
-            !endBuilding || typeof endBuilding.name !== 'string' || endBuilding.name.trim() === '') {
+        if (!startBuilding || typeof startBuilding.name !== "string" || startBuilding.name.trim() === "" ||
+            !endBuilding || typeof endBuilding.name !== "string" || endBuilding.name.trim() === "") {
             console.error("경로 계산을 위한 출발지 또는 도착지 정보가 유효하지 않습니다.", { startBuilding, endBuilding });
             showToast("출발지 또는 도착지 정보가 올바르지 않습니다. 다시 선택해주세요.", "error", 4000);
             setIsLoading(false);
@@ -232,11 +232,9 @@ export function Suwon_navi() {
 
         setIsLoading(true);
         try {
-            // ✨ 수정: API Base URL을 동적으로 설정
-            const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-            const apiBaseUrl = isLocalhost ? 'http://localhost:5041' : ''; // 로컬이면 5041 포트, 배포면 상대 경로('')
+            const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+            const apiBaseUrl = isLocalhost ? "http://localhost:5041" : "https://suwonai-backend.2jang.dev";
 
-            // ✨ 수정: apiBaseUrl 변수 사용
             const apiUrl = `${apiBaseUrl}/suwon-navi?buildings=${startBuilding.name}&buildings=${endBuilding.name}`;
             const response = await fetch(apiUrl);
             if (!response.ok) {
@@ -245,15 +243,11 @@ export function Suwon_navi() {
             }
             const data = await response.json();
 
-            // 건물 중심점 계산
             const [x1_center, y1_center] = [(startBuilding.polygon[0] + startBuilding.polygon[2]) / 2, (startBuilding.polygon[1] + startBuilding.polygon[3]) / 2];
             const [x2_center, y2_center] = [(endBuilding.polygon[0] + endBuilding.polygon[2]) / 2, (endBuilding.polygon[1] + endBuilding.polygon[3]) / 2];
 
-            // 픽셀 거리 계산
             const pixelDistance = Math.sqrt(Math.pow(x2_center - x1_center, 2) + Math.pow(y2_center - y1_center, 2));
 
-            // 인문사회융합대학과 글로벌인재대학 사이의 거리를 기준으로 축척 계산
-            // buildings의 ID 1(인문사회융합대학)과 ID 20(글로벌인재대학)의 중심점 좌표
             const humanitiesCollege = buildings.find(b => b.id === 1);
             const globalTalentCollege = buildings.find(b => b.id === 20);
 
@@ -262,13 +256,10 @@ export function Suwon_navi() {
             const [glob_x_center, glob_y_center] = [(globalTalentCollege.polygon[0] + globalTalentCollege.polygon[2]) / 2,
                 (globalTalentCollege.polygon[1] + globalTalentCollege.polygon[3]) / 2];
 
-            // 인문사회융합대학과 글로벌인재대학 사이의 픽셀 거리
             const referencePixelDistance = Math.sqrt(Math.pow(glob_x_center - hum_x_center, 2) + Math.pow(glob_y_center - hum_y_center, 2));
 
-            // 축척 계산: 실제 거리(m) / 픽셀 거리 = 840m / referencePixelDistance
             const scale = 840 / referencePixelDistance;
 
-            // 선택한 두 건물 사이의 실제 거리(미터) 계산
             const straightDist = Math.round(pixelDistance * scale);
 
             setStraightDistance(straightDist);
@@ -286,12 +277,10 @@ export function Suwon_navi() {
                 endBuilding: endBuilding.kr_name
             });
 
-            // 오류 발생 시에도 거리는 계산하여 표시
             const [x1_center, y1_center] = [(startBuilding.polygon[0] + startBuilding.polygon[2]) / 2, (startBuilding.polygon[1] + startBuilding.polygon[3]) / 2];
             const [x2_center, y2_center] = [(endBuilding.polygon[0] + endBuilding.polygon[2]) / 2, (endBuilding.polygon[1] + endBuilding.polygon[3]) / 2];
             const pixelDistance = Math.sqrt(Math.pow(x2_center - x1_center, 2) + Math.pow(y2_center - y1_center, 2));
 
-            // 인문사회융합대학과 글로벌인재대학 사이의 거리를 기준으로 축척 계산
             const humanitiesCollege = buildings.find(b => b.id === 1);
             const globalTalentCollege = buildings.find(b => b.id === 20);
 
