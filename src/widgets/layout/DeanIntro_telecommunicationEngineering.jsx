@@ -99,6 +99,8 @@ const DeanIntro_telecommunicationEngineering = () => {
                                             <img
                                                 src={deanImg}
                                                 alt={`${deanInfo.name} 학장`}
+                                                loading="lazy"
+                                                decoding="async"
                                                 className="w-full h-auto object-cover rounded-lg shadow-md aspect-square"
                                             />
                                         </div>

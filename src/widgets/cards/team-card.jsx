@@ -19,7 +19,7 @@ export function TeamCard({ img, name, position, socials, detailUrl }) {
         <>
             {/* 모바일: h-24 w-24, md 이상: h-32 w-32 */}
             <CardHeader floated={false} shadow={false} className="mx-auto [@media(max-width:430px)]:h-20 [@media(max-width:430px)]:w-20 md:h-32 md:w-32 rounded-full">
-                <img src={img} alt={name} className="h-full w-full object-cover rounded-full" />
+                <img src={img} alt={name} loading="lazy" decoding="async" className="h-full w-full object-cover rounded-full" />
             </CardHeader>
             <CardBody className="px-2 py-4">
                 <Typography variant="h5" color="blue-gray" className="mb-1 text-base md:text-lg"> {/* 텍스트 크기 반응형 조정 */}

@@ -75,6 +75,8 @@ const CampusGuide = () => {
                             <img
                                 alt="Card Image"
                                 src="/img/campusmap_img_2024.jpg"
+                                loading="lazy"
+                                decoding="async"
                                 className="h-full w-full object-cover"
                             />
                         </CardHeader>

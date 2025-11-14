@@ -99,6 +99,8 @@ const DeanIntro = () => {
                                             <img
                                                 src={deanImg}
                                                 alt={`${deanInfo.name} 학장`}
+                                                loading="lazy"
+                                                decoding="async"
                                                 className="w-full h-auto object-cover rounded-lg shadow-md aspect-square [@media(max-width:430px)]:w-[90px] [@media(max-width:430px)]:h-[110px]"
                                             />
                                         </div>
